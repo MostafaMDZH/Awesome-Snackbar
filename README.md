@@ -10,6 +10,7 @@ Collection of reusable Typescript components for web development.<br>
 <ul>
     <li>Custom text and callback on action button</li>
     <li>Waiting for user event on page to hide</li>
+    <li>Ability to disabling the hiding</li>
     <li>Asynchronous Objects</li>
     <li>Dynamic append and remove to DOM</li>
     <li>Responsive design</li>
@@ -23,5 +24,5 @@ Collection of reusable Typescript components for web development.<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;});</br>
 >);
 
-<a href="https://typescript-components.demos.mostafa.mdzh.ir/snackbar"><b><u>Demo</u></b></a>
+<a href="https://typescript-components.demos.mostafa-mdzh.ir/snackbar"><b>Demo</b></a>
 
