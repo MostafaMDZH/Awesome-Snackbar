@@ -1,10 +1,10 @@
 # Typescrit Components
 Collection of reusable Typescript components for web development.<br>
-@MostafaMDZH | mostafa.mDZH@gmail.com</br>
+@MostafaMDZH | mostafa.mdzh@gmail.com</br>
 
 </br>
 
-# • Snackbar
+# • Snackbar <a href="https://typescript-components.demos.mostafa-mdzh.ir/snackbar">[Demo]</a>
 
 <b>Features:</b>
 <ul>
@@ -23,6 +23,3 @@ Collection of reusable Typescript components for web development.<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('Action Called!');</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;});</br>
 >);
-
-<a href="https://typescript-components.demos.mostafa-mdzh.ir/snackbar"><b>Demo</b></a>
-
