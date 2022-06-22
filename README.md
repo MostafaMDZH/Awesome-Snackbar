@@ -4,7 +4,7 @@ Collection of reusable Typescript components for web development.<br>
 
 </br>
 
-# Snackbar
+# • Snackbar
 
 <b>Features:</b>
 <ul>
@@ -22,3 +22,6 @@ Collection of reusable Typescript components for web development.<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('Action Called!');</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;});</br>
 >);
+
+<a href="https://typescript-components.demos.mostafa.mdzh.ir/snackbar"><b><u>Demo</u></b></a>
+
