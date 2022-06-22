@@ -24,4 +24,4 @@ Collection of reusable Typescript components for web development.<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('Action Called!');</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;},</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;hidingTimeout: 4000</br>
->})</br>
+>});</br>
