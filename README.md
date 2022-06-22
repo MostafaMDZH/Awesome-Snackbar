@@ -4,7 +4,7 @@ Collection of reusable Typescript components for web development.<br>
 
 </br>
 
-# • Snackbar <a href="https://typescript-components.demos.mostafa-mdzh.ir/snackbar">[Demo]</a>
+# • Snackbar
 
 <b>Features:</b>
 <ul>
@@ -16,7 +16,7 @@ Collection of reusable Typescript components for web development.<br>
     <li>Responsive design</li>
 </ul>
 
-<b>Usage:</b>
+<b>Usage: <a href="https://typescript-components.demos.mostafa-mdzh.ir/snackbar">[demo]</a></b>
 > new Snackbar(</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;'This is a Snackbar!',</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;'Action', () => {</br>
