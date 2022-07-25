@@ -1,5 +1,4 @@
 ## Snackbar:
-- Readme: dynamic HTML
 - add npm
 - custom style
 - static list of Snackbars and hide if one created before timeout
