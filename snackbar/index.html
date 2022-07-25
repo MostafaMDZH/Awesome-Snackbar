@@ -13,10 +13,10 @@
 			new Snackbar({
 				massage: 'This is a Snackbar!',
 				actionText: 'Action',
-				actionCallback: () => {
+				onAction: () => {
 					alert('Action Called!');
 				},
-				hidingTimeout: 4000
+				hidingTimeout: 4500 // default is 4000, set 0 for disabling the auto hide
 			})
 		}, 1500);
 	</script>

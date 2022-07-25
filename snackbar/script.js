@@ -1,18 +1,17 @@
 "use strict";
 class Snackbar {
     //constructor:
-    // constructor(config: {massage: string, actionText?: string, actionCallback?: () => void, hidingTimeout?: number}){
-    constructor(config) {
+    constructor(parameters) {
         //init properties:
         this.viewID = Snackbar.generateViewID();
-        this.massage = config.massage;
+        this.massage = parameters.massage;
         this.isWaitingForHide = false;
-        this.actionText = config.actionText || '';
-        this.actionCallback = config.actionCallback || function () { };
-        if (config.hidingTimeout === 0)
+        this.actionText = parameters.actionText || '';
+        this.onAction = parameters.onAction || function () { };
+        if (parameters.hidingTimeout === 0)
             this.hidingTimeout = 0;
         else
-            this.hidingTimeout = config.hidingTimeout || Snackbar.HIDING_DEFAULT_TIMEOUT;
+            this.hidingTimeout = parameters.hidingTimeout || Snackbar.HIDING_DEFAULT_TIMEOUT;
         //the view:
         document.body.innerHTML += Snackbar.getHTML(this.viewID, this.massage, this.actionText);
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('');
@@ -27,7 +26,7 @@ class Snackbar {
             });
         });
         this.actionButton.addEventListener('click', () => {
-            this.actionCallback();
+            this.onAction();
             this.hide();
         });
         //finally show:

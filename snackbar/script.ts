@@ -5,27 +5,26 @@ class Snackbar{
     public static readonly HIDING_DEFAULT_TIMEOUT: number = 4000;
     
     //object properties:
-    protected viewID:             number;
-    protected view:               HTMLElement;
-    protected actionButton:       HTMLElement;
-    protected massage:            string;
-    protected isWaitingForHide:   boolean;
-    protected actionText:         string;
-    protected actionCallback: () => void;
-    protected hidingTimeout:      number; // set 0 for disabling the auto hide
+    protected viewID:           number;
+    protected view:             HTMLElement;
+    protected actionButton:     HTMLElement;
+    protected massage:          string;
+    protected isWaitingForHide: boolean;
+    protected actionText:       string;
+    protected onAction:         () => void;
+    protected hidingTimeout:    number;
 
     //constructor:
-    // constructor(config: {massage: string, actionText?: string, actionCallback?: () => void, hidingTimeout?: number}){
-    constructor(config: {massage: string, actionText?: string, actionCallback?: () => void, hidingTimeout?: number}){
+    constructor(parameters: {massage: string, actionText?: string, onAction?: () => void, hidingTimeout?: number}){
 
         //init properties:
-        this.viewID             = Snackbar.generateViewID();
-        this.massage            = config.massage;
-        this.isWaitingForHide   = false;
-		this.actionText         = config.actionText || '';
-        this.actionCallback     = config.actionCallback || function(){};
-        if(config.hidingTimeout === 0) this.hidingTimeout = 0
-        else this.hidingTimeout = config.hidingTimeout || Snackbar.HIDING_DEFAULT_TIMEOUT;
+        this.viewID           = Snackbar.generateViewID();
+        this.massage          = parameters.massage;
+        this.isWaitingForHide = false;
+		this.actionText       = parameters.actionText || '';
+        this.onAction         = parameters.onAction || function(){};
+        if(parameters.hidingTimeout === 0) this.hidingTimeout = 0;
+        else this.hidingTimeout = parameters.hidingTimeout || Snackbar.HIDING_DEFAULT_TIMEOUT;
         
         //the view:
         document.body.innerHTML += Snackbar.getHTML(this.viewID, this.massage, this.actionText);
@@ -41,7 +40,7 @@ class Snackbar{
             });
         });
         this.actionButton.addEventListener('click', () => {
-            this.actionCallback();
+            this.onAction();
             this.hide();
         });
         
