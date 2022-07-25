@@ -1,5 +1,5 @@
-# Typescrit Components
-Collection of reusable Typescript components for web development.<br>
+# Typescript Components
+A collection of reusable Typescript components for web development.<br>
 @MostafaMDZH | mostafa.mdzh@gmail.com</br>
 
 </br>
@@ -10,7 +10,7 @@ Collection of reusable Typescript components for web development.<br>
 <ul>
     <li>Custom text and callback on action button</li>
     <li>Waiting for user event on page to hide</li>
-    <li>Ability to disabling the auto hiding</li>
+    <li>Ability to disabling the auto hide</li>
     <li>Asynchronous Objects</li>
     <li>Dynamic HTML</li>
     <li>Responsive design</li>
