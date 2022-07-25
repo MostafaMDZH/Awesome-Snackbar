@@ -53,7 +53,7 @@ class Snackbar{
     protected static getHTML(viewId: number, massage: string, actionText?: string): string{
 		return `
 			<div class="snackbar" id="${viewId}">
-				<a id="massage">${massage}</a>
+				<a id="massage">here${massage}</a>
 				<input type="button" class="actionButton" id="${viewId}_actionButton" value="${actionText}">
 			</div>
 		`;
