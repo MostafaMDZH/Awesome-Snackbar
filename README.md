@@ -10,9 +10,9 @@ Collection of reusable Typescript components for web development.<br>
 <ul>
     <li>Custom text and callback on action button</li>
     <li>Waiting for user event on page to hide</li>
-    <li>Ability to disabling the hiding</li>
+    <li>Ability to disabling the auto hiding</li>
     <li>Asynchronous Objects</li>
-    <li>Dynamic append and remove to DOM</li>
+    <li>Dynamic HTML</li>
     <li>Responsive design</li>
 </ul>
 
@@ -20,7 +20,7 @@ Collection of reusable Typescript components for web development.<br>
 > new Snackbar({</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;massage: 'This is a Snackbar!',</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;actionText: 'Action',</br>
->&nbsp;&nbsp;&nbsp;&nbsp;actionCallback: () => {</br>
+>&nbsp;&nbsp;&nbsp;&nbsp;onAction: () => {</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('Action Called!');</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;},</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;hidingTimeout: 4000</br>
