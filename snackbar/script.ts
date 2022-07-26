@@ -15,7 +15,12 @@ class Snackbar{
     protected hidingTimeout:    number;
 
     //constructor:
-    constructor(parameters: {massage: string, actionText?: string, onAction?: () => void, hidingTimeout?: number}){
+    constructor(parameters: {
+            massage:        string,
+            actionText?:    string,
+            onAction?:  () => void,
+            hidingTimeout?: number
+        }){
 
         //init properties:
         this.viewID           = Snackbar.generateViewID();
