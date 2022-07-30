@@ -58,7 +58,7 @@ class Snackbar {
     //show:
     show() {
         setTimeout(() => {
-            Snackbar.SnackbarsList.push(this);
+            Snackbar.List.push(this);
             Snackbar.adjustListPosition();
         }, 10); //slight delay between adding to DOM and running css animation
     }
@@ -74,13 +74,13 @@ class Snackbar {
     //hide:
     hide() {
         const thisView = this;
-        if (Snackbar.SnackbarsList.length > 1) {
+        if (Snackbar.List.length > 1) {
             this.view.style.opacity = '0';
             this.view.style.marginBottom = '-70px';
         }
         else
             this.view.style.bottom = '-60px';
-        Snackbar.SnackbarsList.shift();
+        Snackbar.List.shift();
         Snackbar.adjustListPosition();
         setTimeout(function () {
             thisView.view.remove();
@@ -88,8 +88,8 @@ class Snackbar {
     }
     //adjustListPosition:
     static adjustListPosition() {
-        let listLength = Snackbar.SnackbarsList.length;
-        Snackbar.SnackbarsList.forEach(function (sb, i) {
+        let listLength = Snackbar.List.length;
+        Snackbar.List.forEach(function (sb, i) {
             sb.view.style.bottom = (25 +
                 ((listLength - i - 1) * (sb.getHeight() + 5))) + 'px';
         });
@@ -104,5 +104,5 @@ class Snackbar {
 //default values:
 Snackbar.HIDING_DEFAULT_TIMEOUT = 4000;
 // class properties:
-Snackbar.SnackbarsList = [];
+Snackbar.List = [];
 module.exports = Snackbar;

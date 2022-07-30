@@ -2,9 +2,11 @@ import "./snackbar.scss"
 
 class Snackbar{
 
-    //static attributes:
-    public static readonly ANIMATION_TIME: number = 400;
+    //default values:
     public static readonly HIDING_DEFAULT_TIMEOUT: number = 4000;
+
+    // class properties:
+    public static List: Snackbar[] = [];
     
     //object properties:
     protected viewID:           number;
@@ -80,14 +82,15 @@ class Snackbar{
 	}
 
     //show:
-    protected show(){
+    protected show(): void{
         setTimeout(()=>{
-            Snackbar.SnackbarsList.push(this);
+            Snackbar.List.push(this);
+            Snackbar.adjustListPosition();
         }, 10);//slight delay between adding to DOM and running css animation
     }
 
     //startHidingTimer:
-	protected startHidingTimer(){
+	protected startHidingTimer(): void{
 		if(this.hidingTimeout > 0 && !this.isWaitingForHide){
 			this.isWaitingForHide = true;
 			setTimeout(() => {
@@ -97,12 +100,36 @@ class Snackbar{
 	}
 
     //hide:
-    protected hide(){
+    protected hide(): void{
         const thisView = this;
-        if(Snackbar.SnackbarsList.length > 1){
+        if(Snackbar.List.length > 1){
+            this.view.style.opacity = '0';
+            this.view.style.marginBottom = '-70px';
+        }else
+            this.view.style.bottom = '-60px';
+        Snackbar.List.shift();
+        Snackbar.adjustListPosition();
         setTimeout(function(){
             thisView.view.remove();
-        }, Snackbar.ANIMATION_TIME);
+        }, 1000);//long enough to make sure that it is hidden
+    }
+
+    //adjustListPosition:
+    static adjustListPosition(): void{
+        let listLength = Snackbar.List.length;
+        Snackbar.List.forEach(function(sb, i){
+            sb.view.style.bottom = (
+                25 +
+                ((listLength - i - 1) * (sb.getHeight() + 5))
+                ) + 'px';
+        });
+    }
+
+    //getHeight:
+    protected getHeight(): number{
+        let heightStr = getComputedStyle(this.view).height;
+        let heightNum: number = +heightStr.replace('px', '');
+        return heightNum;
     }
 
 }
