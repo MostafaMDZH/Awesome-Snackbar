@@ -8,8 +8,6 @@
     background-color: rgb(58,58,58);
     box-shadow: 0 1px 5px rgb(184,184,184);
     position: fixed;
-    left: 25px;
-    bottom: -60px;
     transition: all 400ms ease 0s;
     > #massage{
         width: auto;
@@ -39,17 +37,50 @@
     }
 }
 
-//on small screens:
-@media only screen and (max-width: 900px){
-    .snackbar{
-        width: 100%;
-        min-width: auto;
-        max-width: none;
-        border-radius: 0;
-        left: 0;
-        bottom: -60px;
-    }
-    .snackbar.show{
-        bottom: 0;
-    }
+//positioning:
+.snackbar.bottom-left{
+    left: 25px;
+    bottom: -60px;
 }
+.snackbar.bottom-center{
+    left: 50%;
+    bottom: -60px;
+    transform: translate(-50%, 0);
+}
+.snackbar.bottom-right{
+    right: 25px;
+    bottom: -60px;
+}
+.snackbar.top-left{
+    left: 25px;
+    top: -60px;
+}
+.snackbar.top-center{
+    left: 50%;
+    top: -60px;
+    transform: translate(-50%, 0);
+}
+.snackbar.top-right{
+    right: 25px;
+    top: -60px;
+}
+
+
+
+
+
+
+
+
+
+//responsive design:
+// @media only screen and (max-width: 900px){
+//     .snackbar{
+//         width: 100%;
+//         min-width: auto;
+//         max-width: none;
+//         border-radius: 0;
+//         left: 0;
+//         bottom: -60px;
+//     }
+// }

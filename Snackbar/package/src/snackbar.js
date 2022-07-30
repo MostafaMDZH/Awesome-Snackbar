@@ -7,17 +7,19 @@ class Snackbar {
         //init properties:
         this.viewID = Snackbar.generateViewID();
         this.massage = parameters.massage;
+        this.position = parameters.position || Snackbar.DEFAULT_POSITION;
         this.isWaitingForHide = false;
         this.actionText = parameters.actionText || '';
         this.onAction = parameters.onAction || function () { };
         if (parameters.hidingTimeout === 0)
             this.hidingTimeout = 0;
         else
-            this.hidingTimeout = parameters.hidingTimeout || Snackbar.HIDING_DEFAULT_TIMEOUT;
+            this.hidingTimeout = parameters.hidingTimeout || Snackbar.DEFAULT_HIDING_TIMEOUT;
         //the view:
         let view = Snackbar.getHTML(this.viewID, this.massage, this.actionText);
         document.body.appendChild(view);
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
+        this.view.classList.add(this.position);
         this.actionButton = document.getElementById(this.viewID + '_actionButton') || document.createElement('div');
         if (this.actionText !== '')
             this.actionButton.style.display = 'block';
@@ -59,7 +61,7 @@ class Snackbar {
     show() {
         setTimeout(() => {
             Snackbar.List.push(this);
-            Snackbar.adjustListPosition();
+            Snackbar.adjustListPositions(this);
         }, 10); //slight delay between adding to DOM and running css animation
     }
     //startHidingTimer:
@@ -74,24 +76,40 @@ class Snackbar {
     //hide:
     hide() {
         const thisView = this;
-        if (Snackbar.List.length > 1) {
+        let list = Snackbar.List.filter(obj => {
+            return obj.position === this.position;
+        });
+        if (list.length > 1) {
             this.view.style.opacity = '0';
-            this.view.style.marginBottom = '-70px';
+            if (this.position.indexOf('bottom') >= 0)
+                this.view.style.marginBottom = '-' + this.getHeight() + 'px';
+            else
+                this.view.style.marginTop = '-' + this.getHeight() + 'px';
         }
-        else
-            this.view.style.bottom = '-60px';
+        else {
+            if (this.position.indexOf('bottom') >= 0)
+                this.view.style.bottom = '-' + (this.getHeight() + 15) + 'px';
+            else
+                this.view.style.top = '-' + (this.getHeight() + 15) + 'px';
+        }
         Snackbar.List.shift();
-        Snackbar.adjustListPosition();
+        Snackbar.adjustListPositions(this);
         setTimeout(function () {
             thisView.view.remove();
         }, 1000); //long enough to make sure that it is hidden
     }
     //adjustListPosition:
-    static adjustListPosition() {
-        let listLength = Snackbar.List.length;
-        Snackbar.List.forEach(function (sb, i) {
-            sb.view.style.bottom = (25 +
-                ((listLength - i - 1) * (sb.getHeight() + 5))) + 'px';
+    static adjustListPositions(sb) {
+        let list = Snackbar.List.filter(obj => {
+            return obj.position === sb.position;
+        });
+        list.forEach(function (obj, i) {
+            let val = (25 +
+                ((list.length - i - 1) * (obj.getHeight() + 5))) + 'px';
+            if (sb.position.indexOf('bottom') >= 0)
+                obj.view.style.bottom = val;
+            else
+                obj.view.style.top = val;
         });
     }
     //getHeight:
@@ -101,8 +119,9 @@ class Snackbar {
         return heightNum;
     }
 }
-//default values:
-Snackbar.HIDING_DEFAULT_TIMEOUT = 4000;
 // class properties:
 Snackbar.List = [];
+//default values:
+Snackbar.DEFAULT_HIDING_TIMEOUT = 4000;
+Snackbar.DEFAULT_POSITION = 'bottom-left';
 module.exports = Snackbar;

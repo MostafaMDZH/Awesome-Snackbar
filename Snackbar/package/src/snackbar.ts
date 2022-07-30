@@ -2,17 +2,19 @@ import "./snackbar.scss"
 
 class Snackbar{
 
-    //default values:
-    public static readonly HIDING_DEFAULT_TIMEOUT: number = 4000;
-
     // class properties:
     public static List: Snackbar[] = [];
     
+    //default values:
+    public static readonly DEFAULT_HIDING_TIMEOUT: number = 4000;
+    public static readonly DEFAULT_POSITION:       string = 'bottom-left';
+
     //object properties:
     protected viewID:           number;
     protected view:             HTMLElement;
     protected actionButton:     HTMLElement;
     protected massage:          string;
+    protected position:         string;
     protected isWaitingForHide: boolean;
     protected actionText:       string;
     protected onAction:         () => void;
@@ -21,6 +23,7 @@ class Snackbar{
     //constructor:
     constructor(parameters: {
             massage:        string,
+            position:       string,
             actionText?:    string,
             onAction?:  () => void,
             hidingTimeout?: number
@@ -29,16 +32,18 @@ class Snackbar{
         //init properties:
         this.viewID           = Snackbar.generateViewID();
         this.massage          = parameters.massage;
+        this.position         = parameters.position || Snackbar.DEFAULT_POSITION;
         this.isWaitingForHide = false;
 		this.actionText       = parameters.actionText || '';
         this.onAction         = parameters.onAction || function(){};
         if(parameters.hidingTimeout === 0) this.hidingTimeout = 0;
-        else this.hidingTimeout = parameters.hidingTimeout || Snackbar.HIDING_DEFAULT_TIMEOUT;
+        else this.hidingTimeout = parameters.hidingTimeout || Snackbar.DEFAULT_HIDING_TIMEOUT;
         
         //the view:
         let view = Snackbar.getHTML(this.viewID, this.massage, this.actionText);
         document.body.appendChild(view);
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
+        this.view.classList.add(this.position);
         this.actionButton = document.getElementById(this.viewID + '_actionButton') || document.createElement('div');
         if(this.actionText !== '') this.actionButton.style.display = 'block';
         
@@ -83,9 +88,9 @@ class Snackbar{
 
     //show:
     protected show(): void{
-        setTimeout(()=>{
+        setTimeout(() => {
             Snackbar.List.push(this);
-            Snackbar.adjustListPosition();
+            Snackbar.adjustListPositions(this);
         }, 10);//slight delay between adding to DOM and running css animation
     }
 
@@ -102,26 +107,40 @@ class Snackbar{
     //hide:
     protected hide(): void{
         const thisView = this;
-        if(Snackbar.List.length > 1){
+        let list = Snackbar.List.filter(obj => {
+            return obj.position === this.position;
+        });
+        if(list.length > 1){
             this.view.style.opacity = '0';
-            this.view.style.marginBottom = '-70px';
-        }else
-            this.view.style.bottom = '-60px';
+            if(this.position.indexOf('bottom') >= 0)
+                 this.view.style.marginBottom = '-' + this.getHeight() + 'px';
+            else this.view.style.marginTop    = '-' + this.getHeight() + 'px';
+        }else{
+            if(this.position.indexOf('bottom') >= 0)
+                 this.view.style.bottom = '-' + (this.getHeight() + 15) + 'px';
+            else this.view.style.top    = '-' + (this.getHeight() + 15) + 'px';
+        }
         Snackbar.List.shift();
-        Snackbar.adjustListPosition();
+        Snackbar.adjustListPositions(this);
         setTimeout(function(){
             thisView.view.remove();
         }, 1000);//long enough to make sure that it is hidden
     }
 
     //adjustListPosition:
-    static adjustListPosition(): void{
-        let listLength = Snackbar.List.length;
-        Snackbar.List.forEach(function(sb, i){
-            sb.view.style.bottom = (
+    static adjustListPositions(sb: Snackbar): void{
+        let list = Snackbar.List.filter(obj => {
+            return obj.position === sb.position;
+        });
+        list.forEach(function(obj, i){
+            let val = (
                 25 +
-                ((listLength - i - 1) * (sb.getHeight() + 5))
+                ((list.length - i - 1) * (obj.getHeight() + 5))
                 ) + 'px';
+            if(sb.position.indexOf('bottom') >= 0)
+                obj.view.style.bottom = val;
+            else
+                obj.view.style.top = val;
         });
     }
 
