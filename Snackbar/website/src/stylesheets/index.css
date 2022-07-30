@@ -1,0 +1,156 @@
+/*
+    Background:
+*/
+.lightTransparentBackground {
+  transition: background-color 150ms;
+}
+
+.lightTransparentBackground:enabled:active {
+  background-color: rgba(0, 0, 0, 0.035) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lightTransparentBackground:enabled:hover {
+    background-color: rgba(0, 0, 0, 0.035) !important;
+  }
+  .lightTransparentBackground:enabled:focus {
+    background-color: rgba(0, 0, 0, 0.045) !important;
+  }
+  .lightTransparentBackground:enabled:active {
+    background-color: rgba(0, 0, 0, 0.055) !important;
+  }
+}
+.lightTransparentBackground:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.darkTransparentBackground {
+  transition: background-color 200ms ease-in-out;
+}
+
+.darkTransparentBackground:enabled:active {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .darkTransparentBackground:enabled:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+  }
+  .darkTransparentBackground:enabled:focus {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  .darkTransparentBackground:enabled:active {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+  }
+}
+.darkTransparentBackground:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/*
+    custom scrollbar
+*/
+.thinScrollbar_light::-webkit-scrollbar, .notTouchScreen ::-webkit-scrollbar, .notTouchScreen::-webkit-scrollbar, .thinScrollbar_dark::-webkit-scrollbar, .darkMode.notTouchScreen ::-webkit-scrollbar, .darkMode.notTouchScreen::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+
+.thinScrollbar_light::-webkit-scrollbar-track, .notTouchScreen ::-webkit-scrollbar-track, .notTouchScreen::-webkit-scrollbar-track, .thinScrollbar_dark::-webkit-scrollbar-track, .darkMode.notTouchScreen ::-webkit-scrollbar-track, .darkMode.notTouchScreen::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thinScrollbar_light::-webkit-scrollbar-thumb, .notTouchScreen ::-webkit-scrollbar-thumb, .notTouchScreen::-webkit-scrollbar-thumb, .thinScrollbar_dark::-webkit-scrollbar-thumb, .darkMode.notTouchScreen ::-webkit-scrollbar-thumb, .darkMode.notTouchScreen::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+  border-radius: 20px;
+}
+
+.thinScrollbar_dark::-webkit-scrollbar-thumb, .darkMode.notTouchScreen ::-webkit-scrollbar-thumb, .darkMode.notTouchScreen::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.ultraThinScrollbar_light::-webkit-scrollbar, .ultraThinScrollbar_dark::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.ultraThinScrollbar_light::-webkit-scrollbar-track, .ultraThinScrollbar_dark::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ultraThinScrollbar_light::-webkit-scrollbar-thumb, .ultraThinScrollbar_dark::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 20px;
+}
+
+.ultraThinScrollbar_dark::-webkit-scrollbar-thumb {
+  background: #8a8a8a;
+}
+
+@font-face {
+  font-family: Ubuntu_Regular;
+  src: url(/src/assets/Ubuntu-regular.ttf);
+}
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 0.625rem;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  direction: ltr;
+  background-color: white;
+  font-family: Ubuntu_Regular, serif;
+  text-align: start;
+  cursor: default;
+  margin: 0;
+}
+body > #root {
+  width: 100%;
+  height: 100%;
+}
+body * {
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+body a, body p, body input, body button, body select {
+  font-family: Ubuntu_Regular, serif;
+}
+body a::-moz-focus-inner,
+body input::-moz-focus-inner,
+body button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+body a {
+  text-decoration: none;
+  outline: none;
+}
+body input, body button, body select {
+  border: none;
+  outline: none;
+}
+body input[type=button], body button, body select {
+  cursor: pointer;
+}
+body input:required,
+body input:invalid {
+  box-shadow: none;
+}
+body input[type=button], body button {
+  padding: 0;
+  background: none;
+}
+body h1, body h2, body h3, body h4, body a, body p,
+body input[type=button],
+body button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}/*# sourceMappingURL=index.css.map */

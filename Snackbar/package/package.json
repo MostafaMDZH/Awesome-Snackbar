@@ -1,0 +1,35 @@
+{
+  "name": "typescript-components",
+  "version": "1.0.0",
+  "description": "Pure Typescript UI components.",
+  "author": "Mostafa Mohammadzadeh",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test-cov": "jest --coverage",
+    "deploy": "find * -type d -exec chmod 755 {} \\; && find * -type f -exec chmod 644 {} \\; && git ftp push"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "keywords": [
+    "typescript",
+    "ts",
+    "ui",
+    "modules"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MostafaMDZH/Typescript-Components.git"
+  },
+  "homepage": "https://github.com/MostafaMDZH/Typescript-Components#readme",
+  "bugs": {
+    "url": "https://github.com/MostafaMDZH/Typescript-Components/issues"
+  }
+  
+}

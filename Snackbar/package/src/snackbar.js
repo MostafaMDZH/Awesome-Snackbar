@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("./snackbar.scss");
 class Snackbar {
     //constructor:
     constructor(parameters) {
@@ -13,9 +15,10 @@ class Snackbar {
         else
             this.hidingTimeout = parameters.hidingTimeout || Snackbar.HIDING_DEFAULT_TIMEOUT;
         //the view:
-        document.body.innerHTML += Snackbar.getHTML(this.viewID, this.massage, this.actionText);
-        this.view = document.getElementById(this.viewID.toString()) || document.createElement('');
-        this.actionButton = document.getElementById(this.viewID + '_actionButton') || document.createElement('');
+        let view = Snackbar.getHTML(this.viewID, this.massage, this.actionText);
+        document.body.appendChild(view);
+        this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
+        this.actionButton = document.getElementById(this.viewID + '_actionButton') || document.createElement('div');
         if (this.actionText !== '')
             this.actionButton.style.display = 'block';
         //events:
@@ -34,12 +37,15 @@ class Snackbar {
     }
     //getHTML:
     static getHTML(viewId, massage, actionText) {
-        return `
-			<div class="snackbar" id="${viewId}">
-				<a id="massage">${massage}</a>
-				<input type="button" class="actionButton" id="${viewId}_actionButton" value="${actionText}">
-			</div>
-		`;
+        const htmlString = `
+            <div class="snackbar" id="${viewId}">
+                <a id="massage">${massage}</a>
+                <input type="button" class="actionButton" id="${viewId}_actionButton" value="${actionText}">
+            </div>
+        `;
+        let div = document.createElement('div');
+        div.innerHTML = htmlString.trim();
+        return div.firstChild || div;
     }
     //generateViewID:
     static generateViewID() {
@@ -53,7 +59,7 @@ class Snackbar {
     show() {
         setTimeout(() => {
             this.view.classList.add('show');
-        }, 10); //slight delay between add and show
+        }, 10); //slight delay between adding to DOM and running css animation
     }
     //startHidingTimer:
     startHidingTimer() {
@@ -76,3 +82,4 @@ class Snackbar {
 //static attributes:
 Snackbar.ANIMATION_TIME = 400;
 Snackbar.HIDING_DEFAULT_TIMEOUT = 4000;
+module.exports = Snackbar;

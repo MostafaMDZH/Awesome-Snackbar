@@ -1,1 +1,8 @@
-/node_modules
+#npm:
+node_modules
+
+#webpack:
+.DS_Store
+
+#jest:
+coverage

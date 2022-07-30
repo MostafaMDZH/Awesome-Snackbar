@@ -1,37 +1,43 @@
 ## Snackbar:
-- add npm
-- custom style
-- static list of Snackbars and hide if one created before timeout
-- test with jest
-- better home page
-- publish as a npm package
+- [feature] custom style
+- [feature] list/stack of Snackbars(+custom positioning, mobile?)
+- [feature] better home page
+- [feature] emoji/icon
+- [feature] live change
+- [feature] small on mobile
+- [feature] animation
+- [feature] theme(and like Toast)
+- [feature] config
+
+## Image View:
+
+
+## Gallery Box:
+
+
+## Dialog Box:
+
+
+## Intro Card:
+
+
+## Advanced Selector:
+
+
+## Text Input:
+
+
+## Mobile Title:
+
+
+## Voice to text:
+
 
 ## Upload Button:
 
 
-## Image View
+## Range Input:
 
 
-## Advanced Selector
-
-
-## Intro Card
-
-
-## Text Input
-
-
-## Range Input
-
-
-## Dialog/Cookie
-
-
-## Mobile Title
-
-
-## Toast
-
-
-## Voice to text
+## Swipe
 

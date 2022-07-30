@@ -1,0 +1,14 @@
+#window{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > #title{
+        font-size: 3rem;
+    }
+    > #description{
+        font-size: 1.8rem;
+        color: #888;
+    }
+}
