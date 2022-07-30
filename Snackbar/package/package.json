@@ -1,5 +1,5 @@
 {
-  "name": "typescript-components",
+  "name": "@typescript-components/snackbar",
   "version": "1.0.0",
   "description": "Pure Typescript UI components.",
   "author": "Mostafa Mohammadzadeh",
