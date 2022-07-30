@@ -1,13 +1,11 @@
 ## Snackbar:
+- [feature] custom positioning
+- [feature] redesign on mobile?
 - [feature] custom style
-- [feature] list/stack of Snackbars(+custom positioning, mobile?)
-- [feature] better home page
 - [feature] emoji/icon
 - [feature] live change
-- [feature] small on mobile
 - [feature] animation
 - [feature] theme(and like Toast)
-- [feature] config
 
 ## Image View:
 
