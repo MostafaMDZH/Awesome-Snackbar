@@ -1,6 +1,4 @@
 ## Snackbar:
-- [feature] custom positioning
-- [feature] redesign on mobile?
 - [feature] custom style
 - [feature] emoji/icon
 - [feature] live change

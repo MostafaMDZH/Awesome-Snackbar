@@ -82,9 +82,9 @@ class Snackbar {
         if (list.length > 1) {
             this.view.style.opacity = '0';
             if (this.position.indexOf('bottom') >= 0)
-                this.view.style.marginBottom = '-' + this.getHeight() + 'px';
+                this.view.style.marginBottom = '-' + (this.getHeight() + 5) + 'px';
             else
-                this.view.style.marginTop = '-' + this.getHeight() + 'px';
+                this.view.style.marginTop = '-' + (this.getHeight() + 5) + 'px';
         }
         else {
             if (this.position.indexOf('bottom') >= 0)
@@ -104,7 +104,7 @@ class Snackbar {
             return obj.position === sb.position;
         });
         list.forEach(function (obj, i) {
-            let val = (25 +
+            let val = (20 +
                 ((list.length - i - 1) * (obj.getHeight() + 5))) + 'px';
             if (sb.position.indexOf('bottom') >= 0)
                 obj.view.style.bottom = val;
