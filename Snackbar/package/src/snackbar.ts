@@ -82,7 +82,7 @@ class Snackbar{
     //show:
     protected show(){
         setTimeout(()=>{
-            this.view.classList.add('show');
+            Snackbar.SnackbarsList.push(this);
         }, 10);//slight delay between adding to DOM and running css animation
     }
 
@@ -99,7 +99,7 @@ class Snackbar{
     //hide:
     protected hide(){
         const thisView = this;
-        this.view.classList.remove('show');
+        if(Snackbar.SnackbarsList.length > 1){
         setTimeout(function(){
             thisView.view.remove();
         }, Snackbar.ANIMATION_TIME);
