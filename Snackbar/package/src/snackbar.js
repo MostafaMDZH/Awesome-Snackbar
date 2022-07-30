@@ -8,6 +8,7 @@ class Snackbar {
         this.viewID = Snackbar.generateViewID();
         this.massage = parameters.massage;
         this.position = parameters.position || Snackbar.DEFAULT_POSITION;
+        this.style = parameters.style || {};
         this.isWaitingForHide = false;
         this.actionText = parameters.actionText || '';
         this.onAction = parameters.onAction || function () { };
@@ -23,6 +24,14 @@ class Snackbar {
         this.actionButton = document.getElementById(this.viewID + '_actionButton') || document.createElement('div');
         if (this.actionText !== '')
             this.actionButton.style.display = 'block';
+        //style:
+        for (const [className, style] of Object.entries(this.style)) {
+            let root = document.getElementById(this.viewID.toString());
+            let element = root.getElementsByClassName(className)[0];
+            if (element !== undefined)
+                for (const property of style)
+                    element.style.setProperty(property[0], property[1]);
+        }
         //events:
         const thisView = this;
         'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach(function (event) {
@@ -41,8 +50,10 @@ class Snackbar {
     static getHTML(viewId, massage, actionText) {
         const htmlString = `
             <div class="snackbar" id="${viewId}">
-                <a id="massage">${massage}</a>
-                <input type="button" class="actionButton" id="${viewId}_actionButton" value="${actionText}">
+                <div class="container">
+                    <p id="massage">${massage}</p>
+                    <input type="button" class="actionButton" id="${viewId}_actionButton" value="${actionText}">
+                </div>
             </div>
         `;
         let div = document.createElement('div');

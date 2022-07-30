@@ -1,36 +1,37 @@
 .snackbar{
-    max-width: 450px;
-    min-height: 46px;
-    padding: 10px 22px;
-    box-sizing: border-box;
-    border-radius: 3px;
-    background-color: rgb(58,58,58);
-    box-shadow: 0 1px 5px rgb(184,184,184);
     position: fixed;
-    display: flex;
-    align-items: center;
-    gap: 20px;
     transition: top 400ms ease 0s,
                 bottom 400ms ease 0s,
                 margin-top 300ms ease 0s,
                 margin-bottom 300ms ease 0s,
                 opacity 150ms ease 150ms;
-    *{box-sizing: border-box;}
-    > #massage{
+    > .container{
+        box-sizing: border-box;
+        *{box-sizing: border-box;}
+        max-width: 450px;
+        min-height: 46px;
+        padding: 10px 22px;
+        border-radius: 3px;
+        background-color: rgb(58,58,58);
         font-size: 0.87rem;
+        box-shadow: 0 1px 5px rgb(184,184,184);
+        display: flex;
         color: rgb(250,250,250);
-        line-height: 22px;
-    }
-    > .actionButton{
-        height: 100%;
-        background-color: transparent;
-        padding: 10px;
-        font-size: 0.87rem;
-        color: #F7FF00;
-        border:none;
-        outline:none;
-        cursor: pointer;
-        display: none;
+        align-items: center;
+        gap: 20px;
+        > #massage{
+            line-height: 22px;
+        }
+        > .actionButton{
+            height: 100%;
+            background-color: transparent;
+            padding: 10px 3px;
+            color: #F7FF00;
+            border:none;
+            outline:none;
+            cursor: pointer;
+            display: none;
+        }
     }
 }
 
