@@ -8,6 +8,7 @@ class Snackbar{
     //default values:
     public static readonly DEFAULT_HIDING_TIMEOUT: number = 4000;
     public static readonly DEFAULT_POSITION:       string = 'bottom-left';
+    public static readonly DEFAULT_THEME:          string = 'dark';
 
     //object properties:
     protected viewID:           number;
@@ -15,6 +16,7 @@ class Snackbar{
     protected actionButton:     HTMLElement;
     protected massage:          string;
     protected position:         string;
+    protected theme:            string;
     protected style:            object;
     protected isWaitingForHide: boolean;
     protected actionText:       string;
@@ -25,6 +27,7 @@ class Snackbar{
     constructor(parameters: {
             massage:        string,
             position?:      string,
+            theme?:         string,
             style?:         object,
             actionText?:    string,
             onAction?:  () => void,
@@ -35,6 +38,7 @@ class Snackbar{
         this.viewID           = Snackbar.generateViewID();
         this.massage          = parameters.massage;
         this.position         = parameters.position || Snackbar.DEFAULT_POSITION;
+        this.theme            = parameters.theme || Snackbar.DEFAULT_THEME;
         this.style            = parameters.style || {};
         this.isWaitingForHide = false;
 		this.actionText       = parameters.actionText || '';
@@ -50,14 +54,7 @@ class Snackbar{
         this.actionButton = document.getElementById(this.viewID + '_actionButton') || document.createElement('div');
         if(this.actionText !== '') this.actionButton.style.display = 'block';
 
-        //style:
-        for(const [className, style] of Object.entries(this.style)){
-            let root = document.getElementById(this.viewID.toString());
-            let element = <HTMLElement> root!.getElementsByClassName(className)[0];
-            if(element !== undefined)
-                for(const property of style)
-                    element.style.setProperty(property[0], property[1]);
-        }
+        this.applyStyle();
         
         //events:
         const thisView = this;
@@ -99,6 +96,18 @@ class Snackbar{
             return id;
         return Snackbar.generateViewID();
 	}
+
+    //applyStyle:
+    protected applyStyle(){
+        this.view.classList.add(this.theme);
+        for(const [className, style] of Object.entries(this.style)){
+            let root = document.getElementById(this.viewID.toString());
+            let element = <HTMLElement> root!.getElementsByClassName(className)[0];
+            if(element !== undefined)
+                for(const property of style)
+                    element.style.setProperty(property[0], property[1]);
+        }
+    }
 
     //show:
     protected show(): void{

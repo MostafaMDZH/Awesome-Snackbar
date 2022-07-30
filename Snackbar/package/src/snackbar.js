@@ -8,6 +8,7 @@ class Snackbar {
         this.viewID = Snackbar.generateViewID();
         this.massage = parameters.massage;
         this.position = parameters.position || Snackbar.DEFAULT_POSITION;
+        this.theme = parameters.theme || Snackbar.DEFAULT_THEME;
         this.style = parameters.style || {};
         this.isWaitingForHide = false;
         this.actionText = parameters.actionText || '';
@@ -24,14 +25,7 @@ class Snackbar {
         this.actionButton = document.getElementById(this.viewID + '_actionButton') || document.createElement('div');
         if (this.actionText !== '')
             this.actionButton.style.display = 'block';
-        //style:
-        for (const [className, style] of Object.entries(this.style)) {
-            let root = document.getElementById(this.viewID.toString());
-            let element = root.getElementsByClassName(className)[0];
-            if (element !== undefined)
-                for (const property of style)
-                    element.style.setProperty(property[0], property[1]);
-        }
+        this.applyStyle();
         //events:
         const thisView = this;
         'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach(function (event) {
@@ -67,6 +61,17 @@ class Snackbar {
         if (element === null)
             return id;
         return Snackbar.generateViewID();
+    }
+    //applyStyle:
+    applyStyle() {
+        this.view.classList.add(this.theme);
+        for (const [className, style] of Object.entries(this.style)) {
+            let root = document.getElementById(this.viewID.toString());
+            let element = root.getElementsByClassName(className)[0];
+            if (element !== undefined)
+                for (const property of style)
+                    element.style.setProperty(property[0], property[1]);
+        }
     }
     //show:
     show() {
@@ -135,4 +140,5 @@ Snackbar.List = [];
 //default values:
 Snackbar.DEFAULT_HIDING_TIMEOUT = 4000;
 Snackbar.DEFAULT_POSITION = 'bottom-left';
+Snackbar.DEFAULT_THEME = 'dark';
 module.exports = Snackbar;
