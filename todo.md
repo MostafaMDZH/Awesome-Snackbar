@@ -1,5 +1,6 @@
 ## Snackbar:
-- [feature] theme
+- [bug] hide on click
+- [feature] theme(shadow)
 - [feature] toggle direction
 - [feature] emoji/icon
 - [feature] live change
