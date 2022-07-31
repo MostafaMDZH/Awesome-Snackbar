@@ -1,7 +1,7 @@
 {
-  "name": "@typescript-components/snackbar",
+  "name": "awesome-snackbar",
   "version": "1.0.0",
-  "description": "Pure Typescript UI components.",
+  "description": "React, Typescript, and pure Javascript compatible snackbar.",
   "author": "Mostafa Mohammadzadeh",
   "license": "MIT",
   "main": "index.js",
@@ -25,10 +25,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MostafaMDZH/Typescript-Components.git"
+    "url": "git+https://github.com/MostafaMDZH/Awesome-Snackbar.git"
   },
-  "homepage": "https://github.com/MostafaMDZH/Typescript-Components#readme",
+  "homepage": "https://github.com/MostafaMDZH/Awesome-Snackbar#readme",
   "bugs": {
-    "url": "https://github.com/MostafaMDZH/Typescript-Components/issues"
+    "url": "https://github.com/MostafaMDZH/Awesome-Snackbar/issues"
   }
 }

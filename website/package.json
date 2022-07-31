@@ -1,16 +1,12 @@
 {
-    "name": "typescript-components-website",
+    "name": "awesome-snackbar-website",
     "version": "1.0.0",
-    "description": "Website for typescript-components npm package",
+    "description": "Documentation website for Awesome Snackbar npm package",
     "main": "index.js",
     "scripts": {
         "start": "webpack serve",
         "build": "webpack",
         "deploy": "find * -type d -exec chmod 755 {} \\; && find * -type f -exec chmod 644 {} \\; && git ftp push"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/MostafaMDZH/Typescript-Components-Website.git"
     },
     "keywords": [],
     "author": "Mostafa Mohammadzadeh",
@@ -29,8 +25,12 @@
         "webpack-cli": "^4.9.2",
         "webpack-dev-server": "^4.7.4"
     },
-    "bugs": {
-        "url": "https://github.com/MostafaMDZH/Typescript-Components-Website/issues"
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MostafaMDZH/Awesome-Snackbar.git"
     },
-    "homepage": "https://github.com/MostafaMDZH/Typescript-Components-Website#readme"
+    "homepage": "https://github.com/MostafaMDZH/Awesome-Snackbar#readme",
+    "bugs": {
+        "url": "https://github.com/MostafaMDZH/Awesome-Snackbar/issues"
+    }
 }
