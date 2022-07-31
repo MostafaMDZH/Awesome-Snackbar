@@ -1,4 +1,4 @@
-import Snackbar from '@typescript-components/snackbar'
+import Snackbar from 'awesome-snackbar'
 import './stylesheets/index.scss'
 import './stylesheets/main.scss'
 import favicon from './assets/favicon.png'
