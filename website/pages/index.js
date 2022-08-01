@@ -9,12 +9,14 @@ export default function Main(){
                 <div id='main'>
 
                     <div id='navigation'>
-                        <a class='navLink'>intro</a>
-                        <a class='navLink'>positioning</a>
-                        <a class='navLink'>theme</a>
-                        <a class='navLink'>action button</a>
-                        <a class='navLink'>custom style</a>
-                        <a class='navLink'>live change</a>
+                        <div id='navLinkContainer'>
+                            <a class='navLink' href='#intro'        >intro        </a>
+                            <a class='navLink' href='#positioning'  >positioning  </a>
+                            <a class='navLink' href='#theme'        >theme        </a>
+                            <a class='navLink' href='#action-button'>action button</a>
+                            <a class='navLink' href='#custom-style' >custom style </a>
+                            <a class='navLink' href='#live-update'  >live update  </a>
+                        </div>
                     </div>
 
                     <div id='content'>
