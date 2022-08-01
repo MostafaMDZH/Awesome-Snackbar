@@ -4,7 +4,7 @@ export default function Main(){
             <div id='container'>
                 <div id='header'>
                     <a class='headerLink'>Awesome Components</a>
-                    <a class='headerLink'>buy me a pizza!</a>
+                    <a class='headerLink' href='https://www.buymeacoffee.com/mostafamdzh'>buy me a coffee!</a>
                 </div>
                 <div id='main'>
 
