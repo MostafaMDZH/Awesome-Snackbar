@@ -1,36 +1,25 @@
 {
-    "name": "awesome-snackbar-website",
-    "version": "1.0.0",
-    "description": "Documentation website for Awesome Snackbar npm package",
-    "main": "index.js",
-    "scripts": {
-        "start": "webpack serve",
-        "build": "webpack",
-        "deploy": "find * -type d -exec chmod 755 {} \\; && find * -type f -exec chmod 644 {} \\; && git ftp push"
-    },
-    "keywords": [],
-    "author": "Mostafa Mohammadzadeh",
-    "license": "MIT",
-    "devDependencies": {
-        "@babel/core": "^7.17.8",
-        "@babel/preset-env": "^7.16.11",
-        "babel-loader": "^8.2.3",
-        "css-loader": "^6.7.1",
-        "html-webpack-plugin": "^5.5.0",
-        "sass": "^1.49.9",
-        "sass-loader": "^12.6.0",
-        "style-loader": "^3.3.1",
-        "webpack": "^5.70.0",
-        "webpack-bundle-analyzer": "^4.5.0",
-        "webpack-cli": "^4.9.2",
-        "webpack-dev-server": "^4.7.4"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/MostafaMDZH/Awesome-Snackbar.git"
-    },
-    "homepage": "https://github.com/MostafaMDZH/Awesome-Snackbar#readme",
-    "bugs": {
-        "url": "https://github.com/MostafaMDZH/Awesome-Snackbar/issues"
-    }
+  "name": "awesome-snackbar-website",
+  "description": "Demo and Documentation for Awesome Snackbar project",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Mostafa Mohammadzadeh",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "deploy": "find * -type d -exec chmod 755 {} \\; && find * -type f -exec chmod 644 {} \\; && git ftp push"
+  },
+  "dependencies": {
+    "next": "12.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "^1.54.0"
+  },
+  "devDependencies": {
+    "eslint": "8.21.0",
+    "eslint-config-next": "12.2.3"
+  }
 }

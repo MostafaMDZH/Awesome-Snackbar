@@ -108,8 +108,12 @@ class Snackbar {
             else
                 this.view.style.top = '-' + (this.getHeight() + 15) + 'px';
         }
-        Snackbar.List.shift();
+        //remove from list:
+        let index = Snackbar.List.indexOf(this);
+        if (index > -1)
+            Snackbar.List.splice(index, 1);
         Snackbar.adjustListPositions(this);
+        //remove from DOM:
         setTimeout(function () {
             thisView.view.remove();
         }, 1000); //long enough to make sure that it is hidden
