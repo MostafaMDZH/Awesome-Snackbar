@@ -1,22 +1,81 @@
 #window{
     width: 100%;
     height: 100%;
+    background-color: #fd0;
+    color: #222;
     display: flex;
     justify-content: center;
     overflow: auto;
-    #container{
+    > #container{
         width: 100%;
         max-width: 1400px;
-        padding: 20px;
+        padding: 22px 60px;
         display: flex;
         flex-direction: column;
+        gap: 20px;
         > #header{
             width: 100%;
-            height: 50px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             > .headerLink{
-
+                color: #222;
+                padding: 3px 2px;
+            }
+            > #title{}
+            > #coffee:after{
+                content: " :)";
+                opacity: 0;
+                transition: opacity 200ms ease;
+            }
+            > #coffee:hover:after,
+            > #coffee:focus:after{
+                opacity: 1;
+            }
+        }
+        > #main{
+            width: 100%;
+            display: flex;
+            > #navigation{
+                width: 30%;
+                min-width: 300px;
+                display: flex;
+                justify-content: center;
+                > #navLinkContainer{
+                    display: flex;
+                    flex-direction: column;
+                    position: fixed;
+                    top: 36%;
+                    transform: translate(-30%, -50%);
+                    > .navLink{
+                        color: #222;
+                        padding: 1px;
+                    }
+                    > .navLink:before{
+                        content: ">";
+                        margin-right: 6px;
+                        opacity: 0;
+                        transition: opacity 70ms ease;
+                    }
+                    > .navLink:hover:before,
+                    > .navLink:focus:before{
+                        opacity: 1;
+                    }
+                }
+            }
+            > #content{
+                flex: 1;
+                > #awesome{
+                    font-size: 1.2rem;
+                    > a{color: #222;}
+                }
+                > #snackbar{
+                    font-size: 4rem;
+                    line-height: 6rem;
+                    margin-bottom: -4px;
+                    > a{color: #222;}
+                }
+                > #version{}
             }
         }
     }
