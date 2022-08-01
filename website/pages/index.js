@@ -20,9 +20,9 @@ export default function Main(){
                     </div>
 
                     <div id='content'>
-                        <h3>Awesome</h3>
-                        <h1>Snackbar</h1>
-                        <a>V1.0.0</a>
+                        <h3 id='awesome'><a href='/'>Awesome</a></h3>
+                        <h1 id='snackbar'><a href='/'>Snackbar</a></h1>
+                        <a id='version'>V1.0.0</a>
                     </div>
 
                 </div>
