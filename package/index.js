@@ -1,4 +1,6 @@
-const SnackbarClass = require("./src/snackbar");
+//.scss
+// import './src/snackbar.scss'
 
-module.exports = (parameters) => {return new SnackbarClass(parameters);}
-
+//js:
+const SnackbarClass = require('./src/snackbar');
+module.exports = (massage, parameters) => {return new SnackbarClass({massage, ...parameters});}
