@@ -1,6 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-require("./snackbar.scss");
 class Snackbar {
     //constructor:
     constructor(parameters) {

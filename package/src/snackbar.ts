@@ -1,5 +1,3 @@
-import "./snackbar.scss"
-
 class Snackbar{
 
     // class properties:
