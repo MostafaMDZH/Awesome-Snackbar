@@ -7,66 +7,56 @@ class Snackbar{
     
     //default values:
     public static readonly DEFAULT_HIDING_TIMEOUT: number = 4000;
-    public static readonly DEFAULT_POSITION:       string = 'bottom-left';
-    public static readonly DEFAULT_THEME:          string = 'dark';
+    public static readonly DEFAULT_POSITION: string = 'bottom-left';
 
     //object properties:
-    protected viewID:           number;
-    protected view:             HTMLElement;
-    protected actionButton:     HTMLElement;
-    protected massage:          string;
-    protected position:         string;
-    protected theme:            string;
-    protected style:            object;
+    protected viewID:       number;
+    protected view:         HTMLElement;
+    protected massage:      string;
+    protected position:     string;
+    protected iconSrc:      string | undefined;
+    protected theme:        string | undefined;
+    protected style:        object | undefined;
+    protected actionText:   string | undefined;
+    protected onAction:     (() => void) | undefined;
+    protected timeout:      number;
     protected isWaitingForHide: boolean;
-    protected actionText:       string;
-    protected onAction:         () => void;
-    protected hidingTimeout:    number;
 
     //constructor:
     constructor(parameters: {
-            massage:        string,
-            position?:      string,
-            theme?:         string,
+            massage?:        string,
+            position?:       string,
+            theme?:          string,
             iconSrc?:        string,
-            actionText?:    string,
-            onAction?:  () => void,
-            hidingTimeout?: number
+            style?:          object,
+            actionText?:     string,
+            onAction?: () => void,
+            timeout?:        number
         }){
 
         //append CSS styles to DOM:
         Snackbar.appendCSS();
-        this.massage          = parameters.massage;
-        this.position         = parameters.position || Snackbar.DEFAULT_POSITION;
-        this.theme            = parameters.theme || Snackbar.DEFAULT_THEME;
-        this.style            = parameters.style || {};
-        this.isWaitingForHide = false;
-		this.actionText       = parameters.actionText || '';
-        this.onAction         = parameters.onAction || function(){};
-        if(parameters.hidingTimeout === 0) this.hidingTimeout = 0;
-        else this.hidingTimeout = parameters.hidingTimeout || Snackbar.DEFAULT_HIDING_TIMEOUT;
 
         //the view:
-        let view = Snackbar.getHTML(this.viewID, this.massage, this.actionText);
+        this.viewID = Snackbar.generateViewID();
+        let view = Snackbar.getDOM(this.viewID);
         document.body.appendChild(view);
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
-        this.view.classList.add(this.position);
-        this.actionButton = document.getElementById(this.viewID + '_actionButton') || document.createElement('div');
-        if(this.actionText !== '') this.actionButton.style.display = 'block';
-
-        this.applyStyle();
+        
+        //set properties:
+        this.massage = parameters.massage || 'does anybody here?';
+        this.setMassage(this.massage);
+        this.position = parameters.position || Snackbar.DEFAULT_POSITION;
+        this.setPosition(this.position);
+        this.setTheme(parameters.theme);
+        this.setIcon(parameters.iconSrc);
+        this.setStyle(parameters.style);
+        this.setActionText(parameters.actionText);
+        this.timeout = parameters.timeout ?? Snackbar.DEFAULT_HIDING_TIMEOUT;
+        this.isWaitingForHide = false;
         
         //events:
-        const thisView = this;
-        'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach(function(event){
-            window.addEventListener(event, () => {
-                thisView.startHidingTimer();
-            });
-        });
-        this.actionButton.addEventListener('click', () => {
-            this.onAction();
-            this.hide();
-        });
+        this.setHideEvents();
         
         //finally show:
         this.show();
@@ -84,18 +74,6 @@ class Snackbar{
         }
     }
 
-            <div class="snackbar" id="${viewId}">
-                <div class="container">
-                    <p id="massage">${massage}</p>
-                    <input type="button" class="actionButton" id="${viewId}_actionButton" value="${actionText}">
-                </div>
-            </div>
-        `;
-        let div = document.createElement('div');
-        div.innerHTML = htmlString.trim();
-        return div.firstChild || div;
-	}
-
     //generateViewID:
     protected static generateViewID(): number{
 		let id = Math.floor(Math.random() * 1000000000) + 100000000;
@@ -104,6 +82,41 @@ class Snackbar{
             return id;
         return Snackbar.generateViewID();
 	}
+
+    //getDOM:
+    protected static getDOM(viewId: number): ChildNode{
+        const DOM = `
+            <div class="snackbar" id="${viewId}">
+                <div class="container">
+                    <span class='icon'></span>
+                    <p class="massage"></p>
+                    <input type="button" class="actionButton" id="${viewId}_actionButton" value="">
+                </div>
+            </div>
+        `;
+        let div = document.createElement('div');
+        div.innerHTML = DOM.trim();
+        return div.firstChild || div;
+	}
+
+    //setMassage:
+    protected setMassage(massage:string):void{
+        this.massage = massage;
+        let massageEl = <HTMLElement> this.view.getElementsByClassName('massage')[0];
+        massageEl.innerHTML = this.massage;
+    }
+
+    //setPosition:
+    protected setPosition(position:string):void{
+        this.position = position;
+        this.view.classList.remove('bottom-left');
+        this.view.classList.remove('bottom-center');
+        this.view.classList.remove('bottom-right');
+        this.view.classList.remove('top-left');
+        this.view.classList.remove('top-center');
+        this.view.classList.remove('top-right');
+        this.view.classList.add(position);
+    }
 
     //setIcon:
     protected setIcon(iconSrc?:string):void{
@@ -114,17 +127,59 @@ class Snackbar{
         iconEl.style.setProperty('background-image', 'url(' + this.iconSrc + ')');
     }
 
+    //setTheme:
+    protected setTheme(theme?:string):void{
+        if(theme === undefined) return;
+        this.theme == theme;
+        this.view.classList.remove('light');
+        this.view.classList.remove('dark');
+        this.view.classList.add(theme);
+    }
+
+    //setStyle:
+    protected setStyle(style?:object):void{
+        if(style === undefined) return;
+        this.style = style;
         for(const [className, style] of Object.entries(this.style)){
             let root = document.getElementById(this.viewID.toString());
             let element = <HTMLElement> root!.getElementsByClassName(className)[0];
-            if(element !== undefined)
-                for(const property of style)
-                    element.style.setProperty(property[0], property[1]);
+            if(element !== undefined) for(const property of style)
+                element.style.setProperty(property[0], property[1]);
         }
     }
 
+    //setActionText:
+    protected setActionText(actionText?:string):void{
+        if(actionText === undefined) return;
+        this.actionText = actionText;
+        let actionButton = <HTMLInputElement> this.view.getElementsByClassName('actionButton')[0];
+        actionButton.style.setProperty('display', 'block');
+        actionButton.value = this.actionText;
+    }
+
+    //setActionCallback:
+    protected setActionCallback(onAction?:()=>void):void{
+        this.onAction = onAction;
+        let actionButton = <HTMLInputElement> this.view.getElementsByClassName('actionButton')[0];
+        actionButton.addEventListener('click', () => {
+            if(this.onAction !== undefined)
+                this.onAction();//even if action callback doesn't defined, click on button hides the view
+            this.hide();
+        });
+    }
+
+    //setHideEvents:
+    protected setHideEvents():void{
+        const thisView = this;
+        'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach(function(event){
+            window.addEventListener(event, () => {
+                thisView.startHidingTimer();
+            });
+        });
+    }
+
     //show:
-    protected show(): void{
+    protected show():void{
         setTimeout(() => {
             Snackbar.List.push(this);
             Snackbar.adjustListPositions(this);
@@ -132,17 +187,17 @@ class Snackbar{
     }
 
     //startHidingTimer:
-	protected startHidingTimer(): void{
-		if(this.hidingTimeout > 0 && !this.isWaitingForHide){
-			this.isWaitingForHide = true;
+	protected startHidingTimer():void{
+		if(this.timeout > 0 && !this.isWaitingForHide){
+            this.isWaitingForHide = true;
 			setTimeout(() => {
 				this.hide();
-			}, this.hidingTimeout);
-		}
+			}, this.timeout);
+        }
 	}
 
     //hide:
-    protected hide(): void{
+    protected hide():void{
         const thisView = this;
         let list = Snackbar.List.filter(obj => {
             return obj.position === this.position;
@@ -171,7 +226,7 @@ class Snackbar{
     }
 
     //adjustListPosition:
-    static adjustListPositions(sb: Snackbar): void{
+    static adjustListPositions(sb: Snackbar):void{
         let list = Snackbar.List.filter(obj => {
             return obj.position === sb.position;
         });
@@ -188,7 +243,7 @@ class Snackbar{
     }
 
     //getHeight:
-    protected getHeight(): number{
+    protected getHeight():number{
         let heightStr = getComputedStyle(this.view).height;
         let heightNum: number = +heightStr.replace('px', '');
         return heightNum;
