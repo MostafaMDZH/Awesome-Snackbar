@@ -28,7 +28,7 @@ class Snackbar{
             massage:        string,
             position?:      string,
             theme?:         string,
-            style?:         object,
+            iconSrc?:        string,
             actionText?:    string,
             onAction?:  () => void,
             hidingTimeout?: number
@@ -105,9 +105,15 @@ class Snackbar{
         return Snackbar.generateViewID();
 	}
 
-    //applyStyle:
-    protected applyStyle(){
-        this.view.classList.add(this.theme);
+    //setIcon:
+    protected setIcon(iconSrc?:string):void{
+        if(iconSrc === undefined) return;
+        this.iconSrc = iconSrc;
+        let iconEl = <HTMLElement> this.view.getElementsByClassName('icon')[0];
+        iconEl.style.setProperty('display', 'block');
+        iconEl.style.setProperty('background-image', 'url(' + this.iconSrc + ')');
+    }
+
         for(const [className, style] of Object.entries(this.style)){
             let root = document.getElementById(this.viewID.toString());
             let element = <HTMLElement> root!.getElementsByClassName(className)[0];
