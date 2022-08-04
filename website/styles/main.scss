@@ -7,24 +7,27 @@
     color: #222;
     display: flex;
     justify-content: center;
+    @extend .thinScrollbar_dark;
     overflow: auto;
     > #container{
         width: 100%;
         max-width: 1400px;
-        padding: 22px 60px;
+        padding: 60px;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
         > #header{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             > .headerLink{
                 color: #222;
                 padding: 3px 2px;
+                position: fixed;
+                top: 22px;
+                left: 60px;
             }
-            > #title{}
+            > #coffee{
+                left: unset;
+                right: 60px;
+            }
             > #coffee:after{
                 content: " :)";
                 opacity: 0;
