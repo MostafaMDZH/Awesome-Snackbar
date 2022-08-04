@@ -1,3 +1,5 @@
+const Style = require('./style.js');
+
 class Snackbar{
 
     // class properties:
@@ -32,8 +34,8 @@ class Snackbar{
             hidingTimeout?: number
         }){
 
-        //init properties:
-        this.viewID           = Snackbar.generateViewID();
+        //append CSS styles to DOM:
+        Snackbar.appendCSS();
         this.massage          = parameters.massage;
         this.position         = parameters.position || Snackbar.DEFAULT_POSITION;
         this.theme            = parameters.theme || Snackbar.DEFAULT_THEME;
@@ -43,7 +45,7 @@ class Snackbar{
         this.onAction         = parameters.onAction || function(){};
         if(parameters.hidingTimeout === 0) this.hidingTimeout = 0;
         else this.hidingTimeout = parameters.hidingTimeout || Snackbar.DEFAULT_HIDING_TIMEOUT;
-        
+
         //the view:
         let view = Snackbar.getHTML(this.viewID, this.massage, this.actionText);
         document.body.appendChild(view);
@@ -71,9 +73,17 @@ class Snackbar{
 
 	}
 
-    //getHTML:
-    protected static getHTML(viewId: number, massage: string, actionText?: string): ChildNode{
-        const htmlString = `
+    //appendCSS:
+    static appendCSS():void{
+        if(document.getElementById('snackbar-style') === null){
+            let head = document.head || document.getElementsByTagName('head')[0];
+            let style = document.createElement('style');
+            style.id = 'snackbar-style';
+            head.appendChild(style);
+            style.appendChild(document.createTextNode(Style.default));
+        }
+    }
+
             <div class="snackbar" id="${viewId}">
                 <div class="container">
                     <p id="massage">${massage}</p>
