@@ -40,10 +40,11 @@
         }
         > #main{
             width: 100%;
+            padding-bottom: 50px;
             display: flex;
+            gap: 20px;
             > #navigation{
-                width: 30%;
-                min-width: 300px;
+                width: 27%;
                 display: flex;
                 justify-content: center;
                 > #navLinkContainer{
@@ -51,7 +52,7 @@
                     flex-direction: column;
                     position: fixed;
                     top: 36%;
-                    transform: translate(-30%, -50%);
+                    transform: translate(-10%, -50%);
                     > .navLink{
                         color: #222;
                         padding: 1px;
@@ -74,13 +75,79 @@
                     font-size: 1.2rem;
                     > a{color: #222;}
                 }
-                > #snackbar{
-                    font-size: 4rem;
-                    line-height: 6rem;
-                    margin-bottom: -4px;
+                > #name-versionWrapper{
+                    margin: 24px 0 27px 0;
+                    display: flex;
+                    align-items: flex-end;
+                    gap: 30px;
+                    > #snackbar{
+                        font-size: 4rem;
+                        line-height: 3.05rem;
+                        > a{color: #222;}
+                    }
+                }
+                > .sectionName{
+                    margin-top: 50px;
+                    font-size: 1.3rem;
+                    line-height: 3rem;
                     > a{color: #222;}
                 }
-                > #version{}
+                > .step{
+                    > .bold{
+                        font-weight: bold;
+                    }
+                }
+                > .codeWrapper{
+                    max-width: 610px;
+                    margin: 10px 0 30px 0;
+                    padding: 15px 20px 15px 20px;
+                    background-color: #222;
+                    border-radius: 7px;
+                    display: flex;
+                    flex-direction: column;
+                    color: #e8e8e8;
+                    > .comment{
+                        font-style: italic;
+                        color: #999;
+                        margin-top: 15px;
+                        > a{
+                            color: #999;
+                            text-decoration: underline;
+                        }
+                    }
+                    > .comment:first-child{
+                        margin-top: 0;
+                    }
+                    > .codeSection{
+                        display: flex;
+                        justify-content: space-between;
+                        color: #e8e8e8;
+                        cursor: default;
+                        > p{
+                            text-align: left;
+                            letter-spacing: 0.005rem;
+                            line-height: 1.5rem;
+                            > span{color: #f5d500;}
+                        }
+                    }
+                    > .copyable,
+                    > .executable{
+                        cursor: pointer;
+                    }
+                    > .copyable::after  { content: 'copy'; }
+                    > .executable::after{ content: 'run';  }
+                    > .codeSection::after{
+                        line-height: 1.5rem;
+                        font-style: italic;
+                        color: #888;
+                        opacity: 0;
+                        transition: opacity 150ms ease;
+                    }
+                    > .codeSection:hover::after,
+                    > .codeSection:focus::after{
+                        opacity: 1;
+                    }
+                }
             }
         }
     }
