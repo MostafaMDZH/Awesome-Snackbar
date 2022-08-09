@@ -99,7 +99,6 @@ class Snackbar {
     }
     //setStyle:
     setStyle(style) {
-        console.log('style', style);
         if (style === undefined)
             return;
         this.style = style;

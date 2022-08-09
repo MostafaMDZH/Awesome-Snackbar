@@ -140,7 +140,6 @@ class Snackbar{
 
     //setStyle:
     protected setStyle(style?:object):void{
-        console.log('style', style);
         if(style === undefined) return;
         this.style = style;
         for(const [className, style] of Object.entries(this.style)){
