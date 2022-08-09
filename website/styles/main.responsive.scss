@@ -46,28 +46,17 @@
                     > #github{
                         display: block;
                     }
-                    > .sectionName{
-                        margin-top: 35px;
-                    }
-                    > #installation{
-                        margin-top: 50px;
-                    }
                 }
             }
         }
         > #footer{
-            > #main{
-                flex-direction: column;
-                gap: 0;
-                > #dash,
-                > #github{
-                    display: none;
-                }
-                > #awesomeComponents{
-                    display: block;
-                }
+            flex-direction: column;
+            gap: 0;
+            > #dash,
+            > #github{
+                display: none;
             }
-            > #coffee{
+            > #awesomeComponents{
                 display: block;
             }
         }

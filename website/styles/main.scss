@@ -107,10 +107,13 @@
                     }
                 }
                 > .sectionName{
-                    margin-top: 50px;
+                    margin-top: 35px;
                     font-size: 1.3rem;
                     line-height: 3rem;
                     > a{color: #222;}
+                }
+                > #installation{
+                    margin-top: 50px;
                 }
                 > .step{
                     > .bold{
@@ -179,9 +182,10 @@
         width: 100%;
         padding: 15px;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        p{
+        gap: 7px;
+        > p{
             width: fit-content;
             text-align: center;
             > a{
@@ -189,11 +193,8 @@
                 text-decoration: underline;
             }
         }
-        > #main{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 7px;
+        > #awesomeComponents{
+            display: none;
         }
     }
     
