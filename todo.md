@@ -1,5 +1,4 @@
  ## Features:
-- [website] welcome snackbar(and click to run / show codeSection::after)
 - [website] check the grammars
 - [website] better font? or set html size?
 - [package] typescript flag(and test)
@@ -24,5 +23,6 @@
 - release note on github
 
 ## Future:
+- on hide callback
 - notification on page title
 - toggle direction
