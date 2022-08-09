@@ -1,5 +1,4 @@
  ## Features:
-- [website] better font? or set html size?
 - [package] typescript flag(and test)
 - [package] yarn
 
