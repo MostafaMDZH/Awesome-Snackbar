@@ -1,5 +1,10 @@
 @import "classes";
 
+@font-face{
+    font-family: JetBrainsMono-Regular;
+    src:url(JetBrainsMono-Regular.ttf);
+}
+
 #window{
     width: 100%;
     height: 100%;
@@ -124,6 +129,10 @@
                     width: 100%;
                     margin: 10px 0 30px 0;
                     padding: 15px 20px 15px 20px;
+                    *{
+                        font-family: JetBrainsMono-Regular;
+                        font-size: 0.85rem;
+                    }
                     background-color: #222;
                     border-radius: 7px;
                     display: flex;
