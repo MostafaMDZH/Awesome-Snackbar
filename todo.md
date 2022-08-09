@@ -1,21 +1,28 @@
  ## Features:
-- [website] github and tweeter link
-- [website] footer
-- [website] responsive design
+- [website] welcome snackbar(and click to run / show codeSection::after)
+- [website] check the grammars
 - [website] better font? or set html size?
-- [website] better npm scripts
-- toggle direction
+- [package] typescript flag(and test)
+- [package] yarn
 
 ## Publish:
-- typescript flag
-- code cleanup
-- final check the code(types, todo, checkIt, console.log)
-- production mode
-- remove scss file import from _app
-- check the grammars
-- create tweeter account
-- website in github
+- final check the code(types, todo, checkIt, console.log, snackbar.scss in _app.js)
+- publish the package and download it for website
+- website production mode
+- build and deploy
 - validate the html
-- yarn
-- twitter link
+
+
+
+
+
+
+
+
+
+- website in github
 - release note on github
+
+## Future:
+- notification on page title
+- toggle direction

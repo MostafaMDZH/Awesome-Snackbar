@@ -7,7 +7,6 @@
                 opacity 150ms ease 150ms;
     > .container{
         box-sizing: border-box;
-        *{box-sizing: border-box;}
         max-width: 450px;
         min-height: 46px;
         padding: 10px 20px;
@@ -18,15 +17,19 @@
         color: rgb(250,250,250);
         align-items: center;
         gap: 10px;
+        transition: all 150ms ease-in-out;
+        *{box-sizing: border-box;}
         > .icon{
             width: 20px;
             height: 20px;
+            margin-left: -3px;
+            margin-right: -2px;
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-position: center center;
             display: none;
         }
-        > .massage{
+        > .message{
             font-size: 0.87rem;
         }
         > .actionButton{
@@ -85,6 +88,15 @@
 //responsive design:
 @media only screen and (max-width: 500px){
     .snackbar{
-        max-width: calc(90% - 12px);
+        max-width: calc(100% - 48px);
+    }
+    .snackbar.top-center,
+    .snackbar.bottom-center{
+        width: calc(100% - 24px);
+        max-width: unset;
+        left: 12px;
+        transform: translate(0, 0);
+        display: flex;
+        justify-content: center;
     }
 }

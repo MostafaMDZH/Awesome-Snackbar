@@ -6,53 +6,59 @@
     background-color: #fd0;
     color: #222;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     @extend .thinScrollbar_dark;
     overflow: auto;
+
+    //header:
+    > #header{
+        width: calc(100% - 20px);
+        max-width: 1400px;
+        height: 0;
+        padding: 0 50px;
+        background-color: #fd0;
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: flex;
+        justify-content: space-between;
+        > .headerLink{
+            color: #222;
+            padding: 3px 2px;
+        }
+        > #coffee:after{
+            content: " :)";
+            opacity: 0;
+            transition: opacity 200ms ease;
+        }
+        > #coffee:hover:after,
+        > #coffee:focus:after{
+            opacity: 1;
+        }
+    }
     > #container{
         width: 100%;
-        max-width: 1400px;
-        padding: 60px;
+        max-width: 900px;
+        padding: 70px 20px 50px 20px;
+        margin-left: -80px;
         display: flex;
         flex-direction: column;
-        gap: 15px;
-        > #header{
-            > .headerLink{
-                color: #222;
-                padding: 3px 2px;
-                position: fixed;
-                top: 22px;
-                left: 60px;
-            }
-            > #coffee{
-                left: unset;
-                right: 60px;
-            }
-            > #coffee:after{
-                content: " :)";
-                opacity: 0;
-                transition: opacity 200ms ease;
-            }
-            > #coffee:hover:after,
-            > #coffee:focus:after{
-                opacity: 1;
-            }
-        }
         > #main{
             width: 100%;
-            padding-bottom: 50px;
             display: flex;
-            gap: 20px;
+            justify-content: space-between;
+            gap: 140px;
+
+            //navigation:
             > #navigation{
-                width: 27%;
-                display: flex;
-                justify-content: center;
-                > #navLinkContainer{
+                height: 100%;
+                > #navigationWrapper{
                     display: flex;
                     flex-direction: column;
                     position: fixed;
-                    top: 36%;
-                    transform: translate(-10%, -50%);
+                    top: 20%;
                     > .navLink{
                         color: #222;
                         padding: 1px;
@@ -69,8 +75,22 @@
                     }
                 }
             }
+
+            //content:
             > #content{
+                position: relative;
                 flex: 1;
+                max-width: 635px;
+                display: flex;
+                flex-direction: column;
+                > #github{
+                    padding: 5px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    color: #222;
+                    display: none;
+                }
                 > #awesome{
                     font-size: 1.2rem;
                     > a{color: #222;}
@@ -98,7 +118,7 @@
                     }
                 }
                 > .codeWrapper{
-                    max-width: 610px;
+                    width: 100%;
                     margin: 10px 0 30px 0;
                     padding: 15px 20px 15px 20px;
                     background-color: #222;
@@ -137,6 +157,7 @@
                     > .copyable::after  { content: 'copy'; }
                     > .executable::after{ content: 'run';  }
                     > .codeSection::after{
+                        padding-left: 10px;
                         line-height: 1.5rem;
                         font-style: italic;
                         color: #888;
@@ -150,5 +171,30 @@
                 }
             }
         }
+
     }
+    
+    //footer:
+    > #footer{
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+            width: fit-content;
+            text-align: center;
+            > a{
+                color: #222;
+                text-decoration: underline;
+            }
+        }
+        > #main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+        }
+    }
+    
 }

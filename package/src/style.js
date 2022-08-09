@@ -15,6 +15,7 @@ export default `
   color: rgb(250, 250, 250);
   align-items: center;
   gap: 10px;
+  transition: all 150ms ease-in-out;
 }
 .snackbar > .container * {
   box-sizing: border-box;
@@ -22,12 +23,14 @@ export default `
 .snackbar > .container > .icon {
   width: 20px;
   height: 20px;
+  margin-left: -3px;
+  margin-right: -2px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
   display: none;
 }
-.snackbar > .container > .massage {
+.snackbar > .container > .message {
   font-size: 0.87rem;
 }
 .snackbar > .container > .actionButton {
@@ -84,7 +87,16 @@ export default `
 
 @media only screen and (max-width: 500px) {
   .snackbar {
-    max-width: calc(90% - 12px);
+    max-width: calc(100% - 48px);
+  }
+  .snackbar.top-center,
+.snackbar.bottom-center {
+    width: calc(100% - 24px);
+    max-width: unset;
+    left: 12px;
+    transform: translate(0, 0);
+    display: flex;
+    justify-content: center;
   }
 }/*# sourceMappingURL=snackbar.css.map */
 `;

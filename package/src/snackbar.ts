@@ -12,7 +12,7 @@ class Snackbar{
     //object properties:
     protected viewID:       number;
     protected view:         HTMLElement;
-    protected massage:      string;
+    protected message:      string;
     protected position:     string;
     protected iconSrc:      string | undefined;
     protected theme:        string | undefined;
@@ -24,7 +24,7 @@ class Snackbar{
 
     //constructor:
     constructor(parameters: {
-            massage?:        string,
+            message?:        string,
             position?:       string,
             theme?:          string,
             iconSrc?:        string,
@@ -44,14 +44,15 @@ class Snackbar{
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
         
         //set properties:
-        this.massage = parameters.massage || 'does anybody here?';
-        this.setMassage(this.massage);
+        this.message = parameters.message || 'does anybody here?';
+        this.setMessage(this.message);
         this.position = parameters.position || Snackbar.DEFAULT_POSITION;
         this.setPosition(this.position);
         this.setTheme(parameters.theme);
-        this.setIcon(parameters.iconSrc);
+        this.setIconSrc(parameters.iconSrc);
         this.setStyle(parameters.style);
         this.setActionText(parameters.actionText);
+        this.setActionCallback(parameters.onAction);
         this.timeout = parameters.timeout ?? Snackbar.DEFAULT_HIDING_TIMEOUT;
         this.isWaitingForHide = false;
         
@@ -89,7 +90,7 @@ class Snackbar{
             <div class="snackbar" id="${viewId}">
                 <div class="container">
                     <span class='icon'></span>
-                    <p class="massage"></p>
+                    <p class="message"></p>
                     <input type="button" class="actionButton" id="${viewId}_actionButton" value="">
                 </div>
             </div>
@@ -99,11 +100,11 @@ class Snackbar{
         return div.firstChild || div;
 	}
 
-    //setMassage:
-    protected setMassage(massage:string):void{
-        this.massage = massage;
-        let massageEl = <HTMLElement> this.view.getElementsByClassName('massage')[0];
-        massageEl.innerHTML = this.massage;
+    //setMessage:
+    protected setMessage(message:string):void{
+        this.message = message;
+        let messageEl = <HTMLElement> this.view.getElementsByClassName('message')[0];
+        messageEl.innerHTML = this.message;
     }
 
     //setPosition:
@@ -116,10 +117,11 @@ class Snackbar{
         this.view.classList.remove('top-center');
         this.view.classList.remove('top-right');
         this.view.classList.add(position);
+        Snackbar.adjustListPositions(this);
     }
 
-    //setIcon:
-    protected setIcon(iconSrc?:string):void{
+    //setIconSrc:
+    protected setIconSrc(iconSrc?:string):void{
         if(iconSrc === undefined) return;
         this.iconSrc = iconSrc;
         let iconEl = <HTMLElement> this.view.getElementsByClassName('icon')[0];
@@ -138,6 +140,7 @@ class Snackbar{
 
     //setStyle:
     protected setStyle(style?:object):void{
+        console.log('style', style);
         if(style === undefined) return;
         this.style = style;
         for(const [className, style] of Object.entries(this.style)){

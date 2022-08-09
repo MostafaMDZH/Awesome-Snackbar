@@ -18,7 +18,7 @@ A collection of reusable Typescript components for web development.<br>
 
 <b>Usage: <a href="https://typescript-components.demos.mostafa-mdzh.ir/snackbar">[demo]</a></b>
 > new Snackbar({</br>
->&nbsp;&nbsp;&nbsp;&nbsp;massage: 'This is a Snackbar!',</br>
+>&nbsp;&nbsp;&nbsp;&nbsp;message: 'This is a Snackbar!',</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;actionText: 'Action',</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;onAction: () => {</br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('Action Called!');</br>

@@ -12,14 +12,15 @@ class Snackbar {
         document.body.appendChild(view);
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
         //set properties:
-        this.massage = parameters.massage || 'does anybody here?';
-        this.setMassage(this.massage);
+        this.message = parameters.message || 'does anybody here?';
+        this.setMessage(this.message);
         this.position = parameters.position || Snackbar.DEFAULT_POSITION;
         this.setPosition(this.position);
         this.setTheme(parameters.theme);
-        this.setIcon(parameters.iconSrc);
+        this.setIconSrc(parameters.iconSrc);
         this.setStyle(parameters.style);
         this.setActionText(parameters.actionText);
+        this.setActionCallback(parameters.onAction);
         this.timeout = (_a = parameters.timeout) !== null && _a !== void 0 ? _a : Snackbar.DEFAULT_HIDING_TIMEOUT;
         this.isWaitingForHide = false;
         //events:
@@ -51,7 +52,7 @@ class Snackbar {
             <div class="snackbar" id="${viewId}">
                 <div class="container">
                     <span class='icon'></span>
-                    <p class="massage"></p>
+                    <p class="message"></p>
                     <input type="button" class="actionButton" id="${viewId}_actionButton" value="">
                 </div>
             </div>
@@ -60,11 +61,11 @@ class Snackbar {
         div.innerHTML = DOM.trim();
         return div.firstChild || div;
     }
-    //setMassage:
-    setMassage(massage) {
-        this.massage = massage;
-        let massageEl = this.view.getElementsByClassName('massage')[0];
-        massageEl.innerHTML = this.massage;
+    //setMessage:
+    setMessage(message) {
+        this.message = message;
+        let messageEl = this.view.getElementsByClassName('message')[0];
+        messageEl.innerHTML = this.message;
     }
     //setPosition:
     setPosition(position) {
@@ -76,9 +77,10 @@ class Snackbar {
         this.view.classList.remove('top-center');
         this.view.classList.remove('top-right');
         this.view.classList.add(position);
+        Snackbar.adjustListPositions(this);
     }
-    //setIcon:
-    setIcon(iconSrc) {
+    //setIconSrc:
+    setIconSrc(iconSrc) {
         if (iconSrc === undefined)
             return;
         this.iconSrc = iconSrc;
@@ -97,6 +99,7 @@ class Snackbar {
     }
     //setStyle:
     setStyle(style) {
+        console.log('style', style);
         if (style === undefined)
             return;
         this.style = style;

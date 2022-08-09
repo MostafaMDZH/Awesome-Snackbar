@@ -1,7 +1,8 @@
+import Link from 'next/link'
 import Snackbar from 'awesome-snackbar';
 import loadingIcon from '../public/loading.gif'
 
-let sbList = [];
+let SB = null;
 
 export default function Main(){
 
@@ -40,16 +41,20 @@ export default function Main(){
     //render:
     return (
         <div id='window' style={{scrollBehavior:'smooth'}}>
+
+            {/* header */}
+            <header id='header'>
+                <Link href='/'><a className='headerLink'>Awesome Components</a></Link>
+                <Link id='coffee' href='https://www.buymeacoffee.com/mostafamdzh'><a className='headerLink'>buy me a coffee!</a></Link>
+            </header>
+
             <div id='container'>
-                <header id='header'>
-                    <a className='headerLink' href='/'>Awesome Components</a>
-                    <a className='headerLink' id='coffee' href='https://www.buymeacoffee.com/mostafamdzh'>buy me a coffee!</a>
-                </header>
+
                 <div id='main'>
 
                     {/* navigation */}
                     <div id='navigation'>
-                        <div id='navLinkContainer'>
+                        <div id='navigationWrapper'>
                             <a className='navLink' href='#installation' >installation </a>
                             <a className='navLink' href='#action-button'>action button</a>
                             <a className='navLink' href='#position'     >position     </a>
@@ -57,24 +62,26 @@ export default function Main(){
                             <a className='navLink' href='#theme'        >theme        </a>
                             <a className='navLink' href='#custom-style' >custom style </a>
                             <a className='navLink' href='#timing'       >timing       </a>
-                            <a className='navLink' href='#live-update'  >update on fly</a>
+                            <a className='navLink' href='#update-on-fly'>update on fly</a>
                         </div>
                     </div>
 
                     {/* content */}
                     <div id='content'>
 
+                        <a href='https://github.com/MostafaMDZH/Awesome-Snackbar' id='github'>Github</a>
+
                         {/* intro */}
-                        <h3 id='awesome'><a href='/'>Awesome</a></h3>
+                        <h3 id='awesome'><Link href='/'>Awesome</Link></h3>
                         <div id='name-versionWrapper'>
-                            <h1 id='snackbar'><a href='/'>Snackbar</a></h1>
+                            <h1 id='snackbar'><Link href='/'>Snackbar</Link></h1>
                             <a>V1.0.0</a>
                         </div>
-                        <p>React, pure Javascript and Typescript compatible snackbar</p>
+                        <p>React, Javascript, and Typescript compatible snackbar</p>
 
                         {/* installation */}
                         <h3 className='sectionName' id='installation'><a href='#installation'># Installation</a></h3>
-                        <p className='step'><a className='bold'>{'>'} step 1 : </a>you can use either npm or yarn to install, or you can import the main file with Html tag</p>
+                        <p className='step'><a className='bold'>{'>'} step 1 : </a>you can use either npm or yarn, or import the main file with the Html tag</p>
                         <div className='codeWrapper'>
                             <p className='comment'># npm</p>
                             <button className='codeSection copyable' onClick={()=>copyTextToClipboard('npm i awesome-snackbar --save')}>
@@ -97,13 +104,13 @@ export default function Main(){
                         <div className='codeWrapper'>
                             <p className='comment'># npm and yarn</p>
                             <button className='codeSection copyable' onClick={()=>copyTextToClipboard('import Snackbar from \'awesome-snackbar\'')}>
-                                <p>import <span>Snackbar</span> from <span>'awesome-snackbar'</span></p>
+                                <p>import <span>Snackbar</span> from <span>&apos;awesome-snackbar&apos;</span></p>
                             </button>
                         </div>
                         <p className='step'><a className='bold'>{'>'} step 3 : </a>start making snackbars!</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable' onClick={()=>Snackbar('Hello World! 👋')}>
-                                <p><span>Snackbar</span>('Hello world! 👋');</p>
+                                <p><span>Snackbar</span>(&apos;Hello world! 👋&apos;);</p>
                             </button>
                         </div>
 
@@ -135,7 +142,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`I'm at the bottom left`, { position: 'bottom-left' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the bottom left`), { "}<br></br>
+                                    {"Snackbar(`I'm at the bottom left`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'bottom-left'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -144,7 +151,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`I'm at the bottom center`, { position: 'bottom-center' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the bottom center`), { "}<br></br>
+                                    {"Snackbar(`I'm at the bottom center`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'bottom-center'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -153,7 +160,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`I'm at the bottom right`, { position: 'bottom-right' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the bottom right`), { "}<br></br>
+                                    {"Snackbar(`I'm at the bottom right`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'bottom-right'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -162,7 +169,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`I'm at the top left`, { position: 'top-left' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the top left`), { "}<br></br>
+                                    {"Snackbar(`I'm at the top left`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'top-left'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -171,7 +178,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`I'm at the top center`, { position: 'top-center' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the top center`), { "}<br></br>
+                                    {"Snackbar(`I'm at the top center`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'top-center'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -180,8 +187,24 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`I'm at the top right`, { position: 'top-right' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the top right`), { "}<br></br>
+                                    {"Snackbar(`I'm at the top right`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'top-right'"}</span><br></br>
+                                    {" });"}
+                                </p>
+                            </button>
+                        </div>
+
+                        {/* icon support */}
+                        <h3 className='sectionName' id='icon-support'><a href='#icon-support'># Icon Support</a></h3>
+                        <p>You can add an icon to your snackbar with iconSrc parameter</p>
+                        <div className='codeWrapper'>
+                            <p className='comment'>import loadingButton from &apos;./src/loading.gif&apos;;</p>
+                            <button className='codeSection executable'
+                                onClick={() => Snackbar(`Loading... please wait`, { iconSrc: loadingIcon.src, actionText: 'Stop'})}>
+                                <p>
+                                    {"Snackbar(`Loading... please wait`), {"}<br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>{"iconSrc: 'loadingIcon.src',"}</span><br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Stop'"}<br></br>
                                     {" });"}
                                 </p>
                             </button>
@@ -195,7 +218,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`Today is...`, { theme: 'light', position: 'top-center', actionText: 'Sunday!'})}>
                                 <p>
-                                    {"Snackbar(`Today is...`), { "}<br></br>
+                                    {"Snackbar(`Today is...`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"theme: 'light',"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"position: 'top-center',"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Sunday!'"}<br></br>
@@ -211,17 +234,15 @@ export default function Main(){
                             <button className='codeSection'>
                                 <p>
                                     {"<div class='"}<span>{"container'"}</span>{">"}<br></br>
-
-                                    &nbsp;&nbsp;&nbsp;&nbsp;{"<p class='"}<span>{"massage'"}</span>{"></p>"}<br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;{"<p class='"}<span>{"message'"}</span>{"></p>"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"<input type='button' class='"}<span>{"actionButton'"}</span>{"/>"}<br></br>
-
                                     {"</div>"}
                                 </p>
                             </button>
                         </div>
                         <p>So you can apply your custom style in form of an array of classes</p>
                         <div className='codeWrapper'>
-                            <p className='comment'># you can even add your custom layout (like the 'bold' class below)</p>
+                            <p className='comment'># you can even add your custom layout (like the &apos;bold&apos; class below)</p>
                             <button className='codeSection executable'
                                 onClick={() => {
                                     Snackbar(`Your account has been <a class='bold'>removed!</a>`,{
@@ -231,7 +252,7 @@ export default function Main(){
                                                 ['background-color', 'red'],
                                                 ['border-radius', '5px']
                                             ],
-                                            massage: [
+                                            message: [
                                                 ['color', '#eee']
                                             ],
                                             bold: [
@@ -253,7 +274,7 @@ export default function Main(){
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{"['background-color', 'red'],"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{"['border-radius', '5px']"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{"],"}</span><br></br>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{"massage: ["}</span><br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{"message: ["}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{"['color', '#eee'],"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{"],"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{"bold: ["}</span><br></br>
@@ -275,7 +296,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`Give me a second please...`, { timeout: 1000 })}>
                                 <p>
-                                    {"Snackbar(`Give me a second please...`), { "}<br></br>
+                                    {"Snackbar(`Give me a second please...`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"timeout: 1000"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -284,9 +305,9 @@ export default function Main(){
                         <p>Or you can set the timeout to zero so the auto-hide would be disabled (click on the action button automatically will hide it)</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
-                                onClick={() => Snackbar(`I'm not going anywhere!`, { timeout: 0, actionText: 'hide' })}>
+                                onClick={() => Snackbar(`I'm not going anywhere!`, { timeout: 0, actionText: 'Hide' })}>
                                 <p>
-                                    {"Snackbar(`I'm not going anywhere!`), { "}<br></br>
+                                    {"Snackbar(`I'm not going anywhere!`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"timeout: 0,"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Hide'"}<br></br>
                                     {" });"}
@@ -297,24 +318,108 @@ export default function Main(){
                         <p>You can also call the hide() function manually</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
-                                onClick={() => sbList.push(Snackbar(`Ha ha! you don't have the action button this time!`, { timeout: 0 }))}>
+                                onClick={() => {
+                                    if(SB === null)
+                                        SB = Snackbar(`Ha ha! you don't have the action button this time!`, { timeout: 0 });
+                                }}>
                                 <p>
-                                    {"let sb = Snackbar(`Ha ha! you don't have the action button this time!`), { "}<br></br>
+                                    {"let sb = Snackbar(`Ha ha! you don't have the action button this time!`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"timeout: 0"}</span><br></br>
                                     {" });"}
                                 </p>
                             </button>
                             <p className='comment'># click to hide</p>
                             <button className='codeSection executable'
-                                onClick={() => sbList.forEach((sb)=>{sb.hide()})}>
-                                <p><span>{"sb.hide();"}<br></br></span></p>
+                                onClick={() => {SB?.hide(); SB = null;}}>
+                                <p><span>{"sb.hide();"}</span></p><br></br>
                             </button>
+                        </div>
+
+                        {/* update on fly */}
+                        <h3 className='sectionName' id='update-on-fly'><a href='#update-on-fly'># Update On Fly</a></h3>
+                        <p>If you store the returned object from the Snackbar() function, you can set some of its attributes after show</p>
+                        <div className='codeWrapper'>
+                            
+                            <p className='comment'># create a simple snackbar</p>
+                            <button className='codeSection executable'
+                                onClick={() => {if(SB === null) SB = Snackbar(`I'm a simple snackbar`, { timeout: 0 });}}>
+                                <p>{"let "}<span>sb</span>{" = Snackbar(`I'm a simple snackbar`), { timeout: 0 });"}</p>
+                            </button>
+
+                            <p className='comment'># update the text</p>
+                            <button className='codeSection executable'
+                                onClick={() => SB?.setMessage('I can change my massage')}>
+                                <p>{"sb."}<span>{"setMessage"}</span>{"('I can change my massage');"}</p><br></br>
+                            </button>
+
+                            <p className='comment'># change the position</p>
+                            <button className='codeSection executable'
+                                onClick={() => {
+                                    SB?.setMessage('Or change my position!');
+                                    SB?.setPosition('top-left');
+                                }}>
+                                <p>{"sb."}<span>{"setPosition"}</span>{"('top-left');"}</p><br></br>
+                            </button>
+
+                            <p className='comment'># add an icon</p>
+                            <button className='codeSection executable'
+                                onClick={() => {
+                                    SB?.setMessage('And add an icon');
+                                    SB?.setIconSrc(loadingIcon.src);
+                                }}>
+                                <p>{"sb."}<span>{"setIconSrc"}</span>{"(loadingIcon.src);"}</p><br></br>
+                            </button>
+
+                            <p className='comment'># change the theme</p>
+                            <button className='codeSection executable'
+                                onClick={() => {
+                                    SB?.setMessage('Or change the theme');
+                                    SB?.setTheme('light');
+                                }}>
+                                <p>{"sb."}<span>{"setTheme"}</span>{"('light');"}</p><br></br>
+                            </button>
+
+                            <p className='comment'># change the style</p>
+                            <button className='codeSection executable'
+                                onClick={() => {
+                                    SB?.setMessage('Even the style!');
+                                    SB?.setStyle({
+                                        container: [['background-color', '#072']],
+                                        message: [['color', '#fd0']]
+                                    });
+                                }}>
+                                <p>
+                                    {"sb."}<span>{"setStyle"}</span>{"({"}<br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;{"container: [['background-color', '#072']],"}<br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;{"message: [['color', '#fd0']],"}<br></br>
+                                    {"});"}
+                                </p>
+                            </button>
+
+                            <p className='comment'># and hide</p>
+                            <button className='codeSection executable'
+                                onClick={() => {SB?.hide(); SB = null;}}>
+                                <p>sb.<span>hide();</span></p>
+                            </button>
+
                         </div>
 
                     </div>
 
                 </div>
+
             </div>
+
+            {/* footer */}
+            <footer id='footer'>
+                <div id='main'>
+                    <p>Made by <a href='https://mostafa-mdzh.ir'>Mostafa Mohammadzadeh</a></p>
+                    <p id='dash'>-</p>
+                    <p id='github'>Source on <a href='https://github.com/MostafaMDZH/Awesome-Snackbar'>Github</a></p>
+                    <p id='awesomeComponents'>From <Link href='/'><a>Awesome Components</a></Link></p>
+                </div>
+            </footer>
+
         </div>
     )
 }

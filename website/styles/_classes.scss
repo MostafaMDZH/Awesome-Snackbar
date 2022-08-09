@@ -11,13 +11,13 @@
 }
 @media (hover: hover) and (pointer: fine){
     .lightTransparentBackground:enabled:hover{
-        background-color: rgba(0, 0, 0, 0.035) !important;
+        background-color: rgba(0, 0, 0, 0.04) !important;
     }
     .lightTransparentBackground:enabled:focus{
-        background-color: rgba(0, 0, 0, 0.045) !important;
+        background-color: rgba(0, 0, 0, 0.06) !important;
     }
     .lightTransparentBackground:enabled:active{
-        background-color: rgba(0, 0, 0, 0.055) !important;
+        background-color: rgba(0, 0, 0, 0.07) !important;
     }
 }
 .lightTransparentBackground:disabled{
