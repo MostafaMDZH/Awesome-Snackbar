@@ -135,7 +135,7 @@ export default function Main(){
 
                         {/* action button */}
                         <h3 className='sectionName' id='action-button'><a href='#action-button'># Action Button</a></h3>
-                        <p>Create a custom button with callback using action button</p>
+                        <p>Create a custom button with a callback using the action button</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => {
@@ -231,7 +231,7 @@ export default function Main(){
 
                         {/* theme */}
                         <h3 className='sectionName' id='theme'><a href='#theme'># Theme</a></h3>
-                        <p>The default theme is dark but you can enable the light theme with theme parameter</p>
+                        <p>The default theme is dark but you can enable the light theme with the theme parameter</p>
                         <div className='codeWrapper'>
                             <p className='comment'># bottom left (default)</p>
                             <button className='codeSection executable'
@@ -259,7 +259,7 @@ export default function Main(){
                                 </p>
                             </button>
                         </div>
-                        <p>So you can apply your custom style in form of an array of classes</p>
+                        <p>So you can apply your custom style in the form of an array of classes</p>
                         <div className='codeWrapper'>
                             <p className='comment'># you can even add your custom layout (like the &apos;bold&apos; class below)</p>
                             <button className='codeSection executable'
@@ -431,12 +431,10 @@ export default function Main(){
 
             {/* footer */}
             <footer id='footer'>
-                <div id='main'>
-                    <p>Made by <a href='https://mostafa-mdzh.ir'>Mostafa Mohammadzadeh</a></p>
-                    <p id='dash'>-</p>
-                    <p id='github'>Source on <a href='https://github.com/MostafaMDZH/Awesome-Snackbar'>Github</a></p>
-                    <p id='awesomeComponents'>From <Link href='/'><a>Awesome Components</a></Link></p>
-                </div>
+                <p>Made by <a href='https://mostafa-mdzh.ir'>Mostafa Mohammadzadeh</a></p>
+                <p id='dash'>-</p>
+                <p id='github'>Source on <a href='https://github.com/MostafaMDZH/Awesome-Snackbar'>Github</a></p>
+                <p id='awesomeComponents'>From <Link href='/'><a>Awesome Components</a></Link></p>
             </footer>
 
         </div>
