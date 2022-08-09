@@ -92,6 +92,16 @@
             padding-top: 15px;
             padding-left: 15px;
             padding-right: 10px;
+            > #main{
+                > #content{
+                    > .sectionName{
+                        margin-top: 20px;
+                    }
+                    > #installation{
+                        margin-top: 35px;
+                    }
+                }
+            }
         }
     }
 }
