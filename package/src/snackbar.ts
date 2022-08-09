@@ -235,10 +235,13 @@ class Snackbar{
                 20 +
                 ((list.length - i - 1) * (obj.getHeight() + 5))
                 ) + 'px';
-            if(sb.position.indexOf('bottom') >= 0)
+            if(sb.position.indexOf('bottom') >= 0){
                 obj.view.style.bottom = val;
-            else
+                obj.view.style.top = 'unset';
+            }else{
                 obj.view.style.top = val;
+                obj.view.style.bottom = 'unset';
+            }
         });
     }
 
