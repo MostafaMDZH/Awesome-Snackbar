@@ -21,6 +21,7 @@ class Snackbar {
         this.setActionCallback(parameters.onAction);
         this.timeout = (_a = parameters.timeout) !== null && _a !== void 0 ? _a : Snackbar.DEFAULT_HIDING_TIMEOUT;
         this.isWaitingForHide = false;
+        this.onHide = parameters.onHide;
         //events:
         this.setHideEvents();
         //finally show:
@@ -182,7 +183,9 @@ class Snackbar {
         //remove from DOM:
         setTimeout(function () {
             thisView.view.remove();
-        }, 1000); //long enough to make sure that it is hidden
+            if (thisView.onHide !== undefined)
+                thisView.onHide();
+        }, 500); //long enough to make sure that it is hidden
     }
     //adjustListPosition:
     static adjustListPositions(sb) {
