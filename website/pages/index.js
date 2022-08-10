@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Snackbar from 'awesome-snackbar';
 import loadingIcon from '../public/loading.gif'
 
-let welcomeSB = null;
+let isWelcomeSbShow = false;
 let SB = null;
 
 export default function Main(){
@@ -43,19 +43,22 @@ export default function Main(){
     //welcome snackbar:
     const cookies = new Cookies();
     setTimeout(() => {
-        if(welcomeSB !== null) return;
+        if(isWelcomeSbShow) return;
         if(cookies.get('WelcomeSB') !== undefined) return;
-        welcomeSB = Snackbar('Welcome to Awesome Snackbar! 👋', { position: 'top-center'});
-        setTimeout(() => {
-            welcomeSB.hide();
-            Snackbar('Click on code sections to run the demo', {
-                position: 'top-center',
-                timeout: 0,
-                actionText: 'Got it',
-                onAction: () => cookies.set('WelcomeSB', 'yes', { path: '/', maxAge: 1000*24*60*60 })
-            });
-        }, 4000);
-    }, 3000);
+        isWelcomeSbShow = true;
+        Snackbar('Welcome to Awesome Snackbar! 👋', {
+            position: 'top-center',
+            timeout: 2000,
+            onHide: () => {
+                Snackbar('Click on code sections to run the demo', {
+                    position: 'top-center',
+                    timeout: 0,
+                    actionText: 'Got it',
+                    onAction: () => cookies.set('WelcomeSB', 'yes', { path: '/', maxAge: 1000*24*60*60 })
+                });
+            }
+        });
+    }, 2000);
 
     //render:
     return (
