@@ -1,5 +1,4 @@
 ## Features:
-- [package] typescript flag(and test)
 - [package] yarn
 
 ## Publish:
