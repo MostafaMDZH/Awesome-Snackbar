@@ -1,5 +1,7 @@
 ## Publish:
-- publish the package and download it for website
+- git version
+- publish
+- test(website & spot-on)
 - yarn
 - website production mode
 - build and deploy
