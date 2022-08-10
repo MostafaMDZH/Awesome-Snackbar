@@ -1,6 +1,3 @@
-## Features:
-- on hide callback
-
 ## Publish:
 - publish the package and download it for website
 - yarn

@@ -49,7 +49,7 @@ export default function Main(){
         Snackbar('Welcome to Awesome Snackbar! 👋', {
             position: 'top-center',
             timeout: 2000,
-            onHide: () => {
+            afterHide: () => {
                 Snackbar('Click on code sections to run the demo', {
                     position: 'top-center',
                     timeout: 0,
@@ -85,6 +85,7 @@ export default function Main(){
                             <a className='navLink' href='#custom-style' >custom style </a>
                             <a className='navLink' href='#timing'       >timing       </a>
                             <a className='navLink' href='#update-on-fly'>update on fly</a>
+                            <a className='navLink' href='#after-hide'   >after hide   </a>
                         </div>
                     </div>
 
@@ -424,6 +425,26 @@ export default function Main(){
                                 <p>sb.<span>hide();</span></p>
                             </button>
 
+                        </div>
+
+
+
+                        {/* after hide */}
+                        <h3 className='sectionName' id='after-hide'><a href='#after-hide'># After Hide</a></h3>
+                        <p>As the hide function is waiting for a user event to start hiding timeout, it may not occur exactly after the specified timeout after snackbar creation, so if you want to run a function after your snackbar hides, you can use the afterHide parameter for it</p>
+                        <div className='codeWrapper'>
+                            <button className='codeSection executable'
+                                onClick={() => {
+                                    Snackbar('Marco!', {
+                                        afterHide: () => Snackbar('Polo!')
+                                    });
+                                }}>
+                                <p>
+                                    {"Snackbar('Marco!'), {"}<br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>{"afterHide"}</span>{": () => Snackbar('Polo!')"}<br></br>
+                                    {"});"}
+                                </p>
+                            </button>
                         </div>
 
                     </div>
