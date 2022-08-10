@@ -1,6 +1,4 @@
 ## Publish:
-- git version
-- publish
 - test(website & spot-on)
 - yarn
 - website production mode

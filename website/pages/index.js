@@ -427,8 +427,6 @@ export default function Main(){
 
                         </div>
 
-
-
                         {/* after hide */}
                         <h3 className='sectionName' id='after-hide'><a href='#after-hide'># After Hide</a></h3>
                         <p>As the hide function is waiting for a user event to start hiding timeout, it may not occur exactly after the specified timeout after snackbar creation, so if you want to run a function after your snackbar hides, you can use the afterHide parameter for it</p>

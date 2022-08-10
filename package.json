@@ -18,10 +18,15 @@
     "testEnvironment": "jsdom"
   },
   "keywords": [
+    "snackbar",
+    "react",
+    "javascript",
     "typescript",
-    "ts",
+    "component",
+    "module",
     "ui",
-    "modules"
+    "ts",
+    "js"
   ],
   "repository": {
     "type": "git",
