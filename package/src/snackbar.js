@@ -1,4 +1,5 @@
 "use strict";
+module.exports = (message, parameters) => { return new Snackbar(Object.assign({ message }, parameters)); };
 class Snackbar {
     //constructor:
     constructor(parameters) {
@@ -213,7 +214,6 @@ Snackbar.List = [];
 //default values:
 Snackbar.DEFAULT_HIDING_TIMEOUT = 4000;
 Snackbar.DEFAULT_POSITION = 'bottom-left';
-module.exports = Snackbar;
 const Style = `
 .snackbar {
     position: fixed;

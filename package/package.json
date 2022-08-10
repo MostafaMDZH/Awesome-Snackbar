@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "author": "Mostafa Mohammadzadeh",
   "license": "MIT",
-  "main": "index.js",
+  "main": "src/snackbar.js",
+  "types": "src/snackbar.d.ts",
   "scripts": {
     "test": "jest",
     "test-cov": "jest --coverage"

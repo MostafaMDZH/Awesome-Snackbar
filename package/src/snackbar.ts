@@ -1,3 +1,5 @@
+module.exports = (message: string, parameters: object) => {return new Snackbar({message, ...parameters});}
+
 class Snackbar{
 
     //class properties:
@@ -256,8 +258,6 @@ class Snackbar{
     }
 
 }
-
-module.exports = Snackbar;
 
 const Style = `
 .snackbar {
