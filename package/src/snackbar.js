@@ -11,10 +11,8 @@ class Snackbar {
         document.body.appendChild(view);
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
         //set properties:
-        this.message = parameters.message || 'does anybody here?';
-        this.setMessage(this.message);
-        this.position = parameters.position || Snackbar.DEFAULT_POSITION;
-        this.setPosition(this.position);
+        this.setMessage(this.message = parameters.message);
+        this.setPosition(this.position = parameters.position || Snackbar.DEFAULT_POSITION);
         this.setTheme(parameters.theme);
         this.setIconSrc(parameters.iconSrc);
         this.setStyle(parameters.style);
@@ -156,9 +154,11 @@ class Snackbar {
     //hide:
     hide() {
         const thisView = this;
+        //get list of snackbars that are in this position:
         let list = Snackbar.List.filter(obj => {
             return obj.position === this.position;
         });
+        //hide animation:
         if (list.length > 1) {
             this.view.style.opacity = '0';
             if (this.position.indexOf('bottom') >= 0)
@@ -176,6 +176,7 @@ class Snackbar {
         let index = Snackbar.List.indexOf(this);
         if (index > -1)
             Snackbar.List.splice(index, 1);
+        //adjust other snackbars position:
         Snackbar.adjustListPositions(this);
         //remove from DOM:
         setTimeout(function () {
@@ -207,7 +208,7 @@ class Snackbar {
         return heightNum;
     }
 }
-// class properties:
+//class properties:
 Snackbar.List = [];
 //default values:
 Snackbar.DEFAULT_HIDING_TIMEOUT = 4000;

@@ -1,6 +1,6 @@
 class Snackbar{
 
-    // class properties:
+    //class properties:
     public static List: Snackbar[] = [];
     
     //default values:
@@ -22,7 +22,7 @@ class Snackbar{
 
     //constructor:
     constructor(parameters: {
-            message?:    string,
+            message:    string,
             position?:   string,
             theme?:      string,
             iconSrc?:    string,
@@ -42,10 +42,8 @@ class Snackbar{
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
         
         //set properties:
-        this.message = parameters.message || 'does anybody here?';
-        this.setMessage(this.message);
-        this.position = parameters.position || Snackbar.DEFAULT_POSITION;
-        this.setPosition(this.position);
+        this.setMessage(this.message = parameters.message);
+        this.setPosition(this.position = parameters.position || Snackbar.DEFAULT_POSITION);
         this.setTheme(parameters.theme);
         this.setIconSrc(parameters.iconSrc);
         this.setStyle(parameters.style);
@@ -63,7 +61,7 @@ class Snackbar{
 	}
 
     //appendCSS:
-    static appendCSS():void{
+    protected static appendCSS():void{
         if(document.getElementById('snackbar-style') === null){
             let head = document.head || document.getElementsByTagName('head')[0];
             let style = document.createElement('style');
@@ -74,7 +72,7 @@ class Snackbar{
     }
 
     //generateViewID:
-    protected static generateViewID(): number{
+    protected static generateViewID():number{
 		let id = Math.floor(Math.random() * 1000000000) + 100000000;
         let element = document.getElementById(id.toString());
         if(element === null)
@@ -83,7 +81,7 @@ class Snackbar{
 	}
 
     //getDOM:
-    protected static getDOM(viewId: number): ChildNode{
+    protected static getDOM(viewId: number):ChildNode{
         const DOM = `
             <div class="snackbar" id="${viewId}">
                 <div class="container">
@@ -99,14 +97,14 @@ class Snackbar{
 	}
 
     //setMessage:
-    protected setMessage(message:string):void{
+    public setMessage(message:string):void{
         this.message = message;
         let messageEl = <HTMLElement> this.view.getElementsByClassName('message')[0];
         messageEl.innerHTML = this.message;
     }
 
     //setPosition:
-    protected setPosition(position:string):void{
+    public setPosition(position:string):void{
         this.position = position;
         this.view.classList.remove('bottom-left');
         this.view.classList.remove('bottom-center');
@@ -119,7 +117,7 @@ class Snackbar{
     }
 
     //setIconSrc:
-    protected setIconSrc(iconSrc?:string):void{
+    public setIconSrc(iconSrc?:string):void{
         if(iconSrc === undefined) return;
         this.iconSrc = iconSrc;
         let iconEl = <HTMLElement> this.view.getElementsByClassName('icon')[0];
@@ -128,7 +126,7 @@ class Snackbar{
     }
 
     //setTheme:
-    protected setTheme(theme?:string):void{
+    public setTheme(theme?:string):void{
         if(theme === undefined) return;
         this.theme == theme;
         this.view.classList.remove('light');
@@ -137,7 +135,7 @@ class Snackbar{
     }
 
     //setStyle:
-    protected setStyle(style?:object):void{
+    public setStyle(style?:object):void{
         if(style === undefined) return;
         this.style = style;
         for(const [className, style] of Object.entries(this.style)){
@@ -149,7 +147,7 @@ class Snackbar{
     }
 
     //setActionText:
-    protected setActionText(actionText?:string):void{
+    public setActionText(actionText?:string):void{
         if(actionText === undefined) return;
         this.actionText = actionText;
         let actionButton = <HTMLInputElement> this.view.getElementsByClassName('actionButton')[0];
@@ -199,9 +197,13 @@ class Snackbar{
     //hide:
     protected hide():void{
         const thisView = this;
+
+        //get list of snackbars that are in this position:
         let list = Snackbar.List.filter(obj => {
             return obj.position === this.position;
         });
+
+        //hide animation:
         if(list.length > 1){
             this.view.style.opacity = '0';
             if(this.position.indexOf('bottom') >= 0)
@@ -217,6 +219,7 @@ class Snackbar{
         let index = Snackbar.List.indexOf(this);
         if(index > -1) Snackbar.List.splice(index, 1);
 
+        //adjust other snackbars position:
         Snackbar.adjustListPositions(this);
         
         //remove from DOM:
@@ -226,7 +229,7 @@ class Snackbar{
     }
 
     //adjustListPosition:
-    static adjustListPositions(sb: Snackbar):void{
+    protected static adjustListPositions(sb: Snackbar):void{
         let list = Snackbar.List.filter(obj => {
             return obj.position === sb.position;
         });
