@@ -13,7 +13,7 @@ declare class Snackbar {
     protected onAction: (() => void) | undefined;
     protected timeout: number;
     protected isWaitingForHide: boolean;
-    protected onHide: (() => void) | undefined;
+    protected afterHide: (() => void) | undefined;
     constructor(parameters: {
         message: string;
         position?: string;
@@ -23,7 +23,7 @@ declare class Snackbar {
         actionText?: string;
         onAction?: () => void;
         timeout?: number;
-        onHide?: () => void;
+        afterHide?: () => void;
     });
     protected static appendCSS(): void;
     protected static generateViewID(): number;

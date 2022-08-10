@@ -21,7 +21,7 @@ class Snackbar{
     protected onAction:   (() => void) | undefined;
     protected timeout:    number;
     protected isWaitingForHide: boolean;
-    protected onHide:     (() => void) | undefined;
+    protected afterHide:  (() => void) | undefined;
 
     //constructor:
     constructor(parameters: {
@@ -33,7 +33,7 @@ class Snackbar{
             actionText?: string,
             onAction?: () => void,
             timeout?:    number,
-            onHide?:   () => void
+            afterHide?:() => void
         }){
 
         //append CSS styles to DOM:
@@ -55,7 +55,7 @@ class Snackbar{
         this.setActionCallback(parameters.onAction);
         this.timeout = parameters.timeout ?? Snackbar.DEFAULT_HIDING_TIMEOUT;
         this.isWaitingForHide = false;
-        this.onHide = parameters.onHide;
+        this.afterHide = parameters.afterHide;
         
         //events:
         this.setHideEvents();
@@ -230,8 +230,8 @@ class Snackbar{
         //remove from DOM:
         setTimeout(function(){
             thisView.view.remove();
-            if(thisView.onHide !== undefined)
-                thisView.onHide();
+            if(thisView.afterHide !== undefined)
+                thisView.afterHide();
         }, 500);//long enough to make sure that it is hidden
     }
 
