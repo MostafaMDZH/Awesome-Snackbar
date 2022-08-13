@@ -1,7 +1,7 @@
 {
   "name": "awesome-snackbar",
   "description": "React, Javascript, and Typescript compatible snackbar.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Mostafa Mohammadzadeh",
   "license": "MIT",
   "main": "src/snackbar.js",
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest",
     "test-cov": "jest --coverage",
-    "deploy": "npm publish && cd website && next export && find out -type d -exec chmod 755 {} \\; && find out -type f -exec chmod 644 {} \\; && cd .. && git ftp push"
+    "deploy": "npm publish && cd website && next export && find out -type d -exec chmod 755 {} \\; && find out -type f -exec chmod 644 {} \\; && cd .. && && git add out/ && git commit -m \"[deployment auto commit]\" git ftp push"
   },
   "devDependencies": {
     "jest": "^28.1.3",
@@ -33,7 +33,7 @@
     "type": "git",
     "url": "git+https://github.com/MostafaMDZH/Awesome-Snackbar.git"
   },
-  "homepage": "awesome-snackbar.demos.mostafa-mdzh.ir",
+  "homepage": "https://awesome-snackbar.demos.mostafa-mdzh.ir",
   "bugs": {
     "url": "https://github.com/MostafaMDZH/Awesome-Snackbar/issues"
   }
