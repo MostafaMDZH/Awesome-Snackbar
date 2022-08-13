@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Cookies from 'universal-cookie';
 import Link from 'next/link'
 import Snackbar from 'awesome-snackbar';
@@ -63,6 +64,11 @@ export default function Main(){
     //render:
     return (
         <div id='window' style={{scrollBehavior:'smooth'}}>
+
+            <Head>
+                <title>Awesome Snackbar | React, Javascript, and Typescript compatible snackbar</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
 
             {/* header */}
             <header id='header'>
