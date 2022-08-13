@@ -1,14 +1,15 @@
 {
   "name": "awesome-snackbar",
   "description": "React, Javascript, and Typescript compatible snackbar.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Mostafa Mohammadzadeh",
   "license": "MIT",
   "main": "src/snackbar.js",
   "types": "src/snackbar.d.ts",
   "scripts": {
     "test": "jest",
-    "test-cov": "jest --coverage"
+    "test-cov": "jest --coverage",
+    "deploy": "npm publish && cd website && next export && find out -type d -exec chmod 755 {} \\; && find out -type f -exec chmod 644 {} \\; && cd .. && git ftp push"
   },
   "devDependencies": {
     "jest": "^28.1.3",
