@@ -1,7 +1,7 @@
 {
   "name": "awesome-snackbar",
   "description": "React, Javascript, and Typescript compatible snackbar.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Mostafa Mohammadzadeh",
   "license": "MIT",
   "main": "src/snackbar.js",
@@ -32,7 +32,7 @@
     "type": "git",
     "url": "git+https://github.com/MostafaMDZH/Awesome-Snackbar.git"
   },
-  "homepage": "https://github.com/MostafaMDZH/Awesome-Snackbar#readme",
+  "homepage": "awesome-snackbar.demos.mostafa-mdzh.ir",
   "bugs": {
     "url": "https://github.com/MostafaMDZH/Awesome-Snackbar/issues"
   }
