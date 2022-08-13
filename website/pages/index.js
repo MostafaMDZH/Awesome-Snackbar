@@ -108,7 +108,7 @@ export default function Main(){
                         <div className='codeWrapper'>
                             <p className='comment'># npm</p>
                             <button className='codeSection copyable' onClick={()=>copyTextToClipboard('npm i awesome-snackbar --save')}>
-                                <p>npm i <span>awesome-snackbar</span> --save</p>
+                                <p>npm i <span>awesome-snackbar</span></p>
                             </button>
                             <p className='comment'># yarn</p>
                             <button className='codeSection copyable' onClick={()=>copyTextToClipboard('yarn add awesome-snackbar')}>
