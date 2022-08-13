@@ -3,7 +3,7 @@ React, Javascript, and Typescript compatible snackbar<br>
 @MostafaMDZH | mostafa.mdzh@gmail.com</br></br>
 
 ## Features <a href='https://awesome-snackbar.demos.mostafa-mdzh.ir'>[demo & documentation]</a>
-- Custom action button
+- Action button
 - Dark/Light theme
 - Custom position
 - Icon support
@@ -11,7 +11,7 @@ React, Javascript, and Typescript compatible snackbar<br>
 - Emoji support
 - Multiple snackbars at the same time
 - Update on fly
-- Waits for a user event to hide
+- Waits for a user event for hide
 - Custom timeout (+ability to disable the auto hide)
 - Callback after hide
 - Custom DOM
