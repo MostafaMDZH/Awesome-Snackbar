@@ -153,14 +153,11 @@
                     > .codeSection{
                         display: flex;
                         justify-content: space-between;
+                        text-align: left;
+                        line-height: 1.4rem;
                         color: #e8e8e8;
                         cursor: default;
-                        > p{
-                            text-align: left;
-                            letter-spacing: 0.005rem;
-                            line-height: 1.5rem;
-                            > span{color: #f5d500;}
-                        }
+                        span{color: #f5d500;}
                     }
                     > .copyable,
                     > .executable{

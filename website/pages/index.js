@@ -396,7 +396,7 @@ export default function Main(){
                                     SB?.setMessage('And add an icon');
                                     SB?.setIconSrc(loadingIcon.src);
                                 }}>
-                                <p>{"sb."}<span>{"setIconSrc"}</span>{"(loadingIcon.src);"}</p><br></br>
+                                <p>{"sb."}<span>{"setIconSrc"}</span>{"( loadingIcon.src );"}</p><br></br>
                             </button>
 
                             <p className='comment'># change the theme</p>
