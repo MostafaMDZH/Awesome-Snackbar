@@ -461,7 +461,7 @@ export default function Main(){
             <footer id='footer'>
                 <p>Made by <a href='https://mostafa-mdzh.ir'>Mostafa Mohammadzadeh</a></p>
                 <p id='dash'>-</p>
-                <p id='github'>Source on <a href='https://github.com/MostafaMDZH/Awesome-Snackbar'>Github</a></p>
+                <p id='githubLink'>Source on <a href='https://github.com/MostafaMDZH/Awesome-Snackbar'>Github</a></p>
                 <p id='awesomeComponents'>From <Link href='/'><a>Awesome Components</a></Link></p>
             </footer>
 
