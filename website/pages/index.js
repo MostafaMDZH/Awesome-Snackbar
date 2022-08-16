@@ -110,7 +110,7 @@ export default function Main(){
 
                         {/* installation */}
                         <h3 className='sectionName' id='installation'><a href='#installation'># Installation</a></h3>
-                        <p className='step'><a className='bold'>{'>'} step 1 : </a>you can use either npm or yarn, or import the main file with the Html tag</p>
+                        <p className='step'><a className='bold'>{'>'} step 1 : </a>you can use either npm or yarn, or import the main file with the script tag</p>
                         <div className='codeWrapper'>
                             <p className='comment'># npm</p>
                             <button className='codeSection copyable' onClick={()=>copyTextToClipboard('npm i awesome-snackbar --save')}>
@@ -122,7 +122,7 @@ export default function Main(){
                             </button>
                             <p className='comment'>
                                 # html (download the snackbar.js file from the&nbsp;
-                                <a href='https://github.com/MostafaMDZH/Awesome-Snackbar/tree/main/package/src'>src</a>
+                                <a href='https://github.com/MostafaMDZH/Awesome-Snackbar/tree/main/src'>src</a>
                                 &nbsp;directory)
                             </p>
                             <button className='codeSection copyable' onClick={()=>copyTextToClipboard('<script src="snackbar.js"></script>')}>
@@ -227,7 +227,7 @@ export default function Main(){
                         <h3 className='sectionName' id='icon-support'><a href='#icon-support'># Icon Support</a></h3>
                         <p>You can add an icon to your snackbar with iconSrc parameter</p>
                         <div className='codeWrapper'>
-                            <p className='comment'>import loadingButton from &apos;./src/loading.gif&apos;;</p>
+                            <p className='comment'>import loadingIcon from &apos;./src/loading.gif&apos;;</p>
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`Loading... please wait`, { iconSrc: loadingIcon.src, actionText: 'Stop'})}>
                                 <p>
