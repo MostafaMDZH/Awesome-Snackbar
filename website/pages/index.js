@@ -402,7 +402,7 @@ export default function Main(){
                             <p className='comment'># change the theme</p>
                             <button className='codeSection executable'
                                 onClick={() => {
-                                    SB?.setMessage('Or change the theme');
+                                    SB?.setMessage('Or change my theme');
                                     SB?.setTheme('light');
                                 }}>
                                 <p>{"sb."}<span>{"setTheme"}</span>{"('light');"}</p><br></br>
@@ -411,7 +411,7 @@ export default function Main(){
                             <p className='comment'># change the style</p>
                             <button className='codeSection executable'
                                 onClick={() => {
-                                    SB?.setMessage('Even the style!');
+                                    SB?.setMessage('Even my style!');
                                     SB?.setStyle({
                                         container: [['background-color', '#072']],
                                         message: [['color', '#fd0']]
