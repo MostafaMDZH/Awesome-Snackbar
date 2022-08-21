@@ -243,7 +243,7 @@ export default function Main(){
                         <h3 className='sectionName' id='theme'><a href='#theme'># Theme</a></h3>
                         <p>The default theme is dark but you can enable the light theme with the theme parameter</p>
                         <div className='codeWrapper'>
-                            <p className='comment'># bottom left (default)</p>
+                            <p className='comment'>#the default theme is dark</p>
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`Today is...`, { theme: 'light', position: 'top-center', actionText: 'Sunday!'})}>
                                 <p>

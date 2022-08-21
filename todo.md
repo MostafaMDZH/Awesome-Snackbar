@@ -1,4 +1,3 @@
-- theme comment!
 - or change my theme
 - mostafa link to github not .ir
 - message color: 555 on light theme
