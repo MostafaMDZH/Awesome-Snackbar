@@ -435,7 +435,7 @@ export default function Main(){
 
                         {/* after hide */}
                         <h3 className='sectionName' id='after-hide'><a href='#after-hide'># After Hide</a></h3>
-                        <p>As the hide function is waiting for a user event to start hiding timeout, it may not occur exactly after the specified timeout after snackbar creation, so if you want to run a function after your snackbar hides, you can use the afterHide parameter for it</p>
+                        <p>When the waitForEvent is set to true, the hide function is waiting for a user event to start hiding timeout, so it may not occur exactly after the specified timeout after toast creation, so if you want to run a function after your toast hides, you can use the afterHide parameter for it</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => {

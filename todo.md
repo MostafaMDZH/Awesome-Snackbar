@@ -1,4 +1,3 @@
-- afterHide description
 - in a form of...
 - wait for event document
 - emoji for copied
