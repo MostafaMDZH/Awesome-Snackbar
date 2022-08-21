@@ -73,7 +73,7 @@ export default function Main(){
             {/* header */}
             <header id='header'>
                 <Link href='/'><a className='headerLink'>Awesome Components</a></Link>
-                <Link href='https://www.buymeacoffee.com/mostafamdzh'><a className='headerLink' id='coffee'>buy me a coffee!</a></Link>
+                <Link href='https://www.buymeacoffee.com/mostafamdzh'><a className='headerLink' id='coffee'>buy me a coffee! :)</a></Link>
             </header>
 
             <div id='container'>
