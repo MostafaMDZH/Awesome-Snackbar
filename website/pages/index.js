@@ -113,7 +113,7 @@ export default function Main(){
                         <p className='step'><a className='bold'>{'>'} step 1 : </a>you can use either npm or yarn, or import the main file with the script tag</p>
                         <div className='codeWrapper'>
                             <p className='comment'># npm</p>
-                            <button className='codeSection copyable' onClick={()=>copyTextToClipboard('npm i awesome-snackbar --save')}>
+                            <button className='codeSection copyable' onClick={()=>copyTextToClipboard('npm i awesome-snackbar')}>
                                 <p>npm i <span>awesome-snackbar</span></p>
                             </button>
                             <p className='comment'># yarn</p>
