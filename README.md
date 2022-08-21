@@ -8,12 +8,12 @@ React, Javascript, and Typescript compatible snackbar<br>
 - Custom position
 - Icon support
 - Custom style
-- Emoji support
+- Custom markup
 - Multiple snackbars at the same time
 - Update on fly
-- Waits for a user event for hide
-- Custom timeout (+ability to disable the auto hide)
+- User event detection
+- Custom timeout
+- Manual hiding
 - Callback after hide
-- Custom DOM
 - Responsive design
 - Dynamic HTML
