@@ -110,7 +110,7 @@ export default function Main(){
 
                         {/* installation */}
                         <h3 className='sectionName' id='installation'><a href='#installation'># Installation</a></h3>
-                        <p className='step'><a className='bold'>{'>'} step 1 : </a>you can use either npm or yarn, or import the main file with the script tag</p>
+                        <p className='step'><a className='bold'>{'>'} step 1 : </a>you can use either npm or yarn, or import the main file with the script tag.</p>
                         <div className='codeWrapper'>
                             <p className='comment'># npm</p>
                             <button className='codeSection copyable' onClick={()=>copyTextToClipboard('npm i awesome-snackbar')}>
@@ -129,7 +129,7 @@ export default function Main(){
                                 <p>{"<script src=\""}<span>snackbar.js</span>{"\"></script>"}</p>
                             </button>
                         </div>
-                        <p className='step'><a className='bold'>{'>'} step 2 : </a>include the package in your code</p>
+                        <p className='step'><a className='bold'>{'>'} step 2 : </a>include the package in your code:</p>
                         <div className='codeWrapper'>
                             <p className='comment'># npm and yarn</p>
                             <button className='codeSection copyable' onClick={()=>copyTextToClipboard('import Snackbar from \'awesome-snackbar\'')}>
@@ -145,7 +145,7 @@ export default function Main(){
 
                         {/* action button */}
                         <h3 className='sectionName' id='action-button'><a href='#action-button'># Action Button</a></h3>
-                        <p>Create a custom button with a callback using the action button</p>
+                        <p>Create a custom button with a callback using the action button:</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => {
@@ -165,7 +165,7 @@ export default function Main(){
 
                         {/* position */}
                         <h3 className='sectionName' id='position'><a href='#position'># Position</a></h3>
-                        <p>You can position the snackbar by setting the position parameter</p>
+                        <p>You can position the snackbar by setting the position parameter:</p>
                         <div className='codeWrapper'>
                             <p className='comment'># bottom left (default)</p>
                             <button className='codeSection executable'
@@ -225,7 +225,7 @@ export default function Main(){
 
                         {/* icon support */}
                         <h3 className='sectionName' id='icon-support'><a href='#icon-support'># Icon Support</a></h3>
-                        <p>You can add an icon to your snackbar with iconSrc parameter</p>
+                        <p>You can add an icon to your snackbar with iconSrc parameter:</p>
                         <div className='codeWrapper'>
                             <p className='comment'>import loadingIcon from &apos;./src/loading.gif&apos;;</p>
                             <button className='codeSection executable'
@@ -241,9 +241,8 @@ export default function Main(){
 
                         {/* theme */}
                         <h3 className='sectionName' id='theme'><a href='#theme'># Theme</a></h3>
-                        <p>The default theme is dark but you can enable the light theme with the theme parameter</p>
+                        <p>The default theme is dark, but you can enable the light theme with the theme parameter:</p>
                         <div className='codeWrapper'>
-                            <p className='comment'>#the default theme is dark</p>
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`Today is...`, { theme: 'light', position: 'top-center', actionText: 'Sunday!'})}>
                                 <p>
@@ -258,7 +257,7 @@ export default function Main(){
 
                         {/* custom style */}
                         <h3 className='sectionName' id='custom-style'><a href='#custom-style'># Custom Style</a></h3>
-                        <p>The DOM layer in Awesome Snackbar is equivalent to below</p>
+                        <p>The Awesome Snackbar's html markup is equivalent to below:</p>
                         <div className='codeWrapper'>
                             <button className='codeSection'>
                                 <p>
@@ -269,7 +268,7 @@ export default function Main(){
                                 </p>
                             </button>
                         </div>
-                        <p>So you can apply your custom style in a form of an array of classes</p>
+                        <p>So you can apply your custom style in a form of an array of classes:</p>
                         <div className='codeWrapper'>
                             <p className='comment'># you can even add your custom layout (like the &apos;bold&apos; class below)</p>
                             <button className='codeSection executable'
@@ -320,7 +319,7 @@ export default function Main(){
 
                         {/* timing */}
                         <h3 className='sectionName' id='timing'><a href='#timing'># Timing</a></h3>
-                        <p>The default timeout for hiding is 4 seconds but you can customize it with the timeout parameter.</p>
+                        <p>The default timeout for hiding is 4 seconds but you can customize it with the timeout parameter:</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => Snackbar(`Give me a second please...`, { timeout: 1000 })}>
@@ -344,7 +343,7 @@ export default function Main(){
                             </button>
                         </div>
 
-                        <p>You can also call the hide() function manually</p>
+                        <p>You can also call the hide() function manually:</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => {
@@ -366,7 +365,7 @@ export default function Main(){
 
                         {/* update on fly */}
                         <h3 className='sectionName' id='update-on-fly'><a href='#update-on-fly'># Update On Fly</a></h3>
-                        <p>If you store the returned object from the Snackbar() function, you can set some of its attributes after show</p>
+                        <p>If you store the returned object from the Snackbar() function, you can set some of its attributes after its created:</p>
                         <div className='codeWrapper'>
                             
                             <p className='comment'># create a simple snackbar</p>
@@ -435,7 +434,7 @@ export default function Main(){
 
                         {/* after hide */}
                         <h3 className='sectionName' id='after-hide'><a href='#after-hide'># After Hide</a></h3>
-                        <p>When the waitForEvent is set to true, the hide function is waiting for a user event to start hiding timeout, so it may not occur exactly after the specified timeout after toast creation, so if you want to run a function after your toast hides, you can use the afterHide parameter for it</p>
+                        <p>When the waitForEvent is set to true, the hide function is waiting for a user event to start hiding timeout, so it may not occur exactly after the specified timeout after toast creation, so if you want to run a function after your toast hides, you can use the afterHide parameter for it:</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => {

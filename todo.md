@@ -1,4 +1,3 @@
-- dom layer html markup
 - better readme list
 - why?? html{font-size: 1.05rem;}{#version, #description, .sectionDescription, coffee :)}
 - wait for event document
