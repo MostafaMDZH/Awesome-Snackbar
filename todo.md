@@ -1,9 +1,7 @@
-- in a form of...
-- wait for event document
-- emoji for copied
 - dom layer html markup
 - better readme list
 - why?? html{font-size: 1.05rem;}{#version, #description, .sectionDescription, coffee :)}
+- wait for event document
 
 
 - message color: 555 on light theme

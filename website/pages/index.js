@@ -15,9 +15,9 @@ export default function Main(){
 			fallbackCopyTextToClipboard(text);
 		}else{
 			navigator.clipboard.writeText(text).then(function(){
-                Snackbar('Copied to clipboard');
+                Snackbar('Copied to clipboard 👍');
 			},function(err){
-                Snackbar('cannot copy');
+                Snackbar('cannot copy 👎');
 			});
 		}
 	}
@@ -34,9 +34,9 @@ export default function Main(){
 		textArea.select();
 		try{
 			document.execCommand('copy');
-            Snackbar('Copied to clipboard');
+            Snackbar('Copied to clipboard 👍');
 		}catch(err){
-            Snackbar('cannot copy');
+            Snackbar('cannot copy 👎');
 		}
 		document.body.removeChild(textArea);
 	}
@@ -269,7 +269,7 @@ export default function Main(){
                                 </p>
                             </button>
                         </div>
-                        <p>So you can apply your custom style in the form of an array of classes</p>
+                        <p>So you can apply your custom style in a form of an array of classes</p>
                         <div className='codeWrapper'>
                             <p className='comment'># you can even add your custom layout (like the &apos;bold&apos; class below)</p>
                             <button className='codeSection executable'
