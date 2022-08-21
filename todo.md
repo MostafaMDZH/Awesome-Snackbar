@@ -1,4 +1,3 @@
-- mostafa link to github not .ir
 - message color: 555 on light theme
 - Marco...
 - remove --save
