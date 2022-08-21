@@ -1,5 +1,3 @@
-- message color: 555 on light theme
-- Marco...
 - remove --save
 - afterHide description
 - in a form of...
@@ -10,6 +8,7 @@
 - why?? html{font-size: 1.05rem;}{#version, #description, .sectionDescription, coffee :)}
 
 
+- message color: 555 on light theme
 - add "wait for user action = true"
 - if event accurse after timeout duration, hide the view in third of the hiding time
 - disable events after hide

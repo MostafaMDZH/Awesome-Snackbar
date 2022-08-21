@@ -439,12 +439,12 @@ export default function Main(){
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => {
-                                    Snackbar('Marco!', {
+                                    Snackbar('Marco...', {
                                         afterHide: () => Snackbar('Polo!')
                                     });
                                 }}>
                                 <p>
-                                    {"Snackbar('Marco!'), {"}<br></br>
+                                    {"Snackbar('Marco...'), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"afterHide"}</span>{": () => Snackbar('Polo!')"}<br></br>
                                     {"});"}
                                 </p>
