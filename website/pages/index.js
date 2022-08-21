@@ -104,7 +104,7 @@ export default function Main(){
                         <h3 id='awesome'><Link href='/'>Awesome</Link></h3>
                         <div id='name-versionWrapper'>
                             <h1 id='snackbar'><Link href='/'>Snackbar</Link></h1>
-                            <a>V1.0.5</a>
+                            <a>V1.1.0</a>
                         </div>
                         <p>React, Javascript, and Typescript compatible snackbar</p>
 
