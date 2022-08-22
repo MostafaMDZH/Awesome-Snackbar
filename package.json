@@ -1,7 +1,7 @@
 {
   "name": "awesome-snackbar",
   "description": "React, Javascript, and Typescript compatible snackbar.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Mostafa Mohammadzadeh",
   "license": "MIT",
   "main": "src/snackbar.js",
