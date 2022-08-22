@@ -297,13 +297,13 @@ const Style = `
     display: none;
   }
   .snackbar > .container > .message {
-    font-size: 0.87rem;
+    font-size: 0.9375rem;
   }
   .snackbar > .container > .actionButton {
     height: 100%;
     padding: 5px 3px;
     background-color: transparent;
-    font-size: 0.87rem;
+    font-size: 0.9375rem;
     color: #F7FF00;
     border: none;
     outline: none;
