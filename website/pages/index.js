@@ -83,15 +83,16 @@ export default function Main(){
                     {/* navigation */}
                     <div id='navigation'>
                         <div id='navigationWrapper'>
-                            <a className='navLink' href='#installation' >installation </a>
-                            <a className='navLink' href='#action-button'>action button</a>
-                            <a className='navLink' href='#position'     >position     </a>
-                            <a className='navLink' href='#icon-support' >icon support </a>
-                            <a className='navLink' href='#theme'        >theme        </a>
-                            <a className='navLink' href='#custom-style' >custom style </a>
-                            <a className='navLink' href='#timing'       >timing       </a>
-                            <a className='navLink' href='#update-on-fly'>update on fly</a>
-                            <a className='navLink' href='#after-hide'   >after hide   </a>
+                            <a className='navLink' href='#installation'  >installation  </a>
+                            <a className='navLink' href='#action-button' >action button </a>
+                            <a className='navLink' href='#position'      >position      </a>
+                            <a className='navLink' href='#icon-support'  >icon support  </a>
+                            <a className='navLink' href='#theme'         >theme         </a>
+                            <a className='navLink' href='#custom-style'  >custom style  </a>
+                            <a className='navLink' href='#timing'        >timing        </a>
+                            <a className='navLink' href='#wait-for-event'>wait for event</a>
+                            <a className='navLink' href='#update-on-fly' >update on fly </a>
+                            <a className='navLink' href='#after-hide'    >after hide    </a>
                         </div>
                     </div>
 
@@ -225,7 +226,7 @@ export default function Main(){
 
                         {/* icon support */}
                         <h3 className='sectionName' id='icon-support'><a href='#icon-support'># Icon Support</a></h3>
-                        <p className='sectionDescription'>You can add an icon to your snackbar with iconSrc parameter:</p>
+                        <p className='sectionDescription'>You can add an icon to your snackbar with the iconSrc parameter:</p>
                         <div className='codeWrapper'>
                             <p className='comment'>import loadingIcon from &apos;./src/loading.gif&apos;;</p>
                             <button className='codeSection executable'
@@ -363,6 +364,24 @@ export default function Main(){
                             </button>
                         </div>
 
+                        {/* wait-for-event */}
+                        <h3 className='sectionName' id='wait-for-event'><a href='#wait-for-event'># Wait For Event</a></h3>
+                        <p className='sectionDescription'>By default, a Snackbar waits for an event to hide, but if your message is not that important, you can disable this feature with the waitForEvent parameter:</p>
+                        <div className='codeWrapper'>
+                            <button className='codeSection executable'
+                                onClick={() => {
+                                    setTimeout(() => {
+                                        Toast(`I'm no waiting for you!`, { waitForEvent: false });
+                                    }, 100);
+                                }}>
+                                <p>
+                                    {"Toast(`I'm no waiting for you!`), {"}<br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>{"waitForEvent: false"}</span><br></br>
+                                    {" });"}
+                                </p>
+                            </button>
+                        </div>
+
                         {/* update on fly */}
                         <h3 className='sectionName' id='update-on-fly'><a href='#update-on-fly'># Update On Fly</a></h3>
                         <p className='sectionDescription'>If you store the returned object from the Snackbar() function, you can set some of its attributes after its created:</p>
@@ -434,7 +453,7 @@ export default function Main(){
 
                         {/* after hide */}
                         <h3 className='sectionName' id='after-hide'><a href='#after-hide'># After Hide</a></h3>
-                        <p className='sectionDescription'>When the waitForEvent is set to true, the hide function is waiting for a user event to start hiding timeout, so it may not occur exactly after the specified timeout after toast creation, so if you want to run a function after your toast hides, you can use the afterHide parameter for it:</p>
+                        <p className='sectionDescription'>When the waitForEvent is set to true(witch is the default value), the hide function is waiting for an event to start hiding timeout, so it may not occur exactly after the specified timeout after toast creation, so if you want to run a function after your toast hides, you can use the afterHide parameter for it:</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => {
