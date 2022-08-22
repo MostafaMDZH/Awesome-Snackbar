@@ -258,7 +258,7 @@ export default function Main(){
 
                         {/* custom style */}
                         <h3 className='sectionName' id='custom-style'><a href='#custom-style'># Custom Style</a></h3>
-                        <p className='sectionDescription'>The Awesome Snackbar's html markup is equivalent to below:</p>
+                        <p className='sectionDescription'>The Awesome snackbar's html markup is equivalent to below:</p>
                         <div className='codeWrapper'>
                             <button className='codeSection'>
                                 <p>
@@ -331,7 +331,7 @@ export default function Main(){
                                 </p>
                             </button>
                             <p className='comment'># Notice: when the waitForEvent is set to true(which is the default value), if an event happens after the timeout value after creating the Snackbar, the timeout value divides by two.</p>
-                            <p className='comment'># For example, if the timeout value is 4 seconds and an event happens 3 seconds after the Snackbar is created, 4 seconds later the hide animation starts, but if that event happens 5 seconds after the Snackbar is created, the hide animation starts in 2 seconds.</p>
+                            <p className='comment'># For example, if the timeout value is 4 seconds and an event happens 3 seconds after the snackbar is created, 4 seconds later the hide animation starts, but if that event happens 5 seconds after the snackbar is created, the hide animation starts in 2 seconds.</p>
                         </div>
                         <p className='sectionDescription'>Or you can set the timeout to zero so the auto-hide would be disabled (click on the action button automatically will hide it)</p>
                         <div className='codeWrapper'>
@@ -368,16 +368,16 @@ export default function Main(){
 
                         {/* wait-for-event */}
                         <h3 className='sectionName' id='wait-for-event'><a href='#wait-for-event'># Wait For Event</a></h3>
-                        <p className='sectionDescription'>By default, a Snackbar waits for an event to hide, but if your message is not that important, you can disable this feature with the waitForEvent parameter:</p>
+                        <p className='sectionDescription'>By default, a snackbar waits for an event to hide, but if your message is not that important, you can disable this feature with the waitForEvent parameter:</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => {
                                     setTimeout(() => {
-                                        Toast(`I'm no waiting for you!`, { waitForEvent: false });
+                                        Snackbar(`I'm not waiting for you!`, { waitForEvent: false });
                                     }, 100);
                                 }}>
                                 <p>
-                                    {"Toast(`I'm no waiting for you!`), {"}<br></br>
+                                    {"Snackbar(`I'm not waiting for you!`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"waitForEvent: false"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -455,7 +455,7 @@ export default function Main(){
 
                         {/* after hide */}
                         <h3 className='sectionName' id='after-hide'><a href='#after-hide'># After Hide</a></h3>
-                        <p className='sectionDescription'>When the waitForEvent is set to true(which is the default value), the hide function is waiting for an event to start hiding timeout, so it may not occur exactly after the specified timeout after toast creation, so if you want to run a function after your toast hides, you can use the afterHide parameter for it:</p>
+                        <p className='sectionDescription'>When the waitForEvent is set to true(which is the default value), the hide function is waiting for an event to start hiding timeout, so it may not occur exactly after the specified timeout after snackbar creation, so if you want to run a function after your snackbar hides, you can use the afterHide parameter for it:</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => {
