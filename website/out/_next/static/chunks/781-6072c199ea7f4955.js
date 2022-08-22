@@ -1,4 +1,4 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[781],{2882:function(a){"use strict";a.exports=(a,c)=>new b(Object.assign({message:a},c));class b{constructor(a){var c;b.appendCSS(),this.viewID=b.generateViewID();let d=b.getDOM(this.viewID);document.body.appendChild(d),this.view=document.getElementById(this.viewID.toString())||document.createElement("div"),this.setMessage(this.message=a.message),this.setPosition(this.position=a.position||b.DEFAULT_POSITION),this.setTheme(a.theme),this.setIconSrc(a.iconSrc),this.setStyle(a.style),this.setActionText(a.actionText),this.setActionCallback(a.onAction),this.timeout=null!==(c=a.timeout)&& void 0!==c?c:b.DEFAULT_HIDING_TIMEOUT,this.isWaitingForHide=!1,this.afterHide=a.afterHide,this.setHideEvents(),this.show()}static appendCSS(){if(null===document.getElementById("snackbar-style")){let a=document.head||document.getElementsByTagName("head")[0],b=document.createElement("style");b.id="snackbar-style",a.appendChild(b),b.appendChild(document.createTextNode(c))}}static generateViewID(){let a=Math.floor(1e9*Math.random())+1e8;return null===document.getElementById(a.toString())?a:b.generateViewID()}static getDOM(a){let b=`
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[781],{2882:function(a){"use strict";a.exports=(a,c)=>new b(Object.assign({message:a},c));class b{constructor(a){var c,d;this.bornTime=Date.now(),this.hideEventHandler=this.handleHideEvent.bind(this),b.appendCSS(),this.viewID=b.generateViewID();let e=b.getDOM(this.viewID);document.body.appendChild(e),this.view=document.getElementById(this.viewID.toString())||document.createElement("div"),this.setMessage(this.message=a.message),this.setPosition(this.position=a.position||b.DEFAULT_POSITION),this.setTheme(a.theme),this.setIconSrc(a.iconSrc),this.setStyle(a.style),this.setActionText(a.actionText),this.setActionCallback(a.onAction),this.waitForEvent=null===(c=a.waitForEvent)|| void 0===c||c,this.timeout=null!==(d=a.timeout)&& void 0!==d?d:b.DEFAULT_HIDING_TIMEOUT,this.isWaitingForHide=!1,this.afterHide=a.afterHide,this.addHideEventListener(),this.waitForEvent||this.startHidingTimer(this.timeout),this.show()}static appendCSS(){if(null===document.getElementById("snackbar-style")){let a=document.head||document.getElementsByTagName("head")[0],b=document.createElement("style");b.id="snackbar-style",a.appendChild(b),b.appendChild(document.createTextNode(c))}}static generateViewID(){let a=Math.floor(1e9*Math.random())+1e8;return null===document.getElementById(a.toString())?a:b.generateViewID()}static getDOM(a){let b=`
             <div class="snackbar" id="${a}">
                 <div class="container">
                     <span class='icon'></span>
@@ -6,7 +6,7 @@
                     <input type="button" class="actionButton" id="${a}_actionButton" value="">
                 </div>
             </div>
-        `,c=document.createElement("div");return c.innerHTML=b.trim(),c.firstChild||c}setMessage(a){this.message=a;this.view.getElementsByClassName("message")[0].innerHTML=this.message}setPosition(a){this.position=a,this.view.classList.remove("bottom-left"),this.view.classList.remove("bottom-center"),this.view.classList.remove("bottom-right"),this.view.classList.remove("top-left"),this.view.classList.remove("top-center"),this.view.classList.remove("top-right"),this.view.classList.add(a),b.adjustListPositions(this)}setIconSrc(a){if(void 0===a)return;this.iconSrc=a;let b=this.view.getElementsByClassName("icon")[0];b.style.setProperty("display","block"),b.style.setProperty("background-image","url("+this.iconSrc+")")}setTheme(a){void 0!==a&&(this.theme,this.view.classList.remove("light"),this.view.classList.remove("dark"),this.view.classList.add(a))}setStyle(a){if(void 0!==a)for(let[b,c]of(this.style=a,Object.entries(this.style))){let d=document.getElementById(this.viewID.toString()).getElementsByClassName(b)[0];if(void 0!==d)for(let e of c)d.style.setProperty(e[0],e[1])}}setActionText(a){if(void 0===a)return;this.actionText=a;let b=this.view.getElementsByClassName("actionButton")[0];b.style.setProperty("display","block"),b.value=this.actionText}setActionCallback(a){this.onAction=a;this.view.getElementsByClassName("actionButton")[0].addEventListener("click",()=>{void 0!==this.onAction&&this.onAction(),this.hide()})}setHideEvents(){let a=this;"mousemove mousedown mouseup touchmove click keydown keyup".split(" ").forEach(function(b){window.addEventListener(b,()=>{a.startHidingTimer()})})}show(){setTimeout(()=>{b.List.push(this),b.adjustListPositions(this)},10)}startHidingTimer(){this.timeout>0&&!this.isWaitingForHide&&(this.isWaitingForHide=!0,setTimeout(()=>{this.hide()},this.timeout))}hide(){let a=this;b.List.filter(a=>a.position===this.position).length>1?(this.view.style.opacity="0",this.position.indexOf("bottom")>=0?this.view.style.marginBottom="-"+(this.getHeight()+5)+"px":this.view.style.marginTop="-"+(this.getHeight()+5)+"px"):this.position.indexOf("bottom")>=0?this.view.style.bottom="-"+(this.getHeight()+15)+"px":this.view.style.top="-"+(this.getHeight()+15)+"px";let c=b.List.indexOf(this);c> -1&&b.List.splice(c,1),b.adjustListPositions(this),setTimeout(function(){a.view.remove(),void 0!==a.afterHide&&a.afterHide()},500)}static adjustListPositions(a){let c=b.List.filter(b=>b.position===a.position);c.forEach(function(b,d){let e=20+(c.length-d-1)*(b.getHeight()+5)+"px";a.position.indexOf("bottom")>=0?(b.view.style.bottom=e,b.view.style.top="unset"):(b.view.style.top=e,b.view.style.bottom="unset")})}getHeight(){return+getComputedStyle(this.view).height.replace("px","")}}b.List=[],b.DEFAULT_HIDING_TIMEOUT=4e3,b.DEFAULT_POSITION="bottom-left";let c=`
+        `,c=document.createElement("div");return c.innerHTML=b.trim(),c.firstChild||c}setMessage(a){this.message=a;this.view.getElementsByClassName("message")[0].innerHTML=this.message}setPosition(a){this.position=a,this.view.classList.remove("bottom-left"),this.view.classList.remove("bottom-center"),this.view.classList.remove("bottom-right"),this.view.classList.remove("top-left"),this.view.classList.remove("top-center"),this.view.classList.remove("top-right"),this.view.classList.add(a),b.adjustListPositions(this)}setIconSrc(a){if(void 0===a)return;this.iconSrc=a;let b=this.view.getElementsByClassName("icon")[0];b.style.setProperty("display","block"),b.style.setProperty("background-image","url("+this.iconSrc+")")}setTheme(a){void 0!==a&&(this.theme,this.view.classList.remove("light"),this.view.classList.remove("dark"),this.view.classList.add(a))}setStyle(a){if(void 0!==a)for(let[b,c]of(this.style=a,Object.entries(this.style))){let d=document.getElementById(this.viewID.toString()).getElementsByClassName(b)[0];if(void 0!==d)for(let e of c)d.style.setProperty(e[0],e[1])}}setActionText(a){if(void 0===a)return;this.actionText=a;let b=this.view.getElementsByClassName("actionButton")[0];b.style.setProperty("display","block"),b.value=this.actionText}setActionCallback(a){this.onAction=a;this.view.getElementsByClassName("actionButton")[0].addEventListener("click",()=>{void 0!==this.onAction&&this.onAction(),this.hide()})}show(){setTimeout(()=>{b.List.push(this),b.adjustListPositions(this)},10)}addHideEventListener(){let a=this;"mousemove mousedown mouseup touchmove click keydown keyup".split(" ").forEach(function(b){window.addEventListener(b,a.hideEventHandler)})}removeHideEventListener(){let a=this;"mousemove mousedown mouseup touchmove click keydown keyup".split(" ").forEach(b=>{window.removeEventListener(b,a.hideEventHandler)})}handleHideEvent(){let a=this.timeout;Date.now()-this.bornTime>this.timeout&&(a=this.timeout/2),this.startHidingTimer(a),this.removeHideEventListener()}startHidingTimer(a){a>0&&!this.isWaitingForHide&&(this.isWaitingForHide=!0,setTimeout(()=>{this.hide()},a))}hide(){let a=this;b.List.filter(a=>a.position===this.position).length>1?(this.view.style.opacity="0",this.position.indexOf("bottom")>=0?this.view.style.marginBottom="-"+(this.getHeight()+5)+"px":this.view.style.marginTop="-"+(this.getHeight()+5)+"px"):this.position.indexOf("bottom")>=0?this.view.style.bottom="-"+(this.getHeight()+15)+"px":this.view.style.top="-"+(this.getHeight()+15)+"px";let c=b.List.indexOf(this);c> -1&&b.List.splice(c,1),b.adjustListPositions(this),setTimeout(function(){a.view.remove(),void 0!==a.afterHide&&a.afterHide()},500)}static adjustListPositions(a){let c=b.List.filter(b=>b.position===a.position);c.forEach(function(b,d){let e=20+(c.length-d-1)*(b.getHeight()+5)+"px";a.position.indexOf("bottom")>=0?(b.view.style.bottom=e,b.view.style.top="unset"):(b.view.style.top=e,b.view.style.bottom="unset")})}getHeight(){return+getComputedStyle(this.view).height.replace("px","")}}b.List=[],b.DEFAULT_HIDING_TIMEOUT=4e3,b.DEFAULT_POSITION="bottom-left";let c=`
 .snackbar {
     position: fixed;
     transition: top 400ms ease 0s, bottom 400ms ease 0s, margin-top 300ms ease 0s, margin-bottom 300ms ease 0s, opacity 150ms ease 150ms;
@@ -15,7 +15,7 @@
     box-sizing: border-box;
     max-width: 450px;
     min-height: 46px;
-    padding: 10px 20px;
+    padding: 9px 20px 10px 20px;
     border-radius: 3px;
     background-color: rgb(58, 58, 58);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);
@@ -39,13 +39,15 @@
     display: none;
   }
   .snackbar > .container > .message {
-    font-size: 0.87rem;
+    font-size: 0.9375rem;
+    line-height: 0.9375rem;
+    padding-top: 0.125rem;
   }
   .snackbar > .container > .actionButton {
-    height: 100%;
     padding: 5px 3px;
     background-color: transparent;
-    font-size: 0.87rem;
+    font-size: 0.9375rem;
+    line-height: 0.9375rem;
     color: #F7FF00;
     border: none;
     outline: none;
@@ -87,7 +89,7 @@
   
   .snackbar.light > .container {
     background-color: #fbfbfb;
-    color: #5f5f5f;
+    color: #555;
   }
   .snackbar.light > .container > .actionButton {
     color: #D60;
