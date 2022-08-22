@@ -301,7 +301,7 @@ const Style = `
     box-sizing: border-box;
     max-width: 450px;
     min-height: 46px;
-    padding: 10px 20px;
+    padding: 9px 20px 10px 20px;
     border-radius: 3px;
     background-color: rgb(58, 58, 58);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);
@@ -326,12 +326,14 @@ const Style = `
   }
   .snackbar > .container > .message {
     font-size: 0.9375rem;
+    line-height: 0.9375rem;
+    padding-top: 0.125rem;
   }
   .snackbar > .container > .actionButton {
-    height: 100%;
     padding: 5px 3px;
     background-color: transparent;
     font-size: 0.9375rem;
+    line-height: 0.9375rem;
     color: #F7FF00;
     border: none;
     outline: none;
