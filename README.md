@@ -17,3 +17,4 @@ React, Javascript, and Typescript compatible snackbar<br>
 - Callback after hide
 - Responsive design
 - Dynamic HTML
+- Lightweight

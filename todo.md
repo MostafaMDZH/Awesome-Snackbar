@@ -1,6 +1,4 @@
-## Publish:
-- test on other frameworks (and yarn) and update the description
-
 ## Features:
 - notification on page title
 - toggle direction
+- wait for event on touch screen?
