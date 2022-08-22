@@ -20,6 +20,7 @@ class Snackbar{
     protected hideEventHandler: EventListenerOrEventListenerObject;
     protected actionText:       string | undefined;
     protected onAction: (() => void) | undefined;
+    protected bornTime:         number;
     protected waitForEvent:     boolean;
     protected timeout:          number;
     protected isWaitingForHide: boolean;
@@ -39,6 +40,7 @@ class Snackbar{
             afterHide?:() => void
         }){
 
+        this.bornTime = Date.now();
         this.hideEventHandler = this.handleHideEvent.bind(this);
 
         //append CSS styles to DOM:
@@ -207,17 +209,21 @@ class Snackbar{
 
     //handleHideEvent:
     protected handleHideEvent():void{
-        this.startHidingTimer();
+        let timeout = this.timeout;
+        let currentTime = Date.now();
+        if(currentTime - this.bornTime > this.timeout)
+            timeout = this.timeout / 2;
+        this.startHidingTimer(timeout);
         this.removeHideEventListener();
     }
 
     //startHidingTimer:
-	protected startHidingTimer():void{
-		if(this.timeout > 0 && !this.isWaitingForHide){
+	protected startHidingTimer(timeout: number):void{
+		if(timeout > 0 && !this.isWaitingForHide){
             this.isWaitingForHide = true;
 			setTimeout(() => {
 				this.hide();
-			}, this.timeout);
+			}, timeout);
         }
 	}
 

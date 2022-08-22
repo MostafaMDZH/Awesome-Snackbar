@@ -4,6 +4,7 @@ class Snackbar {
     //constructor:
     constructor(parameters) {
         var _a, _b;
+        this.bornTime = Date.now();
         this.hideEventHandler = this.handleHideEvent.bind(this);
         //append CSS styles to DOM:
         Snackbar.appendCSS();
@@ -156,16 +157,20 @@ class Snackbar {
     }
     //handleHideEvent:
     handleHideEvent() {
-        this.startHidingTimer();
+        let timeout = this.timeout;
+        let currentTime = Date.now();
+        if (currentTime - this.bornTime > this.timeout)
+            timeout = this.timeout / 2;
+        this.startHidingTimer(timeout);
         this.removeHideEventListener();
     }
     //startHidingTimer:
-    startHidingTimer() {
-        if (this.timeout > 0 && !this.isWaitingForHide) {
+    startHidingTimer(timeout) {
+        if (timeout > 0 && !this.isWaitingForHide) {
             this.isWaitingForHide = true;
             setTimeout(() => {
                 this.hide();
-            }, this.timeout);
+            }, timeout);
         }
     }
     //hide:
