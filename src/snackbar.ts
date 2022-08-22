@@ -20,20 +20,22 @@ class Snackbar{
     protected hideEventHandler: EventListenerOrEventListenerObject;
     protected actionText:       string | undefined;
     protected onAction: (() => void) | undefined;
+    protected waitForEvent:     boolean;
     protected timeout:          number;
     protected isWaitingForHide: boolean;
     protected afterHide: (() => void) | undefined;
 
     //constructor:
     constructor(parameters: {
-            message:    string,
-            position?:   string,
-            theme?:      string,
-            iconSrc?:    string,
-            style?:      object,
-            actionText?: string,
+            message:       string,
+            position?:     string,
+            theme?:        string,
+            iconSrc?:      string,
+            style?:        object,
+            actionText?:   string,
             onAction?: () => void,
-            timeout?:    number,
+            waitForEvent?: boolean,
+            timeout?:      number,
             afterHide?:() => void
         }){
 
@@ -56,12 +58,17 @@ class Snackbar{
         this.setStyle(parameters.style);
         this.setActionText(parameters.actionText);
         this.setActionCallback(parameters.onAction);
+        this.waitForEvent = parameters.waitForEvent ?? true;
         this.timeout = parameters.timeout ?? Snackbar.DEFAULT_HIDING_TIMEOUT;
         this.isWaitingForHide = false;
         this.afterHide = parameters.afterHide;
         
-        //events:
+        //hide events:
         this.addHideEventListener();
+
+        //don't wait for an event:
+        if(!this.waitForEvent)
+            this.startHidingTimer();
         
         //finally show:
         this.show();
@@ -200,17 +207,17 @@ class Snackbar{
 
     //handleHideEvent:
     protected handleHideEvent():void{
-        this.startHidingTimer(this.timeout);
+        this.startHidingTimer();
         this.removeHideEventListener();
     }
 
     //startHidingTimer:
-	protected startHidingTimer(timeout: number):void{
-		if(timeout > 0 && !this.isWaitingForHide){
+	protected startHidingTimer():void{
+		if(this.timeout > 0 && !this.isWaitingForHide){
             this.isWaitingForHide = true;
 			setTimeout(() => {
 				this.hide();
-			}, timeout);
+			}, this.timeout);
         }
 	}
 

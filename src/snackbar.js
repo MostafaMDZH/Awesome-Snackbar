@@ -3,7 +3,7 @@ module.exports = (message, parameters) => { return new Snackbar(Object.assign({ 
 class Snackbar {
     //constructor:
     constructor(parameters) {
-        var _a;
+        var _a, _b;
         this.hideEventHandler = this.handleHideEvent.bind(this);
         //append CSS styles to DOM:
         Snackbar.appendCSS();
@@ -20,11 +20,15 @@ class Snackbar {
         this.setStyle(parameters.style);
         this.setActionText(parameters.actionText);
         this.setActionCallback(parameters.onAction);
-        this.timeout = (_a = parameters.timeout) !== null && _a !== void 0 ? _a : Snackbar.DEFAULT_HIDING_TIMEOUT;
+        this.waitForEvent = (_a = parameters.waitForEvent) !== null && _a !== void 0 ? _a : true;
+        this.timeout = (_b = parameters.timeout) !== null && _b !== void 0 ? _b : Snackbar.DEFAULT_HIDING_TIMEOUT;
         this.isWaitingForHide = false;
         this.afterHide = parameters.afterHide;
-        //events:
+        //hide events:
         this.addHideEventListener();
+        //don't wait for an event:
+        if (!this.waitForEvent)
+            this.startHidingTimer();
         //finally show:
         this.show();
     }
@@ -152,16 +156,16 @@ class Snackbar {
     }
     //handleHideEvent:
     handleHideEvent() {
-        this.startHidingTimer(this.timeout);
+        this.startHidingTimer();
         this.removeHideEventListener();
     }
     //startHidingTimer:
-    startHidingTimer(timeout) {
-        if (timeout > 0 && !this.isWaitingForHide) {
+    startHidingTimer() {
+        if (this.timeout > 0 && !this.isWaitingForHide) {
             this.isWaitingForHide = true;
             setTimeout(() => {
                 this.hide();
-            }, timeout);
+            }, this.timeout);
         }
     }
     //hide:

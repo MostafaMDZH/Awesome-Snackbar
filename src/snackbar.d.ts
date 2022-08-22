@@ -12,6 +12,7 @@ declare class Snackbar {
     protected hideEventHandler: EventListenerOrEventListenerObject;
     protected actionText: string | undefined;
     protected onAction: (() => void) | undefined;
+    protected waitForEvent: boolean;
     protected timeout: number;
     protected isWaitingForHide: boolean;
     protected afterHide: (() => void) | undefined;
@@ -23,6 +24,7 @@ declare class Snackbar {
         style?: object;
         actionText?: string;
         onAction?: () => void;
+        waitForEvent?: boolean;
         timeout?: number;
         afterHide?: () => void;
     });
@@ -40,7 +42,7 @@ declare class Snackbar {
     protected addHideEventListener(): void;
     protected removeHideEventListener(): void;
     protected handleHideEvent(): void;
-    protected startHidingTimer(timeout: number): void;
+    protected startHidingTimer(): void;
     protected hide(): void;
     protected static adjustListPositions(sb: Snackbar): void;
     protected getHeight(): number;

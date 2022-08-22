@@ -1,4 +1,3 @@
-- add "wait for user action = true"
 - if event accurse after timeout duration, hide the view in third of the hiding time
 - disable events after hide
 
