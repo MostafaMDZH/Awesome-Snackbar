@@ -70,7 +70,7 @@ class Snackbar{
 
         //don't wait for an event:
         if(!this.waitForEvent)
-            this.startHidingTimer();
+            this.startHidingTimer(this.timeout);
         
         //finally show:
         this.show();
