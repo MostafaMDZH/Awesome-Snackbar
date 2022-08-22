@@ -271,7 +271,7 @@ export default function Main(){
                         </div>
                         <p className='sectionDescription'>So you can apply your custom style in a form of an array of classes:</p>
                         <div className='codeWrapper'>
-                            <p className='comment'># you can even add your custom layout (like the &apos;bold&apos; class below)</p>
+                            <p className='comment'># you can even add your custom markup (like the &apos;bold&apos; class below)</p>
                             <button className='codeSection executable'
                                 onClick={() => {
                                     Snackbar(`Your account has been <a class='bold'>removed!</a>`,{
