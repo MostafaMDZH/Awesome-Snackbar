@@ -298,7 +298,7 @@ const Style = `
   
   .snackbar.light > .container {
     background-color: #fbfbfb;
-    color: #5f5f5f;
+    color: #555;
   }
   .snackbar.light > .container > .actionButton {
     color: #D60;

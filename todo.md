@@ -1,9 +1,8 @@
-- font size on message and button
-- message color: 555 on light theme
 - add "wait for user action = true"
 - if event accurse after timeout duration, hide the view in third of the hiding time
 - disable events after hide
 
+- after hide document: true (witch is the default value)
 - wait for event documentation
 
 ## Publish:
