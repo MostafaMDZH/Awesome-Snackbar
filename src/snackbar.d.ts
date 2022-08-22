@@ -9,6 +9,7 @@ declare class Snackbar {
     protected iconSrc: string | undefined;
     protected theme: string | undefined;
     protected style: object | undefined;
+    protected hideEventHandler: EventListenerOrEventListenerObject;
     protected actionText: string | undefined;
     protected onAction: (() => void) | undefined;
     protected timeout: number;
@@ -35,9 +36,11 @@ declare class Snackbar {
     setStyle(style?: object): void;
     setActionText(actionText?: string): void;
     protected setActionCallback(onAction?: () => void): void;
-    protected setHideEvents(): void;
     protected show(): void;
-    protected startHidingTimer(): void;
+    protected addHideEventListener(): void;
+    protected removeHideEventListener(): void;
+    protected handleHideEvent(): void;
+    protected startHidingTimer(timeout: number): void;
     protected hide(): void;
     protected static adjustListPositions(sb: Snackbar): void;
     protected getHeight(): number;

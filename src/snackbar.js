@@ -4,6 +4,7 @@ class Snackbar {
     //constructor:
     constructor(parameters) {
         var _a;
+        this.hideEventHandler = this.handleHideEvent.bind(this);
         //append CSS styles to DOM:
         Snackbar.appendCSS();
         //the view:
@@ -23,7 +24,7 @@ class Snackbar {
         this.isWaitingForHide = false;
         this.afterHide = parameters.afterHide;
         //events:
-        this.setHideEvents();
+        this.addHideEventListener();
         //finally show:
         this.show();
     }
@@ -128,15 +129,6 @@ class Snackbar {
             this.hide();
         });
     }
-    //setHideEvents:
-    setHideEvents() {
-        const thisView = this;
-        'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach(function (event) {
-            window.addEventListener(event, () => {
-                thisView.startHidingTimer();
-            });
-        });
-    }
     //show:
     show() {
         setTimeout(() => {
@@ -144,13 +136,32 @@ class Snackbar {
             Snackbar.adjustListPositions(this);
         }, 10); //slight delay between adding to DOM and running css animation
     }
+    //addHideEventListener:
+    addHideEventListener() {
+        const thisView = this;
+        'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach(function (eventName) {
+            window.addEventListener(eventName, thisView.hideEventHandler);
+        });
+    }
+    //addHideEventListener:
+    removeHideEventListener() {
+        const thisView = this;
+        'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach((eventName) => {
+            window.removeEventListener(eventName, thisView.hideEventHandler);
+        });
+    }
+    //handleHideEvent:
+    handleHideEvent() {
+        this.startHidingTimer(this.timeout);
+        this.removeHideEventListener();
+    }
     //startHidingTimer:
-    startHidingTimer() {
-        if (this.timeout > 0 && !this.isWaitingForHide) {
+    startHidingTimer(timeout) {
+        if (timeout > 0 && !this.isWaitingForHide) {
             this.isWaitingForHide = true;
             setTimeout(() => {
                 this.hide();
-            }, this.timeout);
+            }, timeout);
         }
     }
     //hide:

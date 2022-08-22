@@ -10,18 +10,19 @@ class Snackbar{
     public static readonly DEFAULT_POSITION: string = 'bottom-left';
 
     //object properties:
-    protected viewID:     number;
-    protected view:       HTMLElement;
-    protected message:    string;
-    protected position:   string;
-    protected iconSrc:    string | undefined;
-    protected theme:      string | undefined;
-    protected style:      object | undefined;
-    protected actionText: string | undefined;
-    protected onAction:   (() => void) | undefined;
-    protected timeout:    number;
+    protected viewID:           number;
+    protected view:             HTMLElement;
+    protected message:          string;
+    protected position:         string;
+    protected iconSrc:          string | undefined;
+    protected theme:            string | undefined;
+    protected style:            object | undefined;
+    protected hideEventHandler: EventListenerOrEventListenerObject;
+    protected actionText:       string | undefined;
+    protected onAction: (() => void) | undefined;
+    protected timeout:          number;
     protected isWaitingForHide: boolean;
-    protected afterHide:  (() => void) | undefined;
+    protected afterHide: (() => void) | undefined;
 
     //constructor:
     constructor(parameters: {
@@ -35,6 +36,8 @@ class Snackbar{
             timeout?:    number,
             afterHide?:() => void
         }){
+
+        this.hideEventHandler = this.handleHideEvent.bind(this);
 
         //append CSS styles to DOM:
         Snackbar.appendCSS();
@@ -58,7 +61,7 @@ class Snackbar{
         this.afterHide = parameters.afterHide;
         
         //events:
-        this.setHideEvents();
+        this.addHideEventListener();
         
         //finally show:
         this.show();
@@ -171,16 +174,6 @@ class Snackbar{
         });
     }
 
-    //setHideEvents:
-    protected setHideEvents():void{
-        const thisView = this;
-        'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach(function(event){
-            window.addEventListener(event, () => {
-                thisView.startHidingTimer();
-            });
-        });
-    }
-
     //show:
     protected show():void{
         setTimeout(() => {
@@ -189,13 +182,35 @@ class Snackbar{
         }, 10);//slight delay between adding to DOM and running css animation
     }
 
+    //addHideEventListener:
+    protected addHideEventListener():void{
+        const thisView = this;
+        'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach(function(eventName){
+            window.addEventListener(eventName, thisView.hideEventHandler);
+        });
+    }
+
+    //addHideEventListener:
+    protected removeHideEventListener():void{
+        const thisView = this;
+        'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach((eventName) => {
+            window.removeEventListener(eventName, thisView.hideEventHandler);
+        });
+    }
+
+    //handleHideEvent:
+    protected handleHideEvent():void{
+        this.startHidingTimer(this.timeout);
+        this.removeHideEventListener();
+    }
+
     //startHidingTimer:
-	protected startHidingTimer():void{
-		if(this.timeout > 0 && !this.isWaitingForHide){
+	protected startHidingTimer(timeout: number):void{
+		if(timeout > 0 && !this.isWaitingForHide){
             this.isWaitingForHide = true;
 			setTimeout(() => {
 				this.hide();
-			}, this.timeout);
+			}, timeout);
         }
 	}
 
