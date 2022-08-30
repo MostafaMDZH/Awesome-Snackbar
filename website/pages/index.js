@@ -140,7 +140,7 @@ export default function Main(){
                         <p className='step'><a className='bold'>{'>'} step 3 : </a>start making snackbars!</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable' onClick={()=>new Snackbar('Hello World! 👋')}>
-                                <p><span>Snackbar</span>(&apos;Hello world! 👋&apos;);</p>
+                                <p><span>new Snackbar</span>(&apos;Hello world! 👋&apos;);</p>
                             </button>
                         </div>
 
@@ -274,7 +274,7 @@ export default function Main(){
                             <p className='comment'># you can even add your custom markup (like the &apos;bold&apos; class below)</p>
                             <button className='codeSection executable'
                                 onClick={() => {
-                                    new Snackbar(`Your account has been <a class='bold'>removed!</a>`,{
+                                    new Snackbar(`Image has been <a class='bold'>removed!</a>`,{
                                         position: 'bottom-center',
                                         style: {
                                             container: [
@@ -295,7 +295,7 @@ export default function Main(){
                                     });
                                 }}>
                                 <p>
-                                    {"new Snackbar(`Your account has been "}<span>{"<a class='bold'>"}</span>{"removed!"}<span>{"</a>"}</span>{"`, { "}<br></br>
+                                    {"new Snackbar(`Image has been "}<span>{"<a class='bold'>"}</span>{"removed!"}<span>{"</a>"}</span>{"`, { "}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"position: 'bottom-center',"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Undo',"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"style: {"}</span><br></br>
