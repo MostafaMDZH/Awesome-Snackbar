@@ -1,4 +1,5 @@
 ## Features:
+- icon
 - icon size
 - notification on page title
 - toggle direction
