@@ -1,8 +1,8 @@
 "use strict";
-module.exports = (message, parameters) => { return new Snackbar(Object.assign({ message }, parameters)); };
+Object.defineProperty(exports, "__esModule", { value: true });
 class Snackbar {
     //constructor:
-    constructor(parameters) {
+    constructor(message, options) {
         var _a, _b;
         this.bornTime = Date.now();
         this.hideEventHandler = this.handleHideEvent.bind(this);
@@ -14,17 +14,17 @@ class Snackbar {
         document.body.appendChild(view);
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
         //set properties:
-        this.setMessage(this.message = parameters.message);
-        this.setPosition(this.position = parameters.position || Snackbar.DEFAULT_POSITION);
-        this.setTheme(parameters.theme);
-        this.setIconSrc(parameters.iconSrc);
-        this.setStyle(parameters.style);
-        this.setActionText(parameters.actionText);
-        this.setActionCallback(parameters.onAction);
-        this.waitForEvent = (_a = parameters.waitForEvent) !== null && _a !== void 0 ? _a : true;
-        this.timeout = (_b = parameters.timeout) !== null && _b !== void 0 ? _b : Snackbar.DEFAULT_HIDING_TIMEOUT;
+        this.setMessage(this.message = message);
+        this.setPosition(this.position = (options === null || options === void 0 ? void 0 : options.position) || Snackbar.DEFAULT_POSITION);
+        this.setTheme(options === null || options === void 0 ? void 0 : options.theme);
+        this.setIconSrc(options === null || options === void 0 ? void 0 : options.iconSrc);
+        this.setStyle(options === null || options === void 0 ? void 0 : options.style);
+        this.setActionText(options === null || options === void 0 ? void 0 : options.actionText);
+        this.setActionCallback(options === null || options === void 0 ? void 0 : options.onAction);
+        this.waitForEvent = (_a = options === null || options === void 0 ? void 0 : options.waitForEvent) !== null && _a !== void 0 ? _a : true;
+        this.timeout = (_b = options === null || options === void 0 ? void 0 : options.timeout) !== null && _b !== void 0 ? _b : Snackbar.DEFAULT_HIDING_TIMEOUT;
         this.isWaitingForHide = false;
-        this.afterHide = parameters.afterHide;
+        this.afterHide = options === null || options === void 0 ? void 0 : options.afterHide;
         //hide events:
         this.addHideEventListener();
         //don't wait for an event:
@@ -232,6 +232,7 @@ class Snackbar {
         return heightNum;
     }
 }
+exports.default = Snackbar;
 //class properties:
 Snackbar.List = [];
 //default values:

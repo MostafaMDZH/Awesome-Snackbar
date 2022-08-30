@@ -1,6 +1,4 @@
-module.exports = (message: string, parameters: object) => {return new Snackbar({message, ...parameters});}
-
-class Snackbar{
+export default class Snackbar{
 
     //class properties:
     public static List: Snackbar[] = [];
@@ -27,8 +25,7 @@ class Snackbar{
     protected afterHide: (() => void) | undefined;
 
     //constructor:
-    constructor(parameters: {
-            message:       string,
+    constructor(message:string, options?: {
             position?:     string,
             theme?:        string,
             iconSrc?:      string,
@@ -53,17 +50,17 @@ class Snackbar{
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
         
         //set properties:
-        this.setMessage(this.message = parameters.message);
-        this.setPosition(this.position = parameters.position || Snackbar.DEFAULT_POSITION);
-        this.setTheme(parameters.theme);
-        this.setIconSrc(parameters.iconSrc);
-        this.setStyle(parameters.style);
-        this.setActionText(parameters.actionText);
-        this.setActionCallback(parameters.onAction);
-        this.waitForEvent = parameters.waitForEvent ?? true;
-        this.timeout = parameters.timeout ?? Snackbar.DEFAULT_HIDING_TIMEOUT;
+        this.setMessage(this.message = message);
+        this.setPosition(this.position = options?.position || Snackbar.DEFAULT_POSITION);
+        this.setTheme(options?.theme);
+        this.setIconSrc(options?.iconSrc);
+        this.setStyle(options?.style);
+        this.setActionText(options?.actionText);
+        this.setActionCallback(options?.onAction);
+        this.waitForEvent = options?.waitForEvent ?? true;
+        this.timeout = options?.timeout ?? Snackbar.DEFAULT_HIDING_TIMEOUT;
         this.isWaitingForHide = false;
-        this.afterHide = parameters.afterHide;
+        this.afterHide = options?.afterHide;
         
         //hide events:
         this.addHideEventListener();
