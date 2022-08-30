@@ -48,7 +48,7 @@ class Snackbar{
 
         //the view:
         this.viewID = Snackbar.generateViewID();
-        let view = Snackbar.getDOM(this.viewID);
+        let view = Snackbar.getHtml(this.viewID);
         document.body.appendChild(view);
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
         
@@ -97,8 +97,8 @@ class Snackbar{
         return Snackbar.generateViewID();
 	}
 
-    //getDOM:
-    protected static getDOM(viewId: number):ChildNode{
+    //getHtml:
+    protected static getHtml(viewId: number):ChildNode{
         const DOM = `
             <div class="snackbar" id="${viewId}">
                 <div class="container">
@@ -294,6 +294,7 @@ class Snackbar{
 
 const Style = `
 .snackbar {
+    z-index: 999999999;
     position: fixed;
     transition: top 400ms ease 0s, bottom 400ms ease 0s, margin-top 300ms ease 0s, margin-bottom 300ms ease 0s, opacity 150ms ease 150ms;
   }
@@ -325,9 +326,9 @@ const Style = `
     display: none;
   }
   .snackbar > .container > .message {
+    margin: 0;
     font-size: 0.9375rem;
     line-height: 0.9375rem;
-    padding-top: 0.125rem;
   }
   .snackbar > .container > .actionButton {
     padding: 5px 3px;

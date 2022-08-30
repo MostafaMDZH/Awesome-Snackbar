@@ -10,7 +10,7 @@ class Snackbar {
         Snackbar.appendCSS();
         //the view:
         this.viewID = Snackbar.generateViewID();
-        let view = Snackbar.getDOM(this.viewID);
+        let view = Snackbar.getHtml(this.viewID);
         document.body.appendChild(view);
         this.view = document.getElementById(this.viewID.toString()) || document.createElement('div');
         //set properties:
@@ -51,8 +51,8 @@ class Snackbar {
             return id;
         return Snackbar.generateViewID();
     }
-    //getDOM:
-    static getDOM(viewId) {
+    //getHtml:
+    static getHtml(viewId) {
         const DOM = `
             <div class="snackbar" id="${viewId}">
                 <div class="container">
@@ -239,6 +239,7 @@ Snackbar.DEFAULT_HIDING_TIMEOUT = 4000;
 Snackbar.DEFAULT_POSITION = 'bottom-left';
 const Style = `
 .snackbar {
+    z-index: 999999999;
     position: fixed;
     transition: top 400ms ease 0s, bottom 400ms ease 0s, margin-top 300ms ease 0s, margin-bottom 300ms ease 0s, opacity 150ms ease 150ms;
   }
@@ -270,9 +271,9 @@ const Style = `
     display: none;
   }
   .snackbar > .container > .message {
+    margin: 0;
     font-size: 0.9375rem;
     line-height: 0.9375rem;
-    padding-top: 0.125rem;
   }
   .snackbar > .container > .actionButton {
     padding: 5px 3px;
