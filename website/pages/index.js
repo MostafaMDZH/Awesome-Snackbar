@@ -15,9 +15,9 @@ export default function Main(){
 			fallbackCopyTextToClipboard(text);
 		}else{
 			navigator.clipboard.writeText(text).then(function(){
-                Snackbar('Copied to clipboard 👍');
+                new Snackbar('Copied to clipboard 👍');
 			},function(err){
-                Snackbar('cannot copy 👎');
+                new Snackbar('cannot copy 👎');
 			});
 		}
 	}
@@ -34,9 +34,9 @@ export default function Main(){
 		textArea.select();
 		try{
 			document.execCommand('copy');
-            Snackbar('Copied to clipboard 👍');
+            new Snackbar('Copied to clipboard 👍');
 		}catch(err){
-            Snackbar('cannot copy 👎');
+            new Snackbar('cannot copy 👎');
 		}
 		document.body.removeChild(textArea);
 	}
@@ -47,11 +47,11 @@ export default function Main(){
         if(isWelcomeSbShow) return;
         if(cookies.get('WelcomeSB') !== undefined) return;
         isWelcomeSbShow = true;
-        Snackbar('Welcome to Awesome Snackbar! 👋', {
+        new Snackbar('Welcome to Awesome Snackbar! 👋', {
             position: 'top-center',
             timeout: 2000,
             afterHide: () => {
-                Snackbar('Click on code sections to run the demo', {
+                new Snackbar('Click on code sections to run the demo', {
                     position: 'top-center',
                     timeout: 0,
                     actionText: 'Got it',
@@ -139,7 +139,7 @@ export default function Main(){
                         </div>
                         <p className='step'><a className='bold'>{'>'} step 3 : </a>start making snackbars!</p>
                         <div className='codeWrapper'>
-                            <button className='codeSection executable' onClick={()=>Snackbar('Hello World! 👋')}>
+                            <button className='codeSection executable' onClick={()=>new Snackbar('Hello World! 👋')}>
                                 <p><span>Snackbar</span>(&apos;Hello world! 👋&apos;);</p>
                             </button>
                         </div>
@@ -150,15 +150,15 @@ export default function Main(){
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => {
-                                    Snackbar('Make another one!', {
+                                    new Snackbar('Make another one!', {
                                         actionText: 'Make',
-                                        onAction: () => Snackbar('Another Snackbar')
+                                        onAction: () => new Snackbar('Another Snackbar')
                                     });
                                 }}>
                                 <p>
-                                    {"Snackbar('Make another one!'), {"}<br></br>
+                                    {"new Snackbar('Make another one!'), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"actionText"}</span>{": 'Make',"}<br></br>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>{"onAction"  }</span>{": () => Snackbar('Another Snackbar')"}<br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>{"onAction"  }</span>{": () => new Snackbar('Another Snackbar')"}<br></br>
                                     {"});"}
                                 </p>
                             </button>
@@ -170,54 +170,54 @@ export default function Main(){
                         <div className='codeWrapper'>
                             <p className='comment'># bottom left (default)</p>
                             <button className='codeSection executable'
-                                onClick={() => Snackbar(`I'm at the bottom left`, { position: 'bottom-left' })}>
+                                onClick={() => new Snackbar(`I'm at the bottom left`, { position: 'bottom-left' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the bottom left`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the bottom left`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'bottom-left'"}</span><br></br>
                                     {" });"}
                                 </p>
                             </button>
                             <p className='comment'># bottom center</p>
                             <button className='codeSection executable'
-                                onClick={() => Snackbar(`I'm at the bottom center`, { position: 'bottom-center' })}>
+                                onClick={() => new Snackbar(`I'm at the bottom center`, { position: 'bottom-center' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the bottom center`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the bottom center`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'bottom-center'"}</span><br></br>
                                     {" });"}
                                 </p>
                             </button>
                             <p className='comment'># bottom right</p>
                             <button className='codeSection executable'
-                                onClick={() => Snackbar(`I'm at the bottom right`, { position: 'bottom-right' })}>
+                                onClick={() => new Snackbar(`I'm at the bottom right`, { position: 'bottom-right' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the bottom right`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the bottom right`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'bottom-right'"}</span><br></br>
                                     {" });"}
                                 </p>
                             </button>
                             <p className='comment'># top left</p>
                             <button className='codeSection executable'
-                                onClick={() => Snackbar(`I'm at the top left`, { position: 'top-left' })}>
+                                onClick={() => new Snackbar(`I'm at the top left`, { position: 'top-left' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the top left`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the top left`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'top-left'"}</span><br></br>
                                     {" });"}
                                 </p>
                             </button>
                             <p className='comment'># top center</p>
                             <button className='codeSection executable'
-                                onClick={() => Snackbar(`I'm at the top center`, { position: 'top-center' })}>
+                                onClick={() => new Snackbar(`I'm at the top center`, { position: 'top-center' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the top center`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the top center`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'top-center'"}</span><br></br>
                                     {" });"}
                                 </p>
                             </button>
                             <p className='comment'># top right</p>
                             <button className='codeSection executable'
-                                onClick={() => Snackbar(`I'm at the top right`, { position: 'top-right' })}>
+                                onClick={() => new Snackbar(`I'm at the top right`, { position: 'top-right' })}>
                                 <p>
-                                    {"Snackbar(`I'm at the top right`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the top right`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'top-right'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -230,9 +230,9 @@ export default function Main(){
                         <div className='codeWrapper'>
                             <p className='comment'>import loadingIcon from &apos;./src/loading.gif&apos;;</p>
                             <button className='codeSection executable'
-                                onClick={() => Snackbar(`Loading... please wait`, { iconSrc: loadingIcon.src, actionText: 'Stop'})}>
+                                onClick={() => new Snackbar(`Loading... please wait`, { iconSrc: loadingIcon.src, actionText: 'Stop'})}>
                                 <p>
-                                    {"Snackbar(`Loading... please wait`), {"}<br></br>
+                                    {"new Snackbar(`Loading... please wait`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"iconSrc: 'loadingIcon.src',"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Stop'"}<br></br>
                                     {" });"}
@@ -245,9 +245,9 @@ export default function Main(){
                         <p className='sectionDescription'>The default theme is dark, but you can enable the light theme with the theme parameter:</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
-                                onClick={() => Snackbar(`Today is...`, { theme: 'light', position: 'top-center', actionText: 'Sunday!'})}>
+                                onClick={() => new Snackbar(`Today is...`, { theme: 'light', position: 'top-center', actionText: 'Sunday!'})}>
                                 <p>
-                                    {"Snackbar(`Today is...`), {"}<br></br>
+                                    {"new Snackbar(`Today is...`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"theme: 'light',"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"position: 'top-center',"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Sunday!'"}<br></br>
@@ -274,7 +274,7 @@ export default function Main(){
                             <p className='comment'># you can even add your custom markup (like the &apos;bold&apos; class below)</p>
                             <button className='codeSection executable'
                                 onClick={() => {
-                                    Snackbar(`Your account has been <a class='bold'>removed!</a>`,{
+                                    new Snackbar(`Your account has been <a class='bold'>removed!</a>`,{
                                         position: 'bottom-center',
                                         style: {
                                             container: [
@@ -295,7 +295,7 @@ export default function Main(){
                                     });
                                 }}>
                                 <p>
-                                    {"Snackbar(`Your account has been "}<span>{"<a class='bold'>"}</span>{"removed!"}<span>{"</a>"}</span>{"`, { "}<br></br>
+                                    {"new Snackbar(`Your account has been "}<span>{"<a class='bold'>"}</span>{"removed!"}<span>{"</a>"}</span>{"`, { "}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"position: 'bottom-center',"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Undo',"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"style: {"}</span><br></br>
@@ -323,9 +323,9 @@ export default function Main(){
                         <p className='sectionDescription'>The default timeout for hiding is 4 seconds but you can customize it with the timeout parameter:</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
-                                onClick={() => Snackbar(`Give me a second please...`, { timeout: 1000 })}>
+                                onClick={() => new Snackbar(`Give me a second please...`, { timeout: 1000 })}>
                                 <p>
-                                    {"Snackbar(`Give me a second please...`), {"}<br></br>
+                                    {"new Snackbar(`Give me a second please...`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"timeout: 1000"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -336,9 +336,9 @@ export default function Main(){
                         <p className='sectionDescription'>Or you can set the timeout to zero so the auto-hide would be disabled (click on the action button automatically will hide it)</p>
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
-                                onClick={() => Snackbar(`I'm not going anywhere!`, { timeout: 0, actionText: 'Hide' })}>
+                                onClick={() => new Snackbar(`I'm not going anywhere!`, { timeout: 0, actionText: 'Hide' })}>
                                 <p>
-                                    {"Snackbar(`I'm not going anywhere!`), {"}<br></br>
+                                    {"new Snackbar(`I'm not going anywhere!`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"timeout: 0,"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Hide'"}<br></br>
                                     {" });"}
@@ -351,10 +351,10 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => {
                                     if(SB === null)
-                                        SB = Snackbar(`Ha ha! you don't have the action button this time!`, { timeout: 0 });
+                                        SB = new Snackbar(`Ha ha! you don't have the action button this time!`, { timeout: 0 });
                                 }}>
                                 <p>
-                                    {"let sb = Snackbar(`Ha ha! you don't have the action button this time!`), {"}<br></br>
+                                    {"let sb = new Snackbar(`Ha ha! you don't have the action button this time!`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"timeout: 0"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -373,11 +373,11 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => {
                                     setTimeout(() => {
-                                        Snackbar(`I'm not waiting for you!`, { waitForEvent: false });
+                                        new Snackbar(`I'm not waiting for you!`, { waitForEvent: false });
                                     }, 100);
                                 }}>
                                 <p>
-                                    {"Snackbar(`I'm not waiting for you!`), {"}<br></br>
+                                    {"new Snackbar(`I'm not waiting for you!`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"waitForEvent: false"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -386,13 +386,13 @@ export default function Main(){
 
                         {/* update on fly */}
                         <h3 className='sectionName' id='update-on-fly'><a href='#update-on-fly'># Update On Fly</a></h3>
-                        <p className='sectionDescription'>If you store the returned object from the Snackbar() function, you can set some of its attributes after its created:</p>
+                        <p className='sectionDescription'>If you store the returned object from the new Snackbar() function, you can set some of its attributes after its created:</p>
                         <div className='codeWrapper'>
                             
                             <p className='comment'># create a simple snackbar</p>
                             <button className='codeSection executable'
-                                onClick={() => {if(SB === null) SB = Snackbar(`I'm a simple snackbar`, { timeout: 0 });}}>
-                                <p>{"let "}<span>sb</span>{" = Snackbar(`I'm a simple snackbar`), { timeout: 0 });"}</p>
+                                onClick={() => {if(SB === null) SB = new Snackbar(`I'm a simple snackbar`, { timeout: 0 });}}>
+                                <p>{"let "}<span>sb</span>{" = new Snackbar(`I'm a simple snackbar`), { timeout: 0 });"}</p>
                             </button>
 
                             <p className='comment'># update the text</p>
@@ -459,13 +459,13 @@ export default function Main(){
                         <div className='codeWrapper'>
                             <button className='codeSection executable'
                                 onClick={() => {
-                                    Snackbar('Marco...', {
-                                        afterHide: () => Snackbar('Polo!')
+                                    new Snackbar('Marco...', {
+                                        afterHide: () => new Snackbar('Polo!')
                                     });
                                 }}>
                                 <p>
-                                    {"Snackbar('Marco...'), {"}<br></br>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>{"afterHide"}</span>{": () => Snackbar('Polo!')"}<br></br>
+                                    {"new Snackbar('Marco...'), {"}<br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>{"afterHide"}</span>{": () => new Snackbar('Polo!')"}<br></br>
                                     {"});"}
                                 </p>
                             </button>
