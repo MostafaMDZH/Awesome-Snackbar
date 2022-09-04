@@ -417,8 +417,8 @@ export default function Main(){
 
                             <p className='comment'># update the text</p>
                             <button className='codeSection executable'
-                                onClick={() => SB?.setMessage('I can change my massage')}>
-                                <p>{"sb."}<span>{"setMessage"}</span>{"('I can change my massage');"}</p><br></br>
+                                onClick={() => SB?.setMessage('I can change my message')}>
+                                <p>{"sb."}<span>{"setMessage"}</span>{"('I can change my message');"}</p><br></br>
                             </button>
 
                             <p className='comment'># change the position</p>
