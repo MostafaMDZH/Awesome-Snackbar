@@ -11,34 +11,12 @@ export default function Main(){
 
     //copyTextToClipboard:
 	const copyTextToClipboard = (text) => {
-		if(!navigator.clipboard){
-			fallbackCopyTextToClipboard(text);
-		}else{
-			navigator.clipboard.writeText(text).then(function(){
-                new Snackbar('Copied to clipboard 👍');
-			},function(err){
-                new Snackbar('cannot copy 👎');
-			});
-		}
-	}
-
-	//fallbackCopyTextToClipboard:
-	const fallbackCopyTextToClipboard = (text) => {
-		let textArea = document.createElement("textarea");
-		textArea.value			= text;
-		textArea.style.top		= "0";//avoid scrolling to bottom:
-		textArea.style.left		= "0";
-		textArea.style.position	= "fixed";
-		document.body.appendChild(textArea);
-		textArea.focus();
-		textArea.select();
-		try{
-			document.execCommand('copy');
+		if(!navigator.clipboard) return;
+        navigator.clipboard.writeText(text).then(function(){
             new Snackbar('Copied to clipboard 👍');
-		}catch(err){
+        },function(err){
             new Snackbar('cannot copy 👎');
-		}
-		document.body.removeChild(textArea);
+        });
 	}
 
     //welcome snackbar:
@@ -66,7 +44,7 @@ export default function Main(){
         <div id='window' style={{scrollBehavior:'smooth'}}>
 
             <Head>
-                <title>Awesome Snackbar | React, Javascript, and Typescript compatible snackbar</title>
+                <title>Awesome Snackbar | React, Angular, Vue, and Typescript compatible snackbar</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
 
@@ -108,7 +86,7 @@ export default function Main(){
                             <h1 id='appName'><Link href='/'>Snackbar</Link></h1>
                             <a id='version'>V2.0.2</a>
                         </div>
-                        <p className='sectionDescription'>React, Javascript, and Typescript compatible snackbar</p>
+                        <p className='sectionDescription'>React, Angular, Vue, and Typescript compatible snackbar</p>
 
                         <h3 className='sectionName' id="features"><a># Features</a></h3>
                         <ul className='features'>
@@ -127,6 +105,7 @@ export default function Main(){
                             <li>Responsive Design</li>
                             <li>Dynamic HTML</li>
                             <li>Lightweight</li>
+                            <li>Zero Dependency</li>
                         </ul>
                         
                         {/* installation */}
@@ -499,7 +478,7 @@ export default function Main(){
 
             {/* footer */}
             <footer id='footer'>
-                <p>Made by <a href='https://github.com/MostafaMDZH'>Mostafa Mohammadzadeh</a></p>
+                <p>Made with ♡ by <a href='https://github.com/MostafaMDZH'>Mostafa Mohammadzadeh</a></p>
                 <p id='dash'>-</p>
                 <p id='githubLink'>Source on <a href='https://github.com/MostafaMDZH/Awesome-Snackbar'>Github</a></p>
                 <p id='awesomeComponents'>From <Link href='https://awesome-components.demos.mostafa-mdzh.ir/'><a>Awesome Components</a></Link></p>

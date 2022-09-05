@@ -191,7 +191,7 @@ export default class Snackbar{
     //addHideEventListener:
     protected addHideEventListener():void{
         const thisView = this;
-        'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach(function(eventName){
+        'mousemove mousedown mouseup touchmove click keydown keyup scroll'.split(' ').forEach(function(eventName){
             window.addEventListener(eventName, thisView.hideEventHandler);
         });
     }
@@ -199,7 +199,7 @@ export default class Snackbar{
     //addHideEventListener:
     protected removeHideEventListener():void{
         const thisView = this;
-        'mousemove mousedown mouseup touchmove click keydown keyup'.split(' ').forEach((eventName) => {
+        'mousemove mousedown mouseup touchmove click keydown keyup scroll'.split(' ').forEach((eventName) => {
             window.removeEventListener(eventName, thisView.hideEventHandler);
         });
     }
@@ -291,7 +291,7 @@ export default class Snackbar{
 
 const Style = `
 .snackbar {
-    z-index: 999999999;
+    z-index: 999999995;
     position: fixed;
     transition: top 400ms ease 0s, bottom 400ms ease 0s, margin-top 300ms ease 0s, margin-bottom 300ms ease 0s, opacity 150ms ease 150ms;
   }

@@ -1,7 +1,7 @@
 {
   "name": "awesome-snackbar",
-  "description": "React, Javascript, and Typescript compatible snackbar.",
-  "version": "2.0.2",
+  "description": "React, Angular, Vue, and Typescript compatible snackbar.",
+  "version": "2.0.3",
   "author": "Mostafa Mohammadzadeh",
   "license": "MIT",
   "main": "src/snackbar.js",
@@ -19,15 +19,19 @@
     "testEnvironment": "jsdom"
   },
   "keywords": [
-    "snackbar",
     "react",
+    "angular",
+    "vue",
+    "typescript",
     "reactjs",
     "next",
     "nextjs",
     "javascript",
-    "typescript",
+    "snackbar",
     "component",
+    "ui component",
     "module",
+    "jquery",
     "ui",
     "ts",
     "js"
