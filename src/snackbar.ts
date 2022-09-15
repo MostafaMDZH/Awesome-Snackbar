@@ -75,7 +75,7 @@ export default class Snackbar{
 	}
 
     //appendCSS:
-    protected static appendCSS():void{
+    protected static appendCSS(){
         if(document.getElementById('snackbar-style') === null){
             let head = document.head || document.getElementsByTagName('head')[0];
             let style = document.createElement('style');
@@ -111,14 +111,14 @@ export default class Snackbar{
 	}
 
     //setMessage:
-    public setMessage(message:string):void{
+    public setMessage(message:string){
         this.message = message;
         let messageEl = <HTMLElement> this.view.getElementsByClassName('message')[0];
         messageEl.innerHTML = this.message;
     }
 
     //setPosition:
-    public setPosition(position:string):void{
+    public setPosition(position:string){
         this.position = position;
         this.view.classList.remove('bottom-left');
         this.view.classList.remove('bottom-center');
@@ -131,7 +131,7 @@ export default class Snackbar{
     }
 
     //setIconSrc:
-    public setIconSrc(iconSrc?:string):void{
+    public setIconSrc(iconSrc?:string){
         if(iconSrc === undefined) return;
         this.iconSrc = iconSrc;
         let iconEl = <HTMLElement> this.view.getElementsByClassName('icon')[0];
@@ -140,7 +140,7 @@ export default class Snackbar{
     }
 
     //setTheme:
-    public setTheme(theme?:string):void{
+    public setTheme(theme?:string){
         if(theme === undefined) return;
         this.theme == theme;
         this.view.classList.remove('light');
@@ -149,7 +149,7 @@ export default class Snackbar{
     }
 
     //setStyle:
-    public setStyle(style?:object):void{
+    public setStyle(style?:object){
         if(style === undefined) return;
         this.style = style;
         for(const [className, style] of Object.entries(this.style)){
@@ -161,7 +161,7 @@ export default class Snackbar{
     }
 
     //setActionText:
-    public setActionText(actionText?:string):void{
+    public setActionText(actionText?:string){
         if(actionText === undefined) return;
         this.actionText = actionText;
         let actionButton = <HTMLInputElement> this.view.getElementsByClassName('actionButton')[0];
@@ -170,7 +170,7 @@ export default class Snackbar{
     }
 
     //setActionCallback:
-    protected setActionCallback(onAction?:()=>void):void{
+    protected setActionCallback(onAction?:()=>void){
         this.onAction = onAction;
         let actionButton = <HTMLInputElement> this.view.getElementsByClassName('actionButton')[0];
         actionButton.addEventListener('click', () => {
@@ -181,7 +181,7 @@ export default class Snackbar{
     }
 
     //show:
-    protected show():void{
+    protected show(){
         setTimeout(() => {
             Snackbar.List.push(this);
             Snackbar.adjustListPositions(this);
@@ -189,7 +189,7 @@ export default class Snackbar{
     }
 
     //addHideEventListener:
-    protected addHideEventListener():void{
+    protected addHideEventListener(){
         const thisView = this;
         'mousemove mousedown mouseup touchmove click keydown keyup scroll'.split(' ').forEach(function(eventName){
             window.addEventListener(eventName, thisView.hideEventHandler);
@@ -197,7 +197,7 @@ export default class Snackbar{
     }
 
     //addHideEventListener:
-    protected removeHideEventListener():void{
+    protected removeHideEventListener(){
         const thisView = this;
         'mousemove mousedown mouseup touchmove click keydown keyup scroll'.split(' ').forEach((eventName) => {
             window.removeEventListener(eventName, thisView.hideEventHandler);
@@ -205,7 +205,7 @@ export default class Snackbar{
     }
 
     //handleHideEvent:
-    protected handleHideEvent():void{
+    protected handleHideEvent(){
         let timeout = this.timeout;
         let currentTime = Date.now();
         if(currentTime - this.bornTime > this.timeout)
@@ -215,7 +215,7 @@ export default class Snackbar{
     }
 
     //startHidingTimer:
-	protected startHidingTimer(timeout: number):void{
+	protected startHidingTimer(timeout: number){
 		if(timeout > 0 && !this.isWaitingForHide){
             this.isWaitingForHide = true;
 			setTimeout(() => {
@@ -225,7 +225,7 @@ export default class Snackbar{
 	}
 
     //hide:
-    protected hide():void{
+    public hide(){
         const thisView = this;
 
         //get list of snackbars that are in this position:
@@ -261,7 +261,7 @@ export default class Snackbar{
     }
 
     //adjustListPosition:
-    protected static adjustListPositions(sb: Snackbar):void{
+    protected static adjustListPositions(sb: Snackbar){
         let list = Snackbar.List.filter(obj => {
             return obj.position === sb.position;
         });

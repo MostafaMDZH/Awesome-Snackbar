@@ -43,7 +43,7 @@ export default class Snackbar {
     protected removeHideEventListener(): void;
     protected handleHideEvent(): void;
     protected startHidingTimer(timeout: number): void;
-    protected hide(): void;
+    hide(): void;
     protected static adjustListPositions(sb: Snackbar): void;
     protected getHeight(): number;
 }
