@@ -155,7 +155,7 @@ export default function Main(){
                                     });
                                 }}>
                                 <p>
-                                    {"new Snackbar('Make another one!'), {"}<br></br>
+                                    {"new Snackbar('Make another one!', {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"actionText"}</span>{": 'Make',"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"onAction"  }</span>{": () => new Snackbar('Another Snackbar')"}<br></br>
                                     {"});"}
@@ -171,7 +171,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => new Snackbar(`I'm at the bottom left`, { position: 'bottom-left' })}>
                                 <p>
-                                    {"new Snackbar(`I'm at the bottom left`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the bottom left`, {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'bottom-left'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -180,7 +180,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => new Snackbar(`I'm at the bottom center`, { position: 'bottom-center' })}>
                                 <p>
-                                    {"new Snackbar(`I'm at the bottom center`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the bottom center`, {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'bottom-center'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -189,7 +189,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => new Snackbar(`I'm at the bottom right`, { position: 'bottom-right' })}>
                                 <p>
-                                    {"new Snackbar(`I'm at the bottom right`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the bottom right`, {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'bottom-right'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -198,7 +198,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => new Snackbar(`I'm at the top left`, { position: 'top-left' })}>
                                 <p>
-                                    {"new Snackbar(`I'm at the top left`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the top left`, {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'top-left'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -207,7 +207,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => new Snackbar(`I'm at the top center`, { position: 'top-center' })}>
                                 <p>
-                                    {"new Snackbar(`I'm at the top center`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the top center`, {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'top-center'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -216,7 +216,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => new Snackbar(`I'm at the top right`, { position: 'top-right' })}>
                                 <p>
-                                    {"new Snackbar(`I'm at the top right`), {"}<br></br>
+                                    {"new Snackbar(`I'm at the top right`, {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"position: 'top-right'"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -231,7 +231,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => new Snackbar(`Loading... please wait`, { iconSrc: loadingIcon.src, actionText: 'Stop'})}>
                                 <p>
-                                    {"new Snackbar(`Loading... please wait`), {"}<br></br>
+                                    {"new Snackbar(`Loading... please wait`, {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"iconSrc: 'loadingIcon.src',"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Stop'"}<br></br>
                                     {" });"}
@@ -246,7 +246,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => new Snackbar(`Today is...`, { theme: 'light', position: 'top-center', actionText: 'Sunday!'})}>
                                 <p>
-                                    {"new Snackbar(`Today is...`), {"}<br></br>
+                                    {"new Snackbar(`Today is...`, {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"theme: 'light',"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"position: 'top-center',"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Sunday!'"}<br></br>
@@ -324,7 +324,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => new Snackbar(`Give me a second please...`, { timeout: 1000 })}>
                                 <p>
-                                    {"new Snackbar(`Give me a second please...`), {"}<br></br>
+                                    {"new Snackbar(`Give me a second please...`, {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"timeout: 1000"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -337,7 +337,7 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => new Snackbar(`I'm not going anywhere!`, { timeout: 0, actionText: 'Hide' })}>
                                 <p>
-                                    {"new Snackbar(`I'm not going anywhere!`), {"}<br></br>
+                                    {"new Snackbar(`I'm not going anywhere!`, {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"timeout: 0,"}</span><br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Hide'"}<br></br>
                                     {" });"}
@@ -376,7 +376,7 @@ export default function Main(){
                                     }, 100);
                                 }}>
                                 <p>
-                                    {"new Snackbar(`I'm not waiting for you!`), {"}<br></br>
+                                    {"new Snackbar(`I'm not waiting for you!`, {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"waitForEvent: false"}</span><br></br>
                                     {" });"}
                                 </p>
@@ -463,7 +463,7 @@ export default function Main(){
                                     });
                                 }}>
                                 <p>
-                                    {"new Snackbar('Marco...'), {"}<br></br>
+                                    {"new Snackbar('Marco...', {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"afterHide"}</span>{": () => new Snackbar('Polo!')"}<br></br>
                                     {"});"}
                                 </p>
