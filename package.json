@@ -1,7 +1,7 @@
 {
   "name": "awesome-snackbar",
   "description": "React, Angular, Vue, and Typescript compatible snackbar.",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "author": "Mostafa Mohammadzadeh",
   "license": "MIT",
   "main": "src/snackbar.js",
@@ -40,7 +40,7 @@
     "type": "git",
     "url": "git+https://github.com/MostafaMDZH/Awesome-Snackbar.git"
   },
-  "homepage": "https://awesome-snackbar.demos.mostafa-mdzh.ir",
+  "homepage": "https://snackbar.awesome-components.com",
   "bugs": {
     "url": "https://github.com/MostafaMDZH/Awesome-Snackbar/issues"
   }
