@@ -350,10 +350,10 @@ export default function Main(){
                             <button className='codeSection executable'
                                 onClick={() => {
                                     if(SB === null)
-                                        SB = new Snackbar(`Ha ha! you don't have the action button this time!`, { timeout: 0 });
+                                        SB = new Snackbar(`Ha ha! you don't have the hide button this time!`, { timeout: 0 });
                                 }}>
                                 <p>
-                                    {"let sb = new Snackbar(`Ha ha! you don't have the action button this time!`), {"}<br></br>
+                                    {"let sb = new Snackbar(`Ha ha! you don't have the hide button this time!`), {"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span>{"timeout: 0"}</span><br></br>
                                     {" });"}
                                 </p>
