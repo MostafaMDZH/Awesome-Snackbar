@@ -23,7 +23,7 @@ export default function Main(){
     const cookies = new Cookies();
     setTimeout(() => {
         if(isWelcomeSbShow) return;
-        if(cookies.get('WelcomeSB') !== undefined) return;
+        if(cookies.get('Sb_WelcomeSB') !== undefined) return;
         isWelcomeSbShow = true;
         new Snackbar('Welcome to Awesome Snackbar! 👋', {
             position: 'top-center',
@@ -33,7 +33,7 @@ export default function Main(){
                     position: 'top-center',
                     timeout: 0,
                     actionText: 'Got it',
-                    onAction: () => cookies.set('WelcomeSB', 'yes', { path: '/', maxAge: 1000*24*60*60 })
+                    onAction: () => cookies.set('Sb_WelcomeSB', 'yes', { path: '/', maxAge: 1000*24*60*60 })
                 });
             }
         });
@@ -50,7 +50,7 @@ export default function Main(){
 
             {/* header */}
             <header id='header'>
-                <Link href='https://awesome-components.demos.mostafa-mdzh.ir/'><a className='headerLink'>Awesome Components</a></Link>
+                <Link href='https://awesome-components.com'><a className='headerLink'>Awesome Components</a></Link>
                 <Link href='https://www.buymeacoffee.com/mostafamdzh'><a className='headerLink' id='coffee'>buy me a coffee! :)</a></Link>
             </header>
 
@@ -84,7 +84,7 @@ export default function Main(){
                         <h3 id='awesome'><Link href='/'>Awesome</Link></h3>
                         <div id='name-versionWrapper'>
                             <h1 id='appName'><Link href='/'>Snackbar</Link></h1>
-                            <a id='version'>V2.0.4</a>
+                            <a id='version'>V2.0.5</a>
                         </div>
                         <p className='sectionDescription'>React, Angular, Vue, and Typescript compatible snackbar</p>
 
@@ -481,7 +481,7 @@ export default function Main(){
                 <p>Made with ♡ by <a href='https://github.com/MostafaMDZH'>Mostafa Mohammadzadeh</a></p>
                 <p id='dash'>-</p>
                 <p id='githubLink'>Source on <a href='https://github.com/MostafaMDZH/Awesome-Snackbar'>Github</a></p>
-                <p id='awesomeComponents'>From <Link href='https://awesome-components.demos.mostafa-mdzh.ir/'><a>Awesome Components</a></Link></p>
+                <p id='awesomeComponents'>From <Link href='https://awesome-components.com'><a>Awesome Components</a></Link></p>
             </footer>
 
         </div>
