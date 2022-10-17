@@ -229,11 +229,10 @@ export default function Main(){
                         <div className='codeWrapper'>
                             <p className='comment'>import loadingIcon from &apos;./src/loading.gif&apos;;</p>
                             <button className='codeSection executable'
-                                onClick={() => new Snackbar(`Loading... please wait`, { iconSrc: loadingIcon.src, actionText: 'Stop'})}>
+                                onClick={() => new Snackbar(`Loading...`, { iconSrc: loadingIcon.src})}>
                                 <p>
-                                    {"new Snackbar(`Loading... please wait`, {"}<br></br>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>{"iconSrc: 'loadingIcon.src',"}</span><br></br>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;{"actionText: 'Stop'"}<br></br>
+                                    {"new Snackbar(`Loading...`, {"}<br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>{"iconSrc: 'loadingIcon.src'"}</span><br></br>
                                     {" });"}
                                 </p>
                             </button>
