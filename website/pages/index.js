@@ -262,6 +262,7 @@ export default function Main(){
                             <button className='codeSection'>
                                 <p>
                                     {"<div class='"}<span>{"container"}</span>{"'>"}<br></br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;{"<span class='"}<span>{"icon"}</span>{"'></span>"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"<p class='"}<span>{"message"}</span>{"'></p>"}<br></br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{"<input type='button' class='"}<span>{"actionButton"}</span>{"'/>"}<br></br>
                                     {"</div>"}
