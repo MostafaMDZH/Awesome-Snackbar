@@ -84,7 +84,7 @@ export default function Main(){
                         <h3 id='awesome'><Link href='/'>Awesome</Link></h3>
                         <div id='name-versionWrapper'>
                             <h1 id='appName'><Link href='/'>Snackbar</Link></h1>
-                            <a id='version'>V2.0.6</a>
+                            <a id='version'>V2.0.7</a>
                         </div>
                         <p className='sectionDescription'>React, Angular, Vue, and Typescript compatible snackbar</p>
 
