@@ -341,5 +341,5 @@ const Style = `
       display: flex;
       justify-content: center;
     }
-  }/*# sourceMappingURL=snackbar.css.map */
+  }
 `;
